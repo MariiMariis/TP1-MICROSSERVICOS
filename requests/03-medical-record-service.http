@@ -1,0 +1,125 @@
+### ====================================================================
+### medical-record-service - MongoDB / medflow_medical_records
+###
+### BANCO NAO RELACIONAL DO PROJETO.
+### Repare que cada POST abaixo envia um clinicalData com estrutura
+### COMPLETAMENTE diferente - e todos convivem na mesma colecao, sem
+### schema e sem migracao.
+### ====================================================================
+
+@gateway = http://localhost:8080
+
+### Listar todos os registros clinicos
+GET {{gateway}}/api/medical-records
+
+### Linha do tempo clinica de um paciente (consulta dominante do servico)
+GET {{gateway}}/api/medical-records/patient/1
+
+### Filtrar por especialidade
+GET {{gateway}}/api/medical-records?specialty=Cardiologia
+
+### Filtrar por tipo de registro
+GET {{gateway}}/api/medical-records?type=EXAME
+
+### Filtrar por marcador clinico
+GET {{gateway}}/api/medical-records?tag=hipertensao
+
+### CONSULTA QUE SO O MODELO DE DOCUMENTO TORNA NATURAL:
+### registros que possuam determinada medicao dentro de clinicalData,
+### campo que nem existe na maioria dos documentos.
+GET {{gateway}}/api/medical-records?clinicalDataKey=pressaoIntraocular
+
+###
+GET {{gateway}}/api/medical-records?clinicalDataKey=hemograma
+
+### -------------------------------------------------------------------
+### Registro de CARDIOLOGIA - medidas hemodinamicas
+### -------------------------------------------------------------------
+POST {{gateway}}/api/medical-records
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "patientName": "Ana Paula Ribeiro",
+  "recordType": "CONSULTA",
+  "specialty": "Cardiologia",
+  "professional": "Dr. Helio Vasconcelos",
+  "occurredAt": "2026-08-10T10:00:00",
+  "tags": ["hipertensao", "retorno"],
+  "clinicalData": {
+    "pressaoArterial": { "sistolica": 138, "diastolica": 86, "unidade": "mmHg" },
+    "frequenciaCardiaca": 76,
+    "ecg": { "ritmo": "sinusal", "alteracoes": [] },
+    "fracaoEjecao": 61.2,
+    "medicacoesEmUso": ["Losartana 50mg"]
+  },
+  "attachments": [
+    { "fileName": "ecg-2026-08.pdf", "contentType": "application/pdf", "url": "/laudos/ecg-2026-08.pdf", "sizeKb": 380 }
+  ]
+}
+
+### -------------------------------------------------------------------
+### Registro de ORTOPEDIA - estrutura totalmente diferente da anterior
+### Nenhum campo em comum. Nenhuma migracao de schema foi necessaria.
+### -------------------------------------------------------------------
+POST {{gateway}}/api/medical-records
+Content-Type: application/json
+
+{
+  "patientId": 2,
+  "patientName": "Carlos Eduardo Souza",
+  "recordType": "PROCEDIMENTO",
+  "specialty": "Ortopedia",
+  "professional": "Dr. Andre Tavares",
+  "occurredAt": "2026-08-14T08:30:00",
+  "tags": ["joelho", "artroscopia"],
+  "clinicalData": {
+    "articulacao": "joelho direito",
+    "procedimento": "artroscopia diagnostica",
+    "achados": {
+      "meniscoMedial": "lesao horizontal grau II",
+      "ligamentoCruzadoAnterior": "integro",
+      "cartilagem": "condropatia patelar grau I"
+    },
+    "anestesia": { "tipo": "raquidiana", "anestesista": "Dra. Lucia Moreira" },
+    "tempoCirurgicoMinutos": 55,
+    "orientacoesPosOperatorias": [
+      "crioterapia 20 minutos a cada 3 horas",
+      "carga parcial com muletas por 7 dias",
+      "fisioterapia a partir do 5o dia"
+    ]
+  }
+}
+
+### -------------------------------------------------------------------
+### Registro de PSIQUIATRIA - texto livre e escalas, sem numeros fixos
+### -------------------------------------------------------------------
+POST {{gateway}}/api/medical-records
+Content-Type: application/json
+
+{
+  "patientId": 3,
+  "patientName": "Marina Lopes Ferreira",
+  "recordType": "CONSULTA",
+  "specialty": "Psiquiatria",
+  "professional": "Dra. Beatriz Amaral",
+  "occurredAt": "2026-08-18T16:00:00",
+  "tags": ["ansiedade", "primeira-consulta"],
+  "clinicalData": {
+    "queixaPrincipal": "insonia e ansiedade ha 4 meses",
+    "escalas": { "GAD7": 14, "PHQ9": 9 },
+    "exameEstadoMental": {
+      "humor": "ansioso",
+      "pensamento": "logico e coerente",
+      "insight": "preservado"
+    },
+    "planoTerapeutico": ["psicoterapia semanal", "higiene do sono"]
+  }
+}
+
+### Buscar um registro especifico
+### (troque o id por um retornado nas listagens acima)
+GET {{gateway}}/api/medical-records/COLE_O_ID_AQUI
+
+### Remover um registro
+DELETE {{gateway}}/api/medical-records/COLE_O_ID_AQUI

@@ -1,0 +1,40 @@
+server:
+  port: ${SERVER_PORT:8083}
+
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:medical-record-service}
+
+  data:
+    mongodb:
+      uri: ${MEDICAL_RECORD_MONGO_URI:mongodb://medflow:medflow@localhost:27017/medflow_medical_records?authSource=admin}
+      auto-index-creation: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: ${EUREKA_FETCH_INTERVAL:5}
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    metadata-map:
+      database: mongodb-medflow_medical_records
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: medical-record-service
+    responsibility: Prontuario eletronico do paciente
+    database: MongoDB / medflow_medical_records

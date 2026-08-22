@@ -1,0 +1,46 @@
+services:
+
+  postgres:
+    image: postgres:16-alpine
+    container_name: medflow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: medflow
+      POSTGRES_PASSWORD: medflow
+      POSTGRES_DB: postgres
+      TZ: America/Sao_Paulo
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./infra/postgres/init:/docker-entrypoint-initdb.d:ro
+      - medflow-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U medflow -d postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  mongo:
+    image: mongo:7
+    container_name: medflow-mongo
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: medflow
+      MONGO_INITDB_ROOT_PASSWORD: medflow
+      MONGO_INITDB_DATABASE: medflow_medical_records
+      TZ: America/Sao_Paulo
+    ports:
+      - "27017:27017"
+    volumes:
+      - medflow-mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  medflow-postgres-data:
+    name: medflow-postgres-data
+  medflow-mongo-data:
+    name: medflow-mongo-data

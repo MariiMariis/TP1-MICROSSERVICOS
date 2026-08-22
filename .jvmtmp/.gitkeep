@@ -1,0 +1,2 @@
+Pasta usada pela JVM para criar sockets AF_UNIX internos (java.nio.Selector).
+Precisa existir; o conteudo e descartavel.

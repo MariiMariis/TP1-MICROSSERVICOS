@@ -1,0 +1,56 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: ${SPRING_APPLICATION_NAME:patient-service}
+
+  datasource:
+    url: ${PATIENT_DB_URL:jdbc:postgresql://localhost:5432/medflow_patients}
+    username: ${PATIENT_DB_USERNAME:medflow}
+    password: ${PATIENT_DB_PASSWORD:medflow}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      pool-name: patient-pool
+      maximum-pool-size: ${PATIENT_DB_POOL_SIZE:10}
+
+  jpa:
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    open-in-view: false
+    show-sql: ${JPA_SHOW_SQL:false}
+    properties:
+      hibernate:
+        format_sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: ${EUREKA_FETCH_INTERVAL:5}
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 10
+    metadata-map:
+      database: postgresql-medflow_patients
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: patient-service
+    responsibility: Cadastro e gerenciamento de pacientes
+    database: PostgreSQL / medflow_patients

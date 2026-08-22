@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="4 - Medical Record Service (8083)" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="br.com.medflow.medicalrecord.MedicalRecordServiceApplication" />
+    <module name="medical-record-service" />
+    <option name="VM_PARAMETERS" value="-Djdk.net.unixdomain.tmpdir=$PROJECT_DIR$/.jvmtmp" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/medical-record-service" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

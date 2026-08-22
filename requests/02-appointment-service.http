@@ -1,0 +1,71 @@
+### ====================================================================
+### appointment-service - PostgreSQL / medflow_appointments
+###
+### Este servico CHAMA o patient-service. Observe no retorno o campo
+### patientName (que veio da chamada remota) e patientDataConfirmed.
+### ====================================================================
+
+@gateway = http://localhost:8080
+
+### Listar todas as consultas
+GET {{gateway}}/api/appointments
+
+### Consultas de um paciente
+GET {{gateway}}/api/appointments?patientId=1
+
+### Consultas de uma especialidade
+GET {{gateway}}/api/appointments?specialty=Cardiologia
+
+### Buscar por id
+GET {{gateway}}/api/appointments/1
+
+### Agendar uma consulta
+### -> dispara a chamada HTTP appointment-service --> patient-service
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "doctorName": "Dr. Helio Vasconcelos",
+  "specialty": "Cardiologia",
+  "scheduledAt": "2026-12-15T14:30:00",
+  "notes": "Retorno para avaliacao de hipertensao"
+}
+
+### Confirmar a consulta
+PATCH {{gateway}}/api/appointments/1/status?status=CONFIRMADA
+
+### Marcar como realizada
+PATCH {{gateway}}/api/appointments/1/status?status=REALIZADA
+
+### Cancelar
+PATCH {{gateway}}/api/appointments/1/cancel
+
+### Reconciliar os agendamentos aceitos em modo degradado
+### (roda depois que o patient-service volta ao ar)
+POST {{gateway}}/api/appointments/reconcile
+
+### ---- Casos de erro ----
+
+### Paciente inexistente -> 422. O patient-service respondeu 404, portanto
+### e falha de NEGOCIO: nao conta como falha para o Circuit Breaker.
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 999999,
+  "doctorName": "Dr. Teste",
+  "specialty": "Clinica Geral",
+  "scheduledAt": "2026-12-20T09:00:00"
+}
+
+### Data no passado -> 400 Bad Request
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "doctorName": "Dr. Teste",
+  "specialty": "Clinica Geral",
+  "scheduledAt": "2020-01-01T09:00:00"
+}

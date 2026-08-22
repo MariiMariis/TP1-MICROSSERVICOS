@@ -1,0 +1,24 @@
+# ----- Build Maven -----
+target/
+!.mvn/wrapper/maven-wrapper.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# ----- IntelliJ IDEA -----
+.idea/
+*.iml
+*.iws
+*.ipr
+# As configuracoes de execucao em .run/ SAO versionadas de proposito,
+# para que qualquer pessoa consiga rodar o projeto com um clique.
+!.run/
+
+# ----- Logs e temporarios de execucao -----
+.logs/
+*.log
+.jvmtmp/*
+!.jvmtmp/.gitkeep
+
+# ----- Sistema operacional -----
+Thumbs.db
+desktop.ini
+.DS_Store

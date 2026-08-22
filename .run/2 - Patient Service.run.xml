@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="2 - Patient Service (8081)" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="br.com.medflow.patient.PatientServiceApplication" />
+    <module name="patient-service" />
+    <option name="VM_PARAMETERS" value="-Djdk.net.unixdomain.tmpdir=$PROJECT_DIR$/.jvmtmp" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/patient-service" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

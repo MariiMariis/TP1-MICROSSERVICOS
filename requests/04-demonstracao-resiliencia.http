@@ -1,0 +1,123 @@
+### ====================================================================
+### ROTEIRO DE DEMONSTRACAO DA RESILIENCIA
+###
+### Comunicacao protegida: appointment-service --> patient-service
+### Mecanismos: Timeout (Feign) + Circuit Breaker (Resilience4j) + Fallback
+###
+### Execute as requisicoes NA ORDEM.
+### ====================================================================
+
+@gateway = http://localhost:8080
+@appointments = http://localhost:8082
+
+### ---------- PASSO 1: estado normal ----------
+### Deve responder estado = CLOSED
+GET {{appointments}}/api/appointments/resilience/circuit-breaker
+
+### Agendamento normal -> patientName preenchido, patientDataConfirmed = true
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "doctorName": "Dr. Helio Vasconcelos",
+  "specialty": "Cardiologia",
+  "scheduledAt": "2026-12-15T14:30:00",
+  "notes": "cenario normal"
+}
+
+### ---------- PASSO 2: deixar o patient-service LENTO ----------
+### 6000 ms de latencia contra um read-timeout de 3000 ms no Feign.
+POST {{gateway}}/api/patients/simulation/latency?millis=6000
+
+### ---------- PASSO 3: agendar com o servico lento ----------
+### Resultado esperado: HTTP 201 em ~3 segundos (o timeout corta a espera),
+### patientDataConfirmed = false e patientName com o texto do fallback.
+### REPITA esta requisicao 5 ou 6 vezes.
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 2,
+  "doctorName": "Dra. Renata Camargo",
+  "specialty": "Oftalmologia",
+  "scheduledAt": "2026-12-18T09:00:00",
+  "notes": "cenario com lentidao"
+}
+
+### ---------- PASSO 4: conferir o circuito ----------
+### Depois de 5+ chamadas com falha, estado = OPEN.
+GET {{appointments}}/api/appointments/resilience/circuit-breaker
+
+### ---------- PASSO 5: agendar com o circuito ABERTO ----------
+### Agora a resposta vem em MILISSEGUNDOS: a chamada nem sai pela rede,
+### o Circuit Breaker a rejeita na hora e o fallback assume.
+### Esse e o efeito que evita a falha em cascata.
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 2,
+  "doctorName": "Dra. Renata Camargo",
+  "specialty": "Oftalmologia",
+  "scheduledAt": "2026-12-19T09:00:00",
+  "notes": "cenario com circuito aberto"
+}
+
+### ---------- PASSO 6: normalizar o patient-service ----------
+DELETE {{gateway}}/api/patients/simulation/latency
+
+### ---------- PASSO 7: aguardar 20 segundos e conferir ----------
+### wait-duration-in-open-state = 20s -> o circuito passa para HALF_OPEN.
+GET {{appointments}}/api/appointments/resilience/circuit-breaker
+
+### ---------- PASSO 8: chamadas de teste no HALF_OPEN ----------
+### Execute 3 vezes. As chamadas voltam a funcionar e o circuito FECHA.
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 3,
+  "doctorName": "Dr. Paulo Freitas",
+  "specialty": "Clinica Geral",
+  "scheduledAt": "2026-12-22T11:00:00",
+  "notes": "cenario de recuperacao"
+}
+
+### ---------- PASSO 9: confirmar que o circuito fechou ----------
+GET {{appointments}}/api/appointments/resilience/circuit-breaker
+
+### ---------- PASSO 10: reconciliar o que ficou degradado ----------
+### Completa os dados dos agendamentos aceitos enquanto o servico estava fora.
+POST {{gateway}}/api/appointments/reconcile
+
+### ---------- PASSO 11: nenhum agendamento pendente ----------
+GET {{gateway}}/api/appointments
+
+### ====================================================================
+### CENARIO ALTERNATIVO: servico completamente FORA DO AR
+###
+### 1. Pare a run configuration "2 - Patient Service (8081)" no IntelliJ.
+### 2. Execute o POST abaixo: ele responde 201 mesmo assim, em modo
+###    degradado - a clinica continua conseguindo agendar.
+### 3. Suba o patient-service de novo e rode o /reconcile.
+### ====================================================================
+POST {{gateway}}/api/appointments
+Content-Type: application/json
+
+{
+  "patientId": 1,
+  "doctorName": "Dra. Sofia Menezes",
+  "specialty": "Dermatologia",
+  "scheduledAt": "2026-12-28T15:00:00",
+  "notes": "patient-service fora do ar"
+}
+
+### Metricas do Circuit Breaker via Actuator
+GET {{appointments}}/actuator/circuitbreakers
+
+### Historico de eventos do Circuit Breaker
+GET {{appointments}}/actuator/circuitbreakerevents
+
+### Saude do servico (inclui o indicador do Circuit Breaker)
+GET {{appointments}}/actuator/health
