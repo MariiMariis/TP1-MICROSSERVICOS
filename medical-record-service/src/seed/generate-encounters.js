@@ -28,7 +28,8 @@ const chance = (p) => rnd() < p;
 const unitCodes = UNITS.map((u) => u.code);
 
 export function loadPatients() {
-  const file = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..", "infra", "seed", "patients.json");
+  // SEED_FILE permite apontar para outro caminho (ex.: dentro do container Docker).
+  const file = process.env.SEED_FILE || join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..", "infra", "seed", "patients.json");
   return JSON.parse(readFileSync(file, "utf8"));
 }
 

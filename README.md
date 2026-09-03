@@ -285,7 +285,47 @@ gateway, então o navegador só fala com uma origem e **todas** as chamadas pass
 
 ---
 
-## Como executar
+## Subir para demonstrar (um comando)
+
+Tudo containerizado: PostgreSQL, Eureka, gateway, os dois serviços Spring, o serviço Node e o
+front-end (build do Vite servido por nginx, que faz proxy de `/api` para o gateway). Só o MongoDB
+fica fora, no Atlas.
+
+**Uma vez só:** crie `medical-record-service/.env` com a connection string do Atlas (Passo 1 abaixo).
+
+**Toda vez que for demonstrar:**
+
+```bash
+start-demo.cmd
+```
+
+O script confere o `.env` e o Docker Desktop, roda `docker compose --profile app up -d --build`,
+espera o gateway responder e abre <http://localhost:3000>. A primeira execução constrói as imagens
+(alguns minutos, porque compila o projeto Java e baixa dependências); as seguintes sobem em menos
+de um minuto. Ao terminar:
+
+```bash
+stop-demo.cmd
+```
+
+Os dados do PostgreSQL ficam no volume `medflow-postgres-data`; os do prontuário ficam no Atlas.
+Para voltar ao estado original da demo: `docker compose --profile app down -v` (apaga o Postgres, que
+é semeado de novo na próxima subida) e o botão **Bastidores → Seed → Recarregar** para o Atlas.
+
+| Comando | O que faz |
+|---|---|
+| `docker compose --profile app ps` | estado dos 7 containers |
+| `docker compose --profile app logs -f medical-record-service` | logs de um serviço (troque o nome) |
+| `docker compose --profile app up -d --build patient-service` | reconstrói e reinicia só um serviço após mudar código |
+| `docker compose up -d` | só o PostgreSQL, para rodar os serviços pelo IntelliJ (modo desenvolvimento) |
+
+Como os containers estão na mesma rede, os serviços se registram no Eureka com o IP interno do
+container e o gateway os encontra por lá; nenhuma configuração muda entre o modo desenvolvimento e o
+modo containers além das variáveis de ambiente declaradas no `docker-compose.yml`.
+
+---
+
+## Como executar em modo desenvolvimento (IntelliJ + npm)
 
 ### Pré-requisitos
 

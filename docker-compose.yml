@@ -1,3 +1,17 @@
+# MedFlow - dois modos de uso:
+#
+#   1) Desenvolvimento (servicos rodando no IntelliJ / npm):
+#        docker compose up -d                 -> sobe so o PostgreSQL
+#
+#   2) Demonstracao (tudo em containers, um comando):
+#        docker compose --profile app up -d --build
+#        ... abra http://localhost:3000
+#        docker compose --profile app down
+#
+#   O medical-record-service usa o MongoDB Atlas: a connection string vem de
+#   medical-record-service/.env (nao versionado). Um Mongo local existe como
+#   alternativa sem Atlas Search:  docker compose --profile mongo-local up -d mongo
+
 services:
 
   postgres:
@@ -20,11 +34,10 @@ services:
       timeout: 5s
       retries: 10
 
-  # OPCIONAL: o medical-record-service usa o MongoDB Atlas (ver medical-record-service/.env).
-  # Este container so serve como alternativa local (sem Atlas Search): docker compose up -d mongo
   mongo:
     image: mongo:7
     container_name: medflow-mongo
+    profiles: ["mongo-local"]
     restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: medflow
@@ -40,6 +53,121 @@ services:
       interval: 10s
       timeout: 5s
       retries: 10
+
+  # ------------------------------------------------------------------ perfil "app"
+
+  discovery-server:
+    build:
+      context: .
+      dockerfile: Dockerfile.java
+      args: { MODULE: discovery-server }
+    image: medflow/discovery-server
+    container_name: medflow-discovery
+    profiles: ["app"]
+    restart: unless-stopped
+    ports:
+      - "8761:8761"
+
+  patient-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.java
+      args: { MODULE: patient-service }
+    image: medflow/patient-service
+    container_name: medflow-patient
+    profiles: ["app"]
+    restart: unless-stopped
+    environment:
+      EUREKA_SERVICE_URL: http://discovery-server:8761/eureka/
+      PATIENT_DB_URL: jdbc:postgresql://postgres:5432/medflow_patients
+      PATIENT_DB_USERNAME: medflow
+      PATIENT_DB_PASSWORD: medflow
+      TZ: America/Sao_Paulo
+    ports:
+      - "8081:8081"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      discovery-server:
+        condition: service_started
+
+  appointment-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.java
+      args: { MODULE: appointment-service }
+    image: medflow/appointment-service
+    container_name: medflow-appointment
+    profiles: ["app"]
+    restart: unless-stopped
+    environment:
+      EUREKA_SERVICE_URL: http://discovery-server:8761/eureka/
+      APPOINTMENT_DB_URL: jdbc:postgresql://postgres:5432/medflow_appointments
+      APPOINTMENT_DB_USERNAME: medflow
+      APPOINTMENT_DB_PASSWORD: medflow
+      TZ: America/Sao_Paulo
+    ports:
+      - "8082:8082"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      discovery-server:
+        condition: service_started
+
+  medical-record-service:
+    build:
+      context: .
+      dockerfile: medical-record-service/Dockerfile
+    image: medflow/medical-record-service
+    container_name: medflow-medical-record
+    profiles: ["app"]
+    restart: unless-stopped
+    env_file:
+      - medical-record-service/.env          # MONGODB_URI do Atlas (arquivo nao versionado)
+    environment:                              # sobrescreve o .env para o mundo dos containers
+      PORT: 8083
+      EUREKA_ENABLED: "true"
+      EUREKA_SERVICE_URL: http://discovery-server:8761/eureka/
+      EUREKA_INSTANCE_IP: ""
+      SEED_FILE: /app/infra/seed/patients.json
+      TZ: America/Sao_Paulo
+    ports:
+      - "8083:8083"
+    depends_on:
+      discovery-server:
+        condition: service_started
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.java
+      args: { MODULE: api-gateway }
+    image: medflow/api-gateway
+    container_name: medflow-gateway
+    profiles: ["app"]
+    restart: unless-stopped
+    environment:
+      EUREKA_SERVICE_URL: http://discovery-server:8761/eureka/
+      CORS_ALLOWED_ORIGINS: http://localhost:3000,http://localhost:5173,http://127.0.0.1:5173
+      TZ: America/Sao_Paulo
+    ports:
+      - "8080:8080"
+    depends_on:
+      discovery-server:
+        condition: service_started
+
+  frontend:
+    build:
+      context: ./frontend
+    image: medflow/frontend
+    container_name: medflow-frontend
+    profiles: ["app"]
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      api-gateway:
+        condition: service_started
 
 volumes:
   medflow-postgres-data:

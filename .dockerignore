@@ -1,0 +1,11 @@
+.git
+.idea
+.logs
+.jvmtmp
+.run
+.claude
+**/target
+**/node_modules
+frontend/dist
+**/.env
+**/*.log
