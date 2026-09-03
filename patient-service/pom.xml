@@ -37,6 +37,20 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+            <!-- Base cadastral compartilhada com o seed do medical-record-service (MongoDB):
+                 o id N no PostgreSQL e o patientId N no Mongo sao a mesma pessoa. -->
+            <resource>
+                <directory>${project.basedir}/../infra/seed</directory>
+                <targetPath>seed</targetPath>
+                <includes>
+                    <include>patients.json</include>
+                </includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

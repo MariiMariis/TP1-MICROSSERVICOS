@@ -1,0 +1,6230 @@
+[
+  {
+    "id": 1,
+    "cpf": "11122233344",
+    "fullName": "Ana Paula Ribeiro",
+    "birthDate": "1988-03-12",
+    "sex": "F",
+    "email": "ana.ribeiro@email.com",
+    "phone": "31988880001",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 161,
+    "weightKg": 74,
+    "address": {
+      "street": "Rua da Mooca",
+      "number": 650,
+      "neighborhood": "Jardins",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01419-044",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.655209,
+          -23.567325
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2020-01-01",
+        "controlled": false
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Camila Lima",
+      "relationship": "irmao(a)",
+      "phone": "11921759857"
+    }
+  },
+  {
+    "id": 2,
+    "cpf": "22233344455",
+    "fullName": "Carlos Eduardo Souza",
+    "birthDate": "1975-11-02",
+    "sex": "M",
+    "email": "carlos.souza@email.com",
+    "phone": "31988880002",
+    "healthPlan": "SUS",
+    "bloodType": "AB+",
+    "heightCm": 170,
+    "weightKg": 71,
+    "address": {
+      "street": "Rua Vergueiro",
+      "number": 971,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-029",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.64079,
+          -23.564813
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F32.1",
+        "description": "Episodio depressivo moderado",
+        "since": "2011-10-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Fluoxetina",
+        "dose": "20mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Luiz Oliveira",
+      "relationship": "pai",
+      "phone": "11983939212"
+    }
+  },
+  {
+    "id": 3,
+    "cpf": "33344455566",
+    "fullName": "Marina Lopes Ferreira",
+    "birthDate": "1996-07-25",
+    "sex": "F",
+    "email": "marina.ferreira@email.com",
+    "phone": "31988880003",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 171,
+    "weightKg": 51,
+    "address": {
+      "street": "Avenida Pompeia",
+      "number": 1428,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-450",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.646753,
+          -23.56772
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Frutos do mar",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Gustavo Pinto",
+      "relationship": "mae",
+      "phone": "11937203220"
+    }
+  },
+  {
+    "id": 4,
+    "cpf": "44455566677",
+    "fullName": "Roberto Nunes Almeida",
+    "birthDate": "1962-01-30",
+    "sex": "M",
+    "email": "roberto.almeida@email.com",
+    "phone": "31988880004",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "O+",
+    "heightCm": 170,
+    "weightKg": 88,
+    "address": {
+      "street": "Rua Cardeal Arcoverde",
+      "number": 986,
+      "neighborhood": "Tatuape",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03063-640",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.582316,
+          -23.53857
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2011-12-01",
+        "controlled": true
+      },
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2012-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Leticia Gomes",
+      "relationship": "mae",
+      "phone": "11974381875"
+    }
+  },
+  {
+    "id": 5,
+    "cpf": "90005989637",
+    "fullName": "Renata Lopes Almeida",
+    "birthDate": "1956-01-11",
+    "sex": "F",
+    "email": "renata.almeida5@email.com",
+    "phone": "11931350561",
+    "healthPlan": "Particular",
+    "bloodType": "A+",
+    "heightCm": 170,
+    "weightKg": 93,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 766,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-086",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.663135,
+          -23.621829
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2023-05-01",
+        "controlled": true
+      },
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2019-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Escitalopram",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Paulo Monteiro",
+      "relationship": "filho(a)",
+      "phone": "11934389733"
+    }
+  },
+  {
+    "id": 6,
+    "cpf": "90006908045",
+    "fullName": "Rafael Teixeira Campos",
+    "birthDate": "1941-10-05",
+    "sex": "M",
+    "email": "rafael.campos6@email.com",
+    "phone": "11997430793",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "A+",
+    "heightCm": 179,
+    "weightKg": 114,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 959,
+      "neighborhood": "Santana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "02013-855",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.633881,
+          -23.510339
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2021-12-01",
+        "controlled": true
+      },
+      {
+        "cid10": "I48",
+        "description": "Fibrilacao atrial",
+        "since": "2024-02-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      },
+      {
+        "name": "Rivaroxabana",
+        "dose": "20mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Rafaela Moreira",
+      "relationship": "pai",
+      "phone": "11937414632"
+    }
+  },
+  {
+    "id": 7,
+    "cpf": "90007129797",
+    "fullName": "Natalia Lopes Castro",
+    "birthDate": "1984-07-09",
+    "sex": "F",
+    "email": "natalia.castro7@email.com",
+    "phone": "11986601661",
+    "healthPlan": "Amil",
+    "bloodType": "B+",
+    "heightCm": 168,
+    "weightKg": 82,
+    "address": {
+      "street": "Rua Tuiuti",
+      "number": 1520,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-669",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.699058,
+          -23.563274
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2018-11-01",
+        "controlled": true
+      },
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2011-06-01",
+        "controlled": false
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2012-12-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Escitalopram",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Jose Soares",
+      "relationship": "pai",
+      "phone": "11919883170"
+    }
+  },
+  {
+    "id": 8,
+    "cpf": "90008212490",
+    "fullName": "Beatriz Cunha Pereira",
+    "birthDate": "1962-04-20",
+    "sex": "F",
+    "email": "beatriz.pereira8@email.com",
+    "phone": "11986143235",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "B+",
+    "heightCm": 161,
+    "weightKg": 67,
+    "address": {
+      "street": "Avenida Sapopemba",
+      "number": 442,
+      "neighborhood": "Santana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "02013-704",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.633742,
+          -23.496569
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2018-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Anlodipino",
+        "dose": "5mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Roberto Lopes",
+      "relationship": "irmao(a)",
+      "phone": "11916113672"
+    }
+  },
+  {
+    "id": 9,
+    "cpf": "90009683919",
+    "fullName": "Carolina Andrade Dias",
+    "birthDate": "1985-02-17",
+    "sex": "F",
+    "email": "carolina.dias9@email.com",
+    "phone": "11997271348",
+    "healthPlan": "SUS",
+    "bloodType": "O-",
+    "heightCm": 163,
+    "weightKg": 92,
+    "address": {
+      "street": "Rua Voluntarios da Patria",
+      "number": 457,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-215",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.687614,
+          -23.56723
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2025-09-01",
+        "controlled": false
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2016-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sinvastatina",
+        "dose": "20mg",
+        "frequency": "1x a noite",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Marcia Carvalho",
+      "relationship": "conjuge",
+      "phone": "11971834453"
+    }
+  },
+  {
+    "id": 10,
+    "cpf": "90010583342",
+    "fullName": "Ana Mendes Dias",
+    "birthDate": "1954-09-09",
+    "sex": "F",
+    "email": "ana.dias10@email.com",
+    "phone": "11912096212",
+    "healthPlan": "Unimed",
+    "bloodType": "O+",
+    "heightCm": 151,
+    "weightKg": 51,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 1723,
+      "neighborhood": "Liberdade",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01508-426",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.631599,
+          -23.561784
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2023-08-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Paulo Fernandes",
+      "relationship": "pai",
+      "phone": "11910434222"
+    }
+  },
+  {
+    "id": 11,
+    "cpf": "90011928681",
+    "fullName": "Sofia Machado Ferreira",
+    "birthDate": "1962-05-15",
+    "sex": "F",
+    "email": "sofia.ferreira11@email.com",
+    "phone": "11953501805",
+    "healthPlan": "SUS",
+    "bloodType": "O-",
+    "heightCm": 164,
+    "weightKg": 78,
+    "address": {
+      "street": "Avenida Sapopemba",
+      "number": 1828,
+      "neighborhood": "Consolacao",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01302-337",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.653645,
+          -23.549616
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Fabio Almeida",
+      "relationship": "filho(a)",
+      "phone": "11950143696"
+    }
+  },
+  {
+    "id": 12,
+    "cpf": "90012009861",
+    "fullName": "Igor Oliveira Carvalho",
+    "birthDate": "1985-05-12",
+    "sex": "M",
+    "email": "igor.carvalho12@email.com",
+    "phone": "11950843149",
+    "healthPlan": "SulAmerica",
+    "bloodType": "A-",
+    "heightCm": 174,
+    "weightKg": 58,
+    "address": {
+      "street": "Avenida Ibirapuera",
+      "number": 1357,
+      "neighborhood": "Saude",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04151-025",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.636461,
+          -23.623164
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2022-03-01",
+        "controlled": true
+      },
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2026-10-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Budesonida inalatoria",
+        "dose": "200mcg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Juliana Pereira",
+      "relationship": "pai",
+      "phone": "11928623968"
+    }
+  },
+  {
+    "id": 13,
+    "cpf": "90013839369",
+    "fullName": "Alexandre Lopes Gomes",
+    "birthDate": "1942-07-06",
+    "sex": "M",
+    "email": "alexandre.gomes13@email.com",
+    "phone": "11931418039",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "O+",
+    "heightCm": 174,
+    "weightKg": 70,
+    "address": {
+      "street": "Avenida Paulista",
+      "number": 1916,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-257",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.652453,
+          -23.555907
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2018-04-01",
+        "controlled": true
+      },
+      {
+        "cid10": "N18.3",
+        "description": "Doenca renal cronica estagio 3",
+        "since": "2024-02-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Carlos Carvalho",
+      "relationship": "pai",
+      "phone": "11953479932"
+    }
+  },
+  {
+    "id": 14,
+    "cpf": "90014487608",
+    "fullName": "Vanessa Alves Ribeiro",
+    "birthDate": "1997-04-26",
+    "sex": "F",
+    "email": "vanessa.ribeiro14@email.com",
+    "phone": "11924271254",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "A+",
+    "heightCm": 156,
+    "weightKg": 50,
+    "address": {
+      "street": "Rua Cardeal Arcoverde",
+      "number": 2327,
+      "neighborhood": "Analia Franco",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03337-789",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.559391,
+          -23.5627
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Vinicius Pereira",
+      "relationship": "filho(a)",
+      "phone": "11977534716"
+    }
+  },
+  {
+    "id": 15,
+    "cpf": "90015579138",
+    "fullName": "Antonio Alves Nunes",
+    "birthDate": "1996-01-19",
+    "sex": "M",
+    "email": "antonio.nunes15@email.com",
+    "phone": "11953882748",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 179,
+    "weightKg": 64,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 835,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-657",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.667612,
+          -23.621881
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Rosangela Pinto",
+      "relationship": "mae",
+      "phone": "11979843184"
+    }
+  },
+  {
+    "id": 16,
+    "cpf": "90016471283",
+    "fullName": "Sergio Monteiro Nunes",
+    "birthDate": "2004-07-15",
+    "sex": "M",
+    "email": "sergio.nunes16@email.com",
+    "phone": "11978284624",
+    "healthPlan": "SulAmerica",
+    "bloodType": "A+",
+    "heightCm": 192,
+    "weightKg": 61,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 2435,
+      "neighborhood": "Tatuape",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03063-597",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.578176,
+          -23.544516
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2014-10-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Juliana Mendes",
+      "relationship": "conjuge",
+      "phone": "11951149183"
+    }
+  },
+  {
+    "id": 17,
+    "cpf": "90017518488",
+    "fullName": "Camila Freitas Azevedo",
+    "birthDate": "1999-11-22",
+    "sex": "F",
+    "email": "camila.azevedo17@email.com",
+    "phone": "11995218151",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "O+",
+    "heightCm": 153,
+    "weightKg": 97,
+    "address": {
+      "street": "Rua Galvao Bueno",
+      "number": 1975,
+      "neighborhood": "Moema",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04077-979",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.670671,
+          -23.598766
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Gustavo Dias",
+      "relationship": "mae",
+      "phone": "11982863232"
+    }
+  },
+  {
+    "id": 18,
+    "cpf": "90018990164",
+    "fullName": "Daniela Correia Machado",
+    "birthDate": "2025-11-22",
+    "sex": "F",
+    "email": "daniela.machado18@email.com",
+    "phone": "11975251621",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 106,
+    "weightKg": 28,
+    "address": {
+      "street": "Avenida Ibirapuera",
+      "number": 2425,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-536",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.693926,
+          -23.568829
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      },
+      {
+        "substance": "Latex",
+        "reaction": "dermatite de contato",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Mateus Lima",
+      "relationship": "pai",
+      "phone": "11918518907"
+    }
+  },
+  {
+    "id": 19,
+    "cpf": "90019044776",
+    "fullName": "Mateus Rodrigues Ferreira",
+    "birthDate": "1999-01-12",
+    "sex": "M",
+    "email": "mateus.ferreira19@email.com",
+    "phone": "11939982365",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 174,
+    "weightKg": 109,
+    "address": {
+      "street": "Rua Bom Pastor",
+      "number": 923,
+      "neighborhood": "Vila Prudente",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03132-396",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.574212,
+          -23.575213
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [
+      {
+        "substance": "Amendoim",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Leonardo Nunes",
+      "relationship": "pai",
+      "phone": "11916085553"
+    }
+  },
+  {
+    "id": 20,
+    "cpf": "90020195944",
+    "fullName": "Eduardo Castro Rodrigues",
+    "birthDate": "1977-05-19",
+    "sex": "M",
+    "email": "eduardo.rodrigues20@email.com",
+    "phone": "11925803664",
+    "healthPlan": "Amil",
+    "bloodType": "AB+",
+    "heightCm": 171,
+    "weightKg": 116,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 1934,
+      "neighborhood": "Vila Mariana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04117-870",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.633404,
+          -23.59334
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Poeira",
+        "reaction": "rinite",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2016-11-01",
+        "controlled": false
+      },
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2020-12-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E03.9",
+        "description": "Hipotireoidismo",
+        "since": "2021-08-01",
+        "controlled": false
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2020-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Anlodipino",
+        "dose": "5mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sinvastatina",
+        "dose": "20mg",
+        "frequency": "1x a noite",
+        "continuous": true
+      },
+      {
+        "name": "Levotiroxina",
+        "dose": "50mcg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Pedro Vieira",
+      "relationship": "irmao(a)",
+      "phone": "11962325373"
+    }
+  },
+  {
+    "id": 21,
+    "cpf": "90021818530",
+    "fullName": "Felipe Andrade Moreira",
+    "birthDate": "1974-09-08",
+    "sex": "M",
+    "email": "felipe.moreira21@email.com",
+    "phone": "11949501003",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "O-",
+    "heightCm": 174,
+    "weightKg": 78,
+    "address": {
+      "street": "Rua Tuiuti",
+      "number": 1909,
+      "neighborhood": "Liberdade",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01508-904",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.630321,
+          -23.558314
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2025-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Mariana Moreira",
+      "relationship": "filho(a)",
+      "phone": "11959678853"
+    }
+  },
+  {
+    "id": 22,
+    "cpf": "90022348834",
+    "fullName": "Fernanda Martins Almeida",
+    "birthDate": "1983-01-09",
+    "sex": "F",
+    "email": "fernanda.almeida22@email.com",
+    "phone": "11992788618",
+    "healthPlan": "SUS",
+    "bloodType": "O-",
+    "heightCm": 164,
+    "weightKg": 61,
+    "address": {
+      "street": "Avenida Sapopemba",
+      "number": 2106,
+      "neighborhood": "Itaim Bibi",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04532-174",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.671063,
+          -23.577143
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2021-04-01",
+        "controlled": false
+      },
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2024-04-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E03.9",
+        "description": "Hipotireoidismo",
+        "since": "2026-10-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2023-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Anlodipino",
+        "dose": "5mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Rosuvastatina",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Levotiroxina",
+        "dose": "50mcg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Priscila Soares",
+      "relationship": "filho(a)",
+      "phone": "11984697374"
+    }
+  },
+  {
+    "id": 23,
+    "cpf": "90023794216",
+    "fullName": "Vera Azevedo Barbosa",
+    "birthDate": "1949-11-27",
+    "sex": "F",
+    "email": "vera.barbosa23@email.com",
+    "phone": "11924878531",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 154,
+    "weightKg": 96,
+    "address": {
+      "street": "Rua Padre Joao Manuel",
+      "number": 94,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-825",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.664099,
+          -23.616008
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2026-11-01",
+        "controlled": false
+      },
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2015-02-01",
+        "controlled": true
+      },
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2011-03-01",
+        "controlled": true
+      },
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2019-12-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sinvastatina",
+        "dose": "20mg",
+        "frequency": "1x a noite",
+        "continuous": true
+      },
+      {
+        "name": "Salbutamol spray",
+        "dose": "100mcg",
+        "frequency": "se necessario",
+        "continuous": true
+      },
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Luiz Pinto",
+      "relationship": "conjuge",
+      "phone": "11978165127"
+    }
+  },
+  {
+    "id": 24,
+    "cpf": "90024716341",
+    "fullName": "Sofia Castro Cunha",
+    "birthDate": "2017-04-10",
+    "sex": "F",
+    "email": "sofia.cunha24@email.com",
+    "phone": "11984333963",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 143,
+    "weightKg": 40,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 914,
+      "neighborhood": "Liberdade",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01508-138",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.637613,
+          -23.556029
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Helena Correia",
+      "relationship": "mae",
+      "phone": "11986366628"
+    }
+  },
+  {
+    "id": 25,
+    "cpf": "90025395371",
+    "fullName": "Roberto Soares Rodrigues",
+    "birthDate": "1983-05-15",
+    "sex": "M",
+    "email": "roberto.rodrigues25@email.com",
+    "phone": "11964690322",
+    "healthPlan": "SUS",
+    "bloodType": "O+",
+    "heightCm": 192,
+    "weightKg": 107,
+    "address": {
+      "street": "Rua Domingos de Morais",
+      "number": 2220,
+      "neighborhood": "Liberdade",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01508-923",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.628971,
+          -23.55528
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2021-01-01",
+        "controlled": true
+      },
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2011-10-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Mateus Souza",
+      "relationship": "mae",
+      "phone": "11962284041"
+    }
+  },
+  {
+    "id": 26,
+    "cpf": "90026879012",
+    "fullName": "Priscila Souza Pinto",
+    "birthDate": "1981-11-11",
+    "sex": "F",
+    "email": "priscila.pinto26@email.com",
+    "phone": "11917755445",
+    "healthPlan": "SUS",
+    "bloodType": "A+",
+    "heightCm": 168,
+    "weightKg": 68,
+    "address": {
+      "street": "Rua Oscar Freire",
+      "number": 2142,
+      "neighborhood": "Lapa",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05077-345",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.697227,
+          -23.524349
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2017-04-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2025-07-01",
+        "controlled": true
+      },
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2019-09-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Patricia Nascimento",
+      "relationship": "conjuge",
+      "phone": "11982837879"
+    }
+  },
+  {
+    "id": 27,
+    "cpf": "90027282408",
+    "fullName": "Thiago Pinto Mendes",
+    "birthDate": "1970-10-03",
+    "sex": "M",
+    "email": "thiago.mendes27@email.com",
+    "phone": "11949987263",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 167,
+    "weightKg": 66,
+    "address": {
+      "street": "Rua das Acacias",
+      "number": 1770,
+      "neighborhood": "Jardins",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01419-353",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.657702,
+          -23.564146
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2016-03-01",
+        "controlled": true
+      },
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2023-09-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Isabela Silva",
+      "relationship": "pai",
+      "phone": "11934642367"
+    }
+  },
+  {
+    "id": 28,
+    "cpf": "90028758073",
+    "fullName": "Mariana Marques Alves",
+    "birthDate": "1984-10-27",
+    "sex": "F",
+    "email": "mariana.alves28@email.com",
+    "phone": "11944416769",
+    "healthPlan": "Amil",
+    "bloodType": "A-",
+    "heightCm": 153,
+    "weightKg": 76,
+    "address": {
+      "street": "Rua Padre Joao Manuel",
+      "number": 829,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-130",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.677256,
+          -23.541686
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2026-08-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Cristina Costa",
+      "relationship": "irmao(a)",
+      "phone": "11917020583"
+    }
+  },
+  {
+    "id": 29,
+    "cpf": "90029921388",
+    "fullName": "Natalia Moreira Santos",
+    "birthDate": "1996-01-15",
+    "sex": "F",
+    "email": "natalia.santos29@email.com",
+    "phone": "11987702469",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "O+",
+    "heightCm": 154,
+    "weightKg": 76,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 2164,
+      "neighborhood": "Itaim Bibi",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04532-447",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.679397,
+          -23.577933
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2022-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Bruno Souza",
+      "relationship": "pai",
+      "phone": "11940649699"
+    }
+  },
+  {
+    "id": 30,
+    "cpf": "90030265086",
+    "fullName": "Elisa Fernandes Castro",
+    "birthDate": "1976-11-14",
+    "sex": "F",
+    "email": "elisa.castro30@email.com",
+    "phone": "11933614439",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "A+",
+    "heightCm": 155,
+    "weightKg": 91,
+    "address": {
+      "street": "Rua Bom Pastor",
+      "number": 188,
+      "neighborhood": "Vila Olimpia",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04551-721",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.692295,
+          -23.592555
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "AAS",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      },
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2015-09-01",
+        "controlled": true
+      },
+      {
+        "cid10": "F32.1",
+        "description": "Episodio depressivo moderado",
+        "since": "2012-01-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Fluoxetina",
+        "dose": "20mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Carlos Castro",
+      "relationship": "conjuge",
+      "phone": "11987153700"
+    }
+  },
+  {
+    "id": 31,
+    "cpf": "90031467780",
+    "fullName": "Andre Ferreira Gomes",
+    "birthDate": "1993-01-06",
+    "sex": "M",
+    "email": "andre.gomes31@email.com",
+    "phone": "11980156136",
+    "healthPlan": "Unimed",
+    "bloodType": "A-",
+    "heightCm": 189,
+    "weightKg": 117,
+    "address": {
+      "street": "Rua Domingos de Morais",
+      "number": 1840,
+      "neighborhood": "Vila Olimpia",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04551-279",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.680635,
+          -23.591462
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Mateus Carvalho",
+      "relationship": "conjuge",
+      "phone": "11932321956"
+    }
+  },
+  {
+    "id": 32,
+    "cpf": "90032203727",
+    "fullName": "Nicolas Oliveira Nunes",
+    "birthDate": "1977-03-25",
+    "sex": "M",
+    "email": "nicolas.nunes32@email.com",
+    "phone": "11931752979",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "A-",
+    "heightCm": 170,
+    "weightKg": 103,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 1987,
+      "neighborhood": "Liberdade",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01508-409",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.628663,
+          -23.551732
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [
+      {
+        "substance": "Ibuprofeno",
+        "reaction": "edema de face",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2014-10-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Salbutamol spray",
+        "dose": "100mcg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Vera Ferreira",
+      "relationship": "mae",
+      "phone": "11959871031"
+    }
+  },
+  {
+    "id": 33,
+    "cpf": "90033696951",
+    "fullName": "Gustavo Machado Dias",
+    "birthDate": "1942-12-17",
+    "sex": "M",
+    "email": "gustavo.dias33@email.com",
+    "phone": "11961746274",
+    "healthPlan": "Particular",
+    "bloodType": "A+",
+    "heightCm": 171,
+    "weightKg": 88,
+    "address": {
+      "street": "Avenida Sapopemba",
+      "number": 2226,
+      "neighborhood": "Penha",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03605-233",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.540285,
+          -23.535622
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Sofia Dias",
+      "relationship": "conjuge",
+      "phone": "11951450800"
+    }
+  },
+  {
+    "id": 34,
+    "cpf": "90034149136",
+    "fullName": "Vinicius Vieira Fernandes",
+    "birthDate": "1990-01-19",
+    "sex": "M",
+    "email": "vinicius.fernandes34@email.com",
+    "phone": "11955075050",
+    "healthPlan": "Amil",
+    "bloodType": "O+",
+    "heightCm": 162,
+    "weightKg": 109,
+    "address": {
+      "street": "Rua Domingos de Morais",
+      "number": 795,
+      "neighborhood": "Jardins",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01419-874",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.652536,
+          -23.569642
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Dipirona",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2015-07-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2021-02-01",
+        "controlled": false
+      },
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2025-04-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Budesonida inalatoria",
+        "dose": "200mcg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Helena Freitas",
+      "relationship": "conjuge",
+      "phone": "11987973083"
+    }
+  },
+  {
+    "id": 35,
+    "cpf": "90035559208",
+    "fullName": "Leticia Azevedo Ramos",
+    "birthDate": "2005-06-23",
+    "sex": "F",
+    "email": "leticia.ramos35@email.com",
+    "phone": "11942052308",
+    "healthPlan": "Amil",
+    "bloodType": "O-",
+    "heightCm": 178,
+    "weightKg": 76,
+    "address": {
+      "street": "Rua Voluntarios da Patria",
+      "number": 2301,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-926",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.674082,
+          -23.540714
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Leonardo Pinto",
+      "relationship": "pai",
+      "phone": "11981948256"
+    }
+  },
+  {
+    "id": 36,
+    "cpf": "90036143580",
+    "fullName": "Thiago Cunha Dias",
+    "birthDate": "1992-12-19",
+    "sex": "M",
+    "email": "thiago.dias36@email.com",
+    "phone": "11943903449",
+    "healthPlan": "SUS",
+    "bloodType": "O-",
+    "heightCm": 171,
+    "weightKg": 98,
+    "address": {
+      "street": "Avenida Paulista",
+      "number": 457,
+      "neighborhood": "Lapa",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05077-427",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.699888,
+          -23.528939
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Poeira",
+        "reaction": "rinite",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "F32.1",
+        "description": "Episodio depressivo moderado",
+        "since": "2011-10-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Fluoxetina",
+        "dose": "20mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Pedro Carvalho",
+      "relationship": "irmao(a)",
+      "phone": "11947401292"
+    }
+  },
+  {
+    "id": 37,
+    "cpf": "90037620661",
+    "fullName": "Luiz Costa Soares",
+    "birthDate": "1973-02-20",
+    "sex": "M",
+    "email": "luiz.soares37@email.com",
+    "phone": "11952135477",
+    "healthPlan": "SulAmerica",
+    "bloodType": "O+",
+    "heightCm": 180,
+    "weightKg": 102,
+    "address": {
+      "street": "Avenida Pompeia",
+      "number": 551,
+      "neighborhood": "Vila Mariana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04117-576",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.63865,
+          -23.584477
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Contraste iodado",
+        "reaction": "broncoespasmo",
+        "severity": "GRAVE"
+      },
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "E03.9",
+        "description": "Hipotireoidismo",
+        "since": "2015-10-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2024-08-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Levotiroxina",
+        "dose": "50mcg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Vinicius Campos",
+      "relationship": "conjuge",
+      "phone": "11992452466"
+    }
+  },
+  {
+    "id": 38,
+    "cpf": "90038130620",
+    "fullName": "Larissa Ferreira Teixeira",
+    "birthDate": "1974-06-05",
+    "sex": "F",
+    "email": "larissa.teixeira38@email.com",
+    "phone": "11944464247",
+    "healthPlan": "SUS",
+    "bloodType": "A+",
+    "heightCm": 154,
+    "weightKg": 70,
+    "address": {
+      "street": "Avenida Reboucas",
+      "number": 210,
+      "neighborhood": "Analia Franco",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03337-583",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.558957,
+          -23.551836
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [
+      {
+        "substance": "Amendoim",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2024-09-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Alexandre Rocha",
+      "relationship": "filho(a)",
+      "phone": "11999387877"
+    }
+  },
+  {
+    "id": 39,
+    "cpf": "90039662858",
+    "fullName": "Beatriz Souza Almeida",
+    "birthDate": "1998-04-12",
+    "sex": "F",
+    "email": "beatriz.almeida39@email.com",
+    "phone": "11995134868",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "O+",
+    "heightCm": 171,
+    "weightKg": 71,
+    "address": {
+      "street": "Rua Galvao Bueno",
+      "number": 2209,
+      "neighborhood": "Ipiranga",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04263-832",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.612832,
+          -23.587393
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Penicilina",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2018-05-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Otavio Azevedo",
+      "relationship": "pai",
+      "phone": "11993640323"
+    }
+  },
+  {
+    "id": 40,
+    "cpf": "90040064113",
+    "fullName": "Lucas Barbosa Campos",
+    "birthDate": "1966-10-08",
+    "sex": "M",
+    "email": "lucas.campos40@email.com",
+    "phone": "11919888917",
+    "healthPlan": "SUS",
+    "bloodType": "O-",
+    "heightCm": 178,
+    "weightKg": 98,
+    "address": {
+      "street": "Rua Domingos de Morais",
+      "number": 627,
+      "neighborhood": "Ipiranga",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04263-275",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.602909,
+          -23.594257
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [
+      {
+        "substance": "Penicilina",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2024-05-01",
+        "controlled": true
+      },
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2018-06-01",
+        "controlled": true
+      },
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2012-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Rosuvastatina",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Budesonida inalatoria",
+        "dose": "200mcg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Escitalopram",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Renata Barbosa",
+      "relationship": "conjuge",
+      "phone": "11922868680"
+    }
+  },
+  {
+    "id": 41,
+    "cpf": "90041398064",
+    "fullName": "Rafaela Lima Marques",
+    "birthDate": "1977-11-22",
+    "sex": "F",
+    "email": "rafaela.marques41@email.com",
+    "phone": "11932669238",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "A+",
+    "heightCm": 152,
+    "weightKg": 71,
+    "address": {
+      "street": "Rua Vergueiro",
+      "number": 2449,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-887",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.672555,
+          -23.615248
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Contraste iodado",
+        "reaction": "broncoespasmo",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Joao Castro",
+      "relationship": "irmao(a)",
+      "phone": "11987901808"
+    }
+  },
+  {
+    "id": 42,
+    "cpf": "90042238924",
+    "fullName": "Leonardo Carvalho Castro",
+    "birthDate": "1969-11-08",
+    "sex": "M",
+    "email": "leonardo.castro42@email.com",
+    "phone": "11942261145",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "O+",
+    "heightCm": 170,
+    "weightKg": 67,
+    "address": {
+      "street": "Rua Oscar Freire",
+      "number": 2260,
+      "neighborhood": "Mooca",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03104-609",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.599388,
+          -23.556238
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2017-08-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2011-06-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2012-12-01",
+        "controlled": true
+      },
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2017-08-01",
+        "controlled": false
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2016-07-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Metformina",
+        "dose": "850mg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sinvastatina",
+        "dose": "20mg",
+        "frequency": "1x a noite",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Andre Marques",
+      "relationship": "mae",
+      "phone": "11985872491"
+    }
+  },
+  {
+    "id": 43,
+    "cpf": "90043591109",
+    "fullName": "Lucas Mendes Dias",
+    "birthDate": "1968-07-06",
+    "sex": "M",
+    "email": "lucas.dias43@email.com",
+    "phone": "11918412156",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "O-",
+    "heightCm": 180,
+    "weightKg": 61,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 840,
+      "neighborhood": "Tatuape",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03063-833",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.570354,
+          -23.544647
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2011-02-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2016-08-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Beatriz Ramos",
+      "relationship": "pai",
+      "phone": "11949615374"
+    }
+  },
+  {
+    "id": 44,
+    "cpf": "90044707976",
+    "fullName": "Henrique Soares Pinto",
+    "birthDate": "1998-01-12",
+    "sex": "M",
+    "email": "henrique.pinto44@email.com",
+    "phone": "11995744508",
+    "healthPlan": "SUS",
+    "bloodType": "B+",
+    "heightCm": 184,
+    "weightKg": 66,
+    "address": {
+      "street": "Rua da Mooca",
+      "number": 352,
+      "neighborhood": "Santana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "02013-161",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.632472,
+          -23.498202
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E03.9",
+        "description": "Hipotireoidismo",
+        "since": "2025-03-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Levotiroxina",
+        "dose": "50mcg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Antonio Lopes",
+      "relationship": "mae",
+      "phone": "11996707182"
+    }
+  },
+  {
+    "id": 45,
+    "cpf": "90045659814",
+    "fullName": "Igor Ribeiro Gomes",
+    "birthDate": "2017-03-16",
+    "sex": "M",
+    "email": "igor.gomes45@email.com",
+    "phone": "11992182772",
+    "healthPlan": "SUS",
+    "bloodType": "A+",
+    "heightCm": 71,
+    "weightKg": 29,
+    "address": {
+      "street": "Avenida Reboucas",
+      "number": 529,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-875",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.671954,
+          -23.540307
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Antonio Campos",
+      "relationship": "mae",
+      "phone": "11927429587"
+    }
+  },
+  {
+    "id": 46,
+    "cpf": "90046884209",
+    "fullName": "Joao Alves Andrade",
+    "birthDate": "1989-04-28",
+    "sex": "M",
+    "email": "joao.andrade46@email.com",
+    "phone": "11985660674",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "B+",
+    "heightCm": 189,
+    "weightKg": 99,
+    "address": {
+      "street": "Rua Galvao Bueno",
+      "number": 838,
+      "neighborhood": "Itaim Bibi",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04532-437",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.679863,
+          -23.588848
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2015-07-01",
+        "controlled": true
+      },
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2024-11-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      },
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Mateus Ramos",
+      "relationship": "mae",
+      "phone": "11946753641"
+    }
+  },
+  {
+    "id": 47,
+    "cpf": "90047239838",
+    "fullName": "Priscila Martins Barbosa",
+    "birthDate": "1972-06-12",
+    "sex": "F",
+    "email": "priscila.barbosa47@email.com",
+    "phone": "11918300728",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "O+",
+    "heightCm": 176,
+    "weightKg": 71,
+    "address": {
+      "street": "Avenida Ibirapuera",
+      "number": 854,
+      "neighborhood": "Vila Madalena",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05433-409",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.686457,
+          -23.553518
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Contraste iodado",
+        "reaction": "broncoespasmo",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Marcelo Ferreira",
+      "relationship": "irmao(a)",
+      "phone": "11913469393"
+    }
+  },
+  {
+    "id": 48,
+    "cpf": "90048565432",
+    "fullName": "Elisa Lima Santos",
+    "birthDate": "2000-11-23",
+    "sex": "F",
+    "email": "elisa.santos48@email.com",
+    "phone": "11941009614",
+    "healthPlan": "Amil",
+    "bloodType": "O+",
+    "heightCm": 154,
+    "weightKg": 58,
+    "address": {
+      "street": "Rua Oscar Freire",
+      "number": 13,
+      "neighborhood": "Mooca",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03104-358",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.599278,
+          -23.562126
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Rafael Moreira",
+      "relationship": "irmao(a)",
+      "phone": "11982972807"
+    }
+  },
+  {
+    "id": 49,
+    "cpf": "90049379285",
+    "fullName": "Gabriela Alves Moreira",
+    "birthDate": "1958-06-16",
+    "sex": "F",
+    "email": "gabriela.moreira49@email.com",
+    "phone": "11966784176",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "A-",
+    "heightCm": 165,
+    "weightKg": 48,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 1113,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-160",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.671514,
+          -23.612313
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2017-03-01",
+        "controlled": false
+      },
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2019-08-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Bruno Andrade",
+      "relationship": "pai",
+      "phone": "11947846126"
+    }
+  },
+  {
+    "id": 50,
+    "cpf": "90050459106",
+    "fullName": "Amanda Oliveira Pinto",
+    "birthDate": "2026-01-19",
+    "sex": "F",
+    "email": "amanda.pinto50@email.com",
+    "phone": "11922542899",
+    "healthPlan": "SUS",
+    "bloodType": "A+",
+    "heightCm": 60,
+    "weightKg": 12,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 2438,
+      "neighborhood": "Jardins",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01419-962",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.655592,
+          -23.569344
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Vanessa Souza",
+      "relationship": "pai",
+      "phone": "11986841339"
+    }
+  },
+  {
+    "id": 51,
+    "cpf": "90051329096",
+    "fullName": "Gabriela Campos Costa",
+    "birthDate": "1979-12-02",
+    "sex": "F",
+    "email": "gabriela.costa51@email.com",
+    "phone": "11928745382",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "O+",
+    "heightCm": 155,
+    "weightKg": 70,
+    "address": {
+      "street": "Rua Voluntarios da Patria",
+      "number": 363,
+      "neighborhood": "Vila Mariana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04117-925",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.632174,
+          -23.594069
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2024-08-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Fabio Rodrigues",
+      "relationship": "conjuge",
+      "phone": "11993006847"
+    }
+  },
+  {
+    "id": 52,
+    "cpf": "90052824998",
+    "fullName": "Diego Pinto Mendes",
+    "birthDate": "1937-07-25",
+    "sex": "M",
+    "email": "diego.mendes52@email.com",
+    "phone": "11989462754",
+    "healthPlan": "SUS",
+    "bloodType": "A+",
+    "heightCm": 186,
+    "weightKg": 87,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 2431,
+      "neighborhood": "Tatuape",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03063-268",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.571468,
+          -23.532232
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2016-09-01",
+        "controlled": true
+      },
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2020-04-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Fabio Santos",
+      "relationship": "conjuge",
+      "phone": "11949220033"
+    }
+  },
+  {
+    "id": 53,
+    "cpf": "90053748818",
+    "fullName": "Leonardo Ribeiro Rodrigues",
+    "birthDate": "2000-01-04",
+    "sex": "M",
+    "email": "leonardo.rodrigues53@email.com",
+    "phone": "11998061678",
+    "healthPlan": "Amil",
+    "bloodType": "A+",
+    "heightCm": 168,
+    "weightKg": 73,
+    "address": {
+      "street": "Avenida Reboucas",
+      "number": 1222,
+      "neighborhood": "Vila Madalena",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05433-444",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.693953,
+          -23.550215
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2011-03-01",
+        "controlled": false
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Larissa Marques",
+      "relationship": "mae",
+      "phone": "11974339728"
+    }
+  },
+  {
+    "id": 54,
+    "cpf": "90054733500",
+    "fullName": "Marcia Cardoso Ribeiro",
+    "birthDate": "2000-09-25",
+    "sex": "F",
+    "email": "marcia.ribeiro54@email.com",
+    "phone": "11917933078",
+    "healthPlan": "SUS",
+    "bloodType": "O+",
+    "heightCm": 161,
+    "weightKg": 53,
+    "address": {
+      "street": "Rua Oscar Freire",
+      "number": 1129,
+      "neighborhood": "Moema",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04077-765",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.661059,
+          -23.603947
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Thiago Nunes",
+      "relationship": "pai",
+      "phone": "11997463388"
+    }
+  },
+  {
+    "id": 55,
+    "cpf": "90055011346",
+    "fullName": "Daniela Marques Azevedo",
+    "birthDate": "1989-08-18",
+    "sex": "F",
+    "email": "daniela.azevedo55@email.com",
+    "phone": "11965476915",
+    "healthPlan": "Particular",
+    "bloodType": "B+",
+    "heightCm": 166,
+    "weightKg": 78,
+    "address": {
+      "street": "Avenida Pompeia",
+      "number": 326,
+      "neighborhood": "Penha",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03605-057",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.537441,
+          -23.526973
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2025-11-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Alexandre Lima",
+      "relationship": "pai",
+      "phone": "11990403351"
+    }
+  },
+  {
+    "id": 56,
+    "cpf": "90056318247",
+    "fullName": "Thiago Machado Campos",
+    "birthDate": "1969-12-17",
+    "sex": "M",
+    "email": "thiago.campos56@email.com",
+    "phone": "11938091651",
+    "healthPlan": "Particular",
+    "bloodType": "AB-",
+    "heightCm": 179,
+    "weightKg": 107,
+    "address": {
+      "street": "Avenida Sapopemba",
+      "number": 930,
+      "neighborhood": "Vila Madalena",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05433-014",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.698431,
+          -23.551033
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2019-02-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2024-07-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2019-06-01",
+        "controlled": true
+      },
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2021-04-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2011-06-01",
+        "controlled": true
+      },
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2025-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sinvastatina",
+        "dose": "20mg",
+        "frequency": "1x a noite",
+        "continuous": true
+      },
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Tatiana Lopes",
+      "relationship": "filho(a)",
+      "phone": "11972182742"
+    }
+  },
+  {
+    "id": 57,
+    "cpf": "90057672865",
+    "fullName": "Vanessa Soares Martins",
+    "birthDate": "1978-11-22",
+    "sex": "F",
+    "email": "vanessa.martins57@email.com",
+    "phone": "11918050491",
+    "healthPlan": "Unimed",
+    "bloodType": "O+",
+    "heightCm": 150,
+    "weightKg": 58,
+    "address": {
+      "street": "Avenida Santo Amaro",
+      "number": 150,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-257",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.689672,
+          -23.559323
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Frutos do mar",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2021-08-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Henrique Rodrigues",
+      "relationship": "pai",
+      "phone": "11990616055"
+    }
+  },
+  {
+    "id": 58,
+    "cpf": "90058052875",
+    "fullName": "Daniela Machado Barbosa",
+    "birthDate": "1985-11-09",
+    "sex": "F",
+    "email": "daniela.barbosa58@email.com",
+    "phone": "11947587894",
+    "healthPlan": "Amil",
+    "bloodType": "A+",
+    "heightCm": 174,
+    "weightKg": 59,
+    "address": {
+      "street": "Rua Galvao Bueno",
+      "number": 666,
+      "neighborhood": "Saude",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04151-220",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.638452,
+          -23.613902
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2023-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Renata Vieira",
+      "relationship": "pai",
+      "phone": "11942128765"
+    }
+  },
+  {
+    "id": 59,
+    "cpf": "90059633677",
+    "fullName": "Patricia Monteiro Mendes",
+    "birthDate": "1943-07-04",
+    "sex": "F",
+    "email": "patricia.mendes59@email.com",
+    "phone": "11974822294",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "B-",
+    "heightCm": 165,
+    "weightKg": 59,
+    "address": {
+      "street": "Avenida Paulista",
+      "number": 761,
+      "neighborhood": "Brooklin",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04561-806",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.693562,
+          -23.607324
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Amoxicilina",
+        "reaction": "exantema",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Antonio Moreira",
+      "relationship": "filho(a)",
+      "phone": "11963485564"
+    }
+  },
+  {
+    "id": 60,
+    "cpf": "90060039746",
+    "fullName": "Natalia Andrade Ramos",
+    "birthDate": "1967-08-01",
+    "sex": "F",
+    "email": "natalia.ramos60@email.com",
+    "phone": "11945003104",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "O-",
+    "heightCm": 167,
+    "weightKg": 72,
+    "address": {
+      "street": "Avenida Ibirapuera",
+      "number": 1433,
+      "neighborhood": "Butanta",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05501-042",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.71285,
+          -23.567621
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Andre Lopes",
+      "relationship": "irmao(a)",
+      "phone": "11953104229"
+    }
+  },
+  {
+    "id": 61,
+    "cpf": "90061623326",
+    "fullName": "Cristina Ramos Rocha",
+    "birthDate": "1990-01-20",
+    "sex": "F",
+    "email": "cristina.rocha61@email.com",
+    "phone": "11934245014",
+    "healthPlan": "SUS",
+    "bloodType": "O-",
+    "heightCm": 170,
+    "weightKg": 70,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 172,
+      "neighborhood": "Moema",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04077-559",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.665581,
+          -23.606082
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "AAS",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Pedro Campos",
+      "relationship": "irmao(a)",
+      "phone": "11930932826"
+    }
+  },
+  {
+    "id": 62,
+    "cpf": "90062197799",
+    "fullName": "Vera Fernandes Pinto",
+    "birthDate": "2000-03-14",
+    "sex": "F",
+    "email": "vera.pinto62@email.com",
+    "phone": "11986014700",
+    "healthPlan": "Unimed",
+    "bloodType": "O+",
+    "heightCm": 165,
+    "weightKg": 66,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 1786,
+      "neighborhood": "Vila Prudente",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03132-160",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.584562,
+          -23.579627
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Daniela Costa",
+      "relationship": "conjuge",
+      "phone": "11993326957"
+    }
+  },
+  {
+    "id": 63,
+    "cpf": "90063087213",
+    "fullName": "Igor Ramos Freitas",
+    "birthDate": "1965-04-09",
+    "sex": "M",
+    "email": "igor.freitas63@email.com",
+    "phone": "11922022890",
+    "healthPlan": "SulAmerica",
+    "bloodType": "O+",
+    "heightCm": 189,
+    "weightKg": 100,
+    "address": {
+      "street": "Avenida Reboucas",
+      "number": 2280,
+      "neighborhood": "Moema",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04077-892",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.66454,
+          -23.607519
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Amendoim",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      },
+      {
+        "substance": "Penicilina",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2018-11-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Marcelo Fernandes",
+      "relationship": "irmao(a)",
+      "phone": "11993127759"
+    }
+  },
+  {
+    "id": 64,
+    "cpf": "90064925829",
+    "fullName": "Cristina Vieira Machado",
+    "birthDate": "1969-05-16",
+    "sex": "F",
+    "email": "cristina.machado64@email.com",
+    "phone": "11959102633",
+    "healthPlan": "Amil",
+    "bloodType": "B+",
+    "heightCm": 170,
+    "weightKg": 60,
+    "address": {
+      "street": "Avenida Pompeia",
+      "number": 784,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-564",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.669539,
+          -23.53807
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Penicilina",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2015-11-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Larissa Lima",
+      "relationship": "mae",
+      "phone": "11947532236"
+    }
+  },
+  {
+    "id": 65,
+    "cpf": "90065113510",
+    "fullName": "Marcelo Almeida Soares",
+    "birthDate": "1972-06-04",
+    "sex": "M",
+    "email": "marcelo.soares65@email.com",
+    "phone": "11944372527",
+    "healthPlan": "SulAmerica",
+    "bloodType": "A+",
+    "heightCm": 172,
+    "weightKg": 99,
+    "address": {
+      "street": "Rua Voluntarios da Patria",
+      "number": 1775,
+      "neighborhood": "Lapa",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05077-324",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.698334,
+          -23.520442
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2026-03-01",
+        "controlled": false
+      },
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2016-10-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Metformina",
+        "dose": "850mg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Rosuvastatina",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Thiago Souza",
+      "relationship": "pai",
+      "phone": "11967651095"
+    }
+  },
+  {
+    "id": 66,
+    "cpf": "90066150016",
+    "fullName": "Alexandre Monteiro Rocha",
+    "birthDate": "2023-08-28",
+    "sex": "M",
+    "email": "alexandre.rocha66@email.com",
+    "phone": "11978152521",
+    "healthPlan": "Amil",
+    "bloodType": "O+",
+    "heightCm": 127,
+    "weightKg": 8,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 390,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-122",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.648081,
+          -23.556054
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Rosangela Carvalho",
+      "relationship": "conjuge",
+      "phone": "11994406124"
+    }
+  },
+  {
+    "id": 67,
+    "cpf": "90067395831",
+    "fullName": "Vanessa Ferreira Vieira",
+    "birthDate": "1969-03-11",
+    "sex": "F",
+    "email": "vanessa.vieira67@email.com",
+    "phone": "11913552833",
+    "healthPlan": "SulAmerica",
+    "bloodType": "A+",
+    "heightCm": 162,
+    "weightKg": 72,
+    "address": {
+      "street": "Rua Bom Pastor",
+      "number": 1174,
+      "neighborhood": "Brooklin",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04561-210",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.685998,
+          -23.619579
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "AAS",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2016-05-01",
+        "controlled": false
+      },
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2018-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Anlodipino",
+        "dose": "5mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Budesonida inalatoria",
+        "dose": "200mcg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Amanda Cardoso",
+      "relationship": "irmao(a)",
+      "phone": "11919290631"
+    }
+  },
+  {
+    "id": 68,
+    "cpf": "90068245317",
+    "fullName": "Igor Monteiro Nascimento",
+    "birthDate": "1958-02-01",
+    "sex": "M",
+    "email": "igor.nascimento68@email.com",
+    "phone": "11997037290",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "AB-",
+    "heightCm": 185,
+    "weightKg": 67,
+    "address": {
+      "street": "Rua Vergueiro",
+      "number": 506,
+      "neighborhood": "Aclimacao",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01531-763",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.631443,
+          -23.56409
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Otavio Ribeiro",
+      "relationship": "conjuge",
+      "phone": "11933931779"
+    }
+  },
+  {
+    "id": 69,
+    "cpf": "90069001011",
+    "fullName": "Sofia Mendes Campos",
+    "birthDate": "1970-02-24",
+    "sex": "F",
+    "email": "sofia.campos69@email.com",
+    "phone": "11988188865",
+    "healthPlan": "Unimed",
+    "bloodType": "A-",
+    "heightCm": 170,
+    "weightKg": 80,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 1246,
+      "neighborhood": "Vila Prudente",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03132-671",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.586261,
+          -23.588299
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [
+      {
+        "substance": "Dipirona",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Lucas Freitas",
+      "relationship": "mae",
+      "phone": "11939356139"
+    }
+  },
+  {
+    "id": 70,
+    "cpf": "90070410196",
+    "fullName": "Diego Vieira Rodrigues",
+    "birthDate": "1977-03-15",
+    "sex": "M",
+    "email": "diego.rodrigues70@email.com",
+    "phone": "11931899997",
+    "healthPlan": "Particular",
+    "bloodType": "AB-",
+    "heightCm": 173,
+    "weightKg": 74,
+    "address": {
+      "street": "Avenida Pompeia",
+      "number": 1332,
+      "neighborhood": "Saude",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04151-407",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.643468,
+          -23.61784
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Penicilina",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      },
+      {
+        "substance": "Amoxicilina",
+        "reaction": "exantema",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Otavio Andrade",
+      "relationship": "mae",
+      "phone": "11939564876"
+    }
+  },
+  {
+    "id": 71,
+    "cpf": "90071912561",
+    "fullName": "Francisco Moreira Dias",
+    "birthDate": "1990-01-10",
+    "sex": "M",
+    "email": "francisco.dias71@email.com",
+    "phone": "11910827572",
+    "healthPlan": "Unimed",
+    "bloodType": "O-",
+    "heightCm": 173,
+    "weightKg": 109,
+    "address": {
+      "street": "Rua Tuiuti",
+      "number": 2019,
+      "neighborhood": "Vila Madalena",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05433-485",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.690132,
+          -23.551822
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Amoxicilina",
+        "reaction": "exantema",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Renata Campos",
+      "relationship": "pai",
+      "phone": "11916083338"
+    }
+  },
+  {
+    "id": 72,
+    "cpf": "90072733538",
+    "fullName": "Joao Carvalho Mendes",
+    "birthDate": "1967-03-04",
+    "sex": "M",
+    "email": "joao.mendes72@email.com",
+    "phone": "11946228372",
+    "healthPlan": "Particular",
+    "bloodType": "A+",
+    "heightCm": 189,
+    "weightKg": 117,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 970,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-152",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.668537,
+          -23.622465
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2015-11-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Anlodipino",
+        "dose": "5mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Leticia Moreira",
+      "relationship": "mae",
+      "phone": "11977119671"
+    }
+  },
+  {
+    "id": 73,
+    "cpf": "90073657929",
+    "fullName": "Larissa Campos Teixeira",
+    "birthDate": "2006-07-08",
+    "sex": "F",
+    "email": "larissa.teixeira73@email.com",
+    "phone": "11912915075",
+    "healthPlan": "SUS",
+    "bloodType": "O+",
+    "heightCm": 157,
+    "weightKg": 78,
+    "address": {
+      "street": "Rua Domingos de Morais",
+      "number": 1639,
+      "neighborhood": "Penha",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03605-071",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.549007,
+          -23.527027
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2024-01-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Salbutamol spray",
+        "dose": "100mcg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Tatiana Pinto",
+      "relationship": "irmao(a)",
+      "phone": "11985044812"
+    }
+  },
+  {
+    "id": 74,
+    "cpf": "90074574028",
+    "fullName": "Gustavo Andrade Barbosa",
+    "birthDate": "2011-09-07",
+    "sex": "M",
+    "email": "gustavo.barbosa74@email.com",
+    "phone": "11983123229",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "O+",
+    "heightCm": 186,
+    "weightKg": 62,
+    "address": {
+      "street": "Rua da Mooca",
+      "number": 1613,
+      "neighborhood": "Analia Franco",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03337-141",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.555443,
+          -23.551593
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Leticia Silva",
+      "relationship": "filho(a)",
+      "phone": "11964460541"
+    }
+  },
+  {
+    "id": 75,
+    "cpf": "90075604511",
+    "fullName": "Amanda Nunes Alves",
+    "birthDate": "1964-08-02",
+    "sex": "F",
+    "email": "amanda.alves75@email.com",
+    "phone": "11946552401",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "B+",
+    "heightCm": 156,
+    "weightKg": 71,
+    "address": {
+      "street": "Rua Vergueiro",
+      "number": 1438,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-093",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.641259,
+          -23.554282
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2011-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Ricardo Alves",
+      "relationship": "conjuge",
+      "phone": "11942056987"
+    }
+  },
+  {
+    "id": 76,
+    "cpf": "90076563977",
+    "fullName": "Bruno Castro Nunes",
+    "birthDate": "1989-06-03",
+    "sex": "M",
+    "email": "bruno.nunes76@email.com",
+    "phone": "11972828884",
+    "healthPlan": "Amil",
+    "bloodType": "A+",
+    "heightCm": 175,
+    "weightKg": 59,
+    "address": {
+      "street": "Avenida Reboucas",
+      "number": 1447,
+      "neighborhood": "Vila Mariana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04117-086",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.640498,
+          -23.591551
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Contraste iodado",
+        "reaction": "broncoespasmo",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2015-05-01",
+        "controlled": false
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Rosangela Freitas",
+      "relationship": "filho(a)",
+      "phone": "11935877139"
+    }
+  },
+  {
+    "id": 77,
+    "cpf": "90077109089",
+    "fullName": "Antonio Gomes Freitas",
+    "birthDate": "2006-06-07",
+    "sex": "M",
+    "email": "antonio.freitas77@email.com",
+    "phone": "11974177635",
+    "healthPlan": "Particular",
+    "bloodType": "A+",
+    "heightCm": 182,
+    "weightKg": 105,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 1578,
+      "neighborhood": "Aclimacao",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01531-914",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.633446,
+          -23.570758
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2026-07-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Helena Machado",
+      "relationship": "mae",
+      "phone": "11925605810"
+    }
+  },
+  {
+    "id": 78,
+    "cpf": "90078702369",
+    "fullName": "Thiago Mendes Azevedo",
+    "birthDate": "1981-08-09",
+    "sex": "M",
+    "email": "thiago.azevedo78@email.com",
+    "phone": "11973073734",
+    "healthPlan": "Unimed",
+    "bloodType": "AB-",
+    "heightCm": 178,
+    "weightKg": 85,
+    "address": {
+      "street": "Rua Teodoro Sampaio",
+      "number": 2351,
+      "neighborhood": "Butanta",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05501-292",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.713705,
+          -23.571987
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2019-12-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2012-12-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Escitalopram",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Nicolas Correia",
+      "relationship": "filho(a)",
+      "phone": "11947338904"
+    }
+  },
+  {
+    "id": 79,
+    "cpf": "90079889984",
+    "fullName": "Beatriz Pinto Nunes",
+    "birthDate": "1980-11-23",
+    "sex": "F",
+    "email": "beatriz.nunes79@email.com",
+    "phone": "11947853799",
+    "healthPlan": "Unimed",
+    "bloodType": "O+",
+    "heightCm": 178,
+    "weightKg": 72,
+    "address": {
+      "street": "Rua Cardeal Arcoverde",
+      "number": 2088,
+      "neighborhood": "Penha",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03605-943",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.5435,
+          -23.535805
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2016-11-01",
+        "controlled": false
+      },
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2011-03-01",
+        "controlled": true
+      },
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2018-04-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Sergio Ribeiro",
+      "relationship": "pai",
+      "phone": "11952999598"
+    }
+  },
+  {
+    "id": 80,
+    "cpf": "90080039335",
+    "fullName": "Mariana Alves Ramos",
+    "birthDate": "1975-12-01",
+    "sex": "F",
+    "email": "mariana.ramos80@email.com",
+    "phone": "11975682138",
+    "healthPlan": "Amil",
+    "bloodType": "A+",
+    "heightCm": 170,
+    "weightKg": 87,
+    "address": {
+      "street": "Avenida Reboucas",
+      "number": 1090,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-192",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.694342,
+          -23.564749
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2026-03-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2024-11-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Budesonida inalatoria",
+        "dose": "200mcg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Carolina Martins",
+      "relationship": "conjuge",
+      "phone": "11957662647"
+    }
+  },
+  {
+    "id": 81,
+    "cpf": "90081334287",
+    "fullName": "Tatiana Nunes Andrade",
+    "birthDate": "1969-10-03",
+    "sex": "F",
+    "email": "tatiana.andrade81@email.com",
+    "phone": "11930550535",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "B+",
+    "heightCm": 150,
+    "weightKg": 74,
+    "address": {
+      "street": "Avenida Paulista",
+      "number": 2047,
+      "neighborhood": "Santana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "02013-340",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.621193,
+          -23.498153
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2025-09-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Luiza Nascimento",
+      "relationship": "filho(a)",
+      "phone": "11991573515"
+    }
+  },
+  {
+    "id": 82,
+    "cpf": "90082183164",
+    "fullName": "Otavio Alves Azevedo",
+    "birthDate": "2013-02-22",
+    "sex": "M",
+    "email": "otavio.azevedo82@email.com",
+    "phone": "11916525256",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "O+",
+    "heightCm": 164,
+    "weightKg": 105,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 1582,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-713",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.69247,
+          -23.571212
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Cristina Martins",
+      "relationship": "pai",
+      "phone": "11938339701"
+    }
+  },
+  {
+    "id": 83,
+    "cpf": "90083386502",
+    "fullName": "Priscila Alves Costa",
+    "birthDate": "2023-03-17",
+    "sex": "F",
+    "email": "priscila.costa83@email.com",
+    "phone": "11949420544",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 106,
+    "weightKg": 40,
+    "address": {
+      "street": "Rua Voluntarios da Patria",
+      "number": 1027,
+      "neighborhood": "Vila Mariana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04117-126",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.628078,
+          -23.59396
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Pedro Freitas",
+      "relationship": "filho(a)",
+      "phone": "11956278426"
+    }
+  },
+  {
+    "id": 84,
+    "cpf": "90084248409",
+    "fullName": "Sofia Barbosa Nunes",
+    "birthDate": "2001-12-09",
+    "sex": "F",
+    "email": "sofia.nunes84@email.com",
+    "phone": "11983210526",
+    "healthPlan": "SUS",
+    "bloodType": "O-",
+    "heightCm": 161,
+    "weightKg": 97,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 1086,
+      "neighborhood": "Santana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "02013-201",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.63145,
+          -23.508899
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F32.1",
+        "description": "Episodio depressivo moderado",
+        "since": "2022-04-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2013-12-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Fluoxetina",
+        "dose": "20mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Igor Castro",
+      "relationship": "filho(a)",
+      "phone": "11921812303"
+    }
+  },
+  {
+    "id": 85,
+    "cpf": "90085969529",
+    "fullName": "Leonardo Mendes Souza",
+    "birthDate": "1992-06-06",
+    "sex": "M",
+    "email": "leonardo.souza85@email.com",
+    "phone": "11934623931",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 167,
+    "weightKg": 76,
+    "address": {
+      "street": "Avenida Ibirapuera",
+      "number": 1483,
+      "neighborhood": "Tatuape",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03063-165",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.575014,
+          -23.542481
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Marcelo Marques",
+      "relationship": "pai",
+      "phone": "11938986418"
+    }
+  },
+  {
+    "id": 86,
+    "cpf": "90086368397",
+    "fullName": "Bruno Santos Mendes",
+    "birthDate": "1977-01-10",
+    "sex": "M",
+    "email": "bruno.mendes86@email.com",
+    "phone": "11937778276",
+    "healthPlan": "SulAmerica",
+    "bloodType": "A+",
+    "heightCm": 180,
+    "weightKg": 99,
+    "address": {
+      "street": "Rua Domingos de Morais",
+      "number": 1118,
+      "neighborhood": "Vila Prudente",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03132-459",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.585837,
+          -23.58925
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [
+      {
+        "substance": "Penicilina",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2022-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Hidroclorotiazida",
+        "dose": "25mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Vanessa Almeida",
+      "relationship": "mae",
+      "phone": "11952520459"
+    }
+  },
+  {
+    "id": 87,
+    "cpf": "90087134183",
+    "fullName": "Marcia Silva Ferreira",
+    "birthDate": "1953-10-07",
+    "sex": "F",
+    "email": "marcia.ferreira87@email.com",
+    "phone": "11948484152",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 157,
+    "weightKg": 69,
+    "address": {
+      "street": "Rua Bom Pastor",
+      "number": 393,
+      "neighborhood": "Vila Mariana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04117-168",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.631841,
+          -23.590805
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2014-07-01",
+        "controlled": true
+      },
+      {
+        "cid10": "I48",
+        "description": "Fibrilacao atrial",
+        "since": "2019-09-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Rivaroxabana",
+        "dose": "20mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Paulo Rodrigues",
+      "relationship": "pai",
+      "phone": "11982345599"
+    }
+  },
+  {
+    "id": 88,
+    "cpf": "90088321993",
+    "fullName": "Leticia Vieira Machado",
+    "birthDate": "1974-01-10",
+    "sex": "F",
+    "email": "leticia.machado88@email.com",
+    "phone": "11970888830",
+    "healthPlan": "Amil",
+    "bloodType": "AB-",
+    "heightCm": 167,
+    "weightKg": 52,
+    "address": {
+      "street": "Rua Oscar Freire",
+      "number": 2213,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-026",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.681888,
+          -23.538119
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Cristina Costa",
+      "relationship": "filho(a)",
+      "phone": "11987753494"
+    }
+  },
+  {
+    "id": 89,
+    "cpf": "90089917836",
+    "fullName": "Igor Souza Ramos",
+    "birthDate": "1985-05-24",
+    "sex": "M",
+    "email": "igor.ramos89@email.com",
+    "phone": "11949260879",
+    "healthPlan": "Particular",
+    "bloodType": "O-",
+    "heightCm": 166,
+    "weightKg": 62,
+    "address": {
+      "street": "Rua Oscar Freire",
+      "number": 1072,
+      "neighborhood": "Brooklin",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04561-709",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.695331,
+          -23.621932
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Ricardo Rocha",
+      "relationship": "irmao(a)",
+      "phone": "11928866173"
+    }
+  },
+  {
+    "id": 90,
+    "cpf": "90090064821",
+    "fullName": "Priscila Pereira Cunha",
+    "birthDate": "2009-10-08",
+    "sex": "F",
+    "email": "priscila.cunha90@email.com",
+    "phone": "11938542896",
+    "healthPlan": "Particular",
+    "bloodType": "A+",
+    "heightCm": 172,
+    "weightKg": 89,
+    "address": {
+      "street": "Avenida Paulista",
+      "number": 1272,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-910",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.648304,
+          -23.557219
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "J45",
+        "description": "Asma",
+        "since": "2026-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Salbutamol spray",
+        "dose": "100mcg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Ricardo Cunha",
+      "relationship": "mae",
+      "phone": "11954754787"
+    }
+  },
+  {
+    "id": 91,
+    "cpf": "90091836262",
+    "fullName": "Vera Barbosa Marques",
+    "birthDate": "1979-12-08",
+    "sex": "F",
+    "email": "vera.marques91@email.com",
+    "phone": "11933871162",
+    "healthPlan": "NotreDame Intermedica",
+    "bloodType": "A-",
+    "heightCm": 176,
+    "weightKg": 95,
+    "address": {
+      "street": "Rua Padre Joao Manuel",
+      "number": 713,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-432",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.679258,
+          -23.532039
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2026-08-01",
+        "controlled": false
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2022-04-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Ricardo Ferreira",
+      "relationship": "pai",
+      "phone": "11965091040"
+    }
+  },
+  {
+    "id": 92,
+    "cpf": "90092232122",
+    "fullName": "Diego Costa Andrade",
+    "birthDate": "1985-06-08",
+    "sex": "M",
+    "email": "diego.andrade92@email.com",
+    "phone": "11979472526",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "A+",
+    "heightCm": 190,
+    "weightKg": 88,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 290,
+      "neighborhood": "Jardins",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01419-165",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.665333,
+          -23.564289
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Amendoim",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2017-02-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Bruna Ribeiro",
+      "relationship": "pai",
+      "phone": "11923614802"
+    }
+  },
+  {
+    "id": 93,
+    "cpf": "90093558675",
+    "fullName": "Isabela Pinto Dias",
+    "birthDate": "1963-02-17",
+    "sex": "F",
+    "email": "isabela.dias93@email.com",
+    "phone": "11929060816",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 171,
+    "weightKg": 77,
+    "address": {
+      "street": "Rua Vergueiro",
+      "number": 2288,
+      "neighborhood": "Vila Prudente",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03132-815",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.578292,
+          -23.587023
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [
+      {
+        "substance": "AAS",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Luiz Lopes",
+      "relationship": "conjuge",
+      "phone": "11964356368"
+    }
+  },
+  {
+    "id": 94,
+    "cpf": "90094297717",
+    "fullName": "Gustavo Oliveira Dias",
+    "birthDate": "1971-12-17",
+    "sex": "M",
+    "email": "gustavo.dias94@email.com",
+    "phone": "11965348973",
+    "healthPlan": "Unimed",
+    "bloodType": "O+",
+    "heightCm": 188,
+    "weightKg": 110,
+    "address": {
+      "street": "Rua da Mooca",
+      "number": 1566,
+      "neighborhood": "Vila Olimpia",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04551-073",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.683412,
+          -23.595071
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Contraste iodado",
+        "reaction": "broncoespasmo",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2022-11-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Rosuvastatina",
+        "dose": "10mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Luiz Correia",
+      "relationship": "pai",
+      "phone": "11987404615"
+    }
+  },
+  {
+    "id": 95,
+    "cpf": "90095318308",
+    "fullName": "Helena Freitas Silva",
+    "birthDate": "1993-03-25",
+    "sex": "F",
+    "email": "helena.silva95@email.com",
+    "phone": "11953896521",
+    "healthPlan": "Porto Seguro Saude",
+    "bloodType": "B+",
+    "heightCm": 152,
+    "weightKg": 77,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 1442,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-287",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.663776,
+          -23.627516
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2022-09-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Bruna Nascimento",
+      "relationship": "conjuge",
+      "phone": "11931373681"
+    }
+  },
+  {
+    "id": 96,
+    "cpf": "90096756276",
+    "fullName": "Amanda Alves Castro",
+    "birthDate": "2001-05-11",
+    "sex": "F",
+    "email": "amanda.castro96@email.com",
+    "phone": "11928131193",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 161,
+    "weightKg": 59,
+    "address": {
+      "street": "Avenida Paulista",
+      "number": 756,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-626",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.682672,
+          -23.531908
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Isabela Dias",
+      "relationship": "pai",
+      "phone": "11993683176"
+    }
+  },
+  {
+    "id": 97,
+    "cpf": "90097842729",
+    "fullName": "Henrique Moreira Barbosa",
+    "birthDate": "1979-02-14",
+    "sex": "M",
+    "email": "henrique.barbosa97@email.com",
+    "phone": "11970575891",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 188,
+    "weightKg": 73,
+    "address": {
+      "street": "Rua Padre Joao Manuel",
+      "number": 1419,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-500",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.682436,
+          -23.53243
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2021-09-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Metformina",
+        "dose": "850mg",
+        "frequency": "2x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Lucas Monteiro",
+      "relationship": "conjuge",
+      "phone": "11967900670"
+    }
+  },
+  {
+    "id": 98,
+    "cpf": "90098373878",
+    "fullName": "Beatriz Costa Machado",
+    "birthDate": "1990-10-14",
+    "sex": "F",
+    "email": "beatriz.machado98@email.com",
+    "phone": "11966803072",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "A+",
+    "heightCm": 168,
+    "weightKg": 63,
+    "address": {
+      "street": "Rua da Mooca",
+      "number": 1102,
+      "neighborhood": "Aclimacao",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01531-402",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.628518,
+          -23.579675
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2013-07-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2015-01-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Elisa Martins",
+      "relationship": "filho(a)",
+      "phone": "11957877858"
+    }
+  },
+  {
+    "id": 99,
+    "cpf": "90099809401",
+    "fullName": "Beatriz Silva Rodrigues",
+    "birthDate": "2010-11-27",
+    "sex": "F",
+    "email": "beatriz.rodrigues99@email.com",
+    "phone": "11958986139",
+    "healthPlan": "Particular",
+    "bloodType": "O-",
+    "heightCm": 164,
+    "weightKg": 63,
+    "address": {
+      "street": "Rua da Mooca",
+      "number": 444,
+      "neighborhood": "Moema",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04077-642",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.657721,
+          -23.608088
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Amoxicilina",
+        "reaction": "exantema",
+        "severity": "LEVE"
+      },
+      {
+        "substance": "Ibuprofeno",
+        "reaction": "edema de face",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2026-06-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Pedro Pereira",
+      "relationship": "filho(a)",
+      "phone": "11914230254"
+    }
+  },
+  {
+    "id": 100,
+    "cpf": "90100374824",
+    "fullName": "Diego Teixeira Correia",
+    "birthDate": "1992-07-26",
+    "sex": "M",
+    "email": "diego.correia100@email.com",
+    "phone": "11911892957",
+    "healthPlan": "Particular",
+    "bloodType": "A+",
+    "heightCm": 167,
+    "weightKg": 65,
+    "address": {
+      "street": "Avenida Sapopemba",
+      "number": 721,
+      "neighborhood": "Saude",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04151-395",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.642302,
+          -23.618989
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Lactose",
+        "reaction": "desconforto gastrointestinal",
+        "severity": "LEVE"
+      },
+      {
+        "substance": "AAS",
+        "reaction": "urticaria",
+        "severity": "MODERADA"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "K21.0",
+        "description": "Doenca do refluxo gastroesofagico",
+        "since": "2016-06-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Omeprazol",
+        "dose": "20mg",
+        "frequency": "1x em jejum",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Igor Oliveira",
+      "relationship": "mae",
+      "phone": "11993191656"
+    }
+  },
+  {
+    "id": 101,
+    "cpf": "90101880147",
+    "fullName": "Marcia Marques Mendes",
+    "birthDate": "1967-01-08",
+    "sex": "F",
+    "email": "marcia.mendes101@email.com",
+    "phone": "11932664786",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "O+",
+    "heightCm": 174,
+    "weightKg": 54,
+    "address": {
+      "street": "Avenida Pompeia",
+      "number": 1980,
+      "neighborhood": "Tatuape",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03063-731",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.578965,
+          -23.537038
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E78.5",
+        "description": "Hiperlipidemia",
+        "since": "2022-03-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sinvastatina",
+        "dose": "20mg",
+        "frequency": "1x a noite",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Rafael Martins",
+      "relationship": "conjuge",
+      "phone": "11913973593"
+    }
+  },
+  {
+    "id": 102,
+    "cpf": "90102178538",
+    "fullName": "Camila Nascimento Ribeiro",
+    "birthDate": "1994-11-22",
+    "sex": "F",
+    "email": "camila.ribeiro102@email.com",
+    "phone": "11954753431",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 150,
+    "weightKg": 73,
+    "address": {
+      "street": "Rua Cardeal Arcoverde",
+      "number": 2086,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-255",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.645446,
+          -23.56869
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "M54.5",
+        "description": "Dor lombar baixa",
+        "since": "2023-01-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Felipe Gomes",
+      "relationship": "mae",
+      "phone": "11962828351"
+    }
+  },
+  {
+    "id": 103,
+    "cpf": "90103017693",
+    "fullName": "Luiza Santos Freitas",
+    "birthDate": "1998-01-23",
+    "sex": "F",
+    "email": "luiza.freitas103@email.com",
+    "phone": "11968769716",
+    "healthPlan": "SUS",
+    "bloodType": "A+",
+    "heightCm": 164,
+    "weightKg": 69,
+    "address": {
+      "street": "Rua Domingos de Morais",
+      "number": 549,
+      "neighborhood": "Campo Belo",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04612-104",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.672048,
+          -23.618023
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Vera Castro",
+      "relationship": "conjuge",
+      "phone": "11987030118"
+    }
+  },
+  {
+    "id": 104,
+    "cpf": "90104273744",
+    "fullName": "Priscila Cardoso Fernandes",
+    "birthDate": "1998-09-18",
+    "sex": "F",
+    "email": "priscila.fernandes104@email.com",
+    "phone": "11910795056",
+    "healthPlan": "Amil",
+    "bloodType": "A+",
+    "heightCm": 155,
+    "weightKg": 57,
+    "address": {
+      "street": "Rua Voluntarios da Patria",
+      "number": 1129,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-333",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.689425,
+          -23.561144
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2019-05-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Rosangela Barbosa",
+      "relationship": "irmao(a)",
+      "phone": "11960725859"
+    }
+  },
+  {
+    "id": 105,
+    "cpf": "90105479183",
+    "fullName": "Henrique Lopes Pereira",
+    "birthDate": "1971-07-20",
+    "sex": "M",
+    "email": "henrique.pereira105@email.com",
+    "phone": "11942867302",
+    "healthPlan": "Amil",
+    "bloodType": "O+",
+    "heightCm": 188,
+    "weightKg": 99,
+    "address": {
+      "street": "Rua Voluntarios da Patria",
+      "number": 2050,
+      "neighborhood": "Pinheiros",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05422-111",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.697411,
+          -23.562212
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [
+      {
+        "substance": "Amendoim",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      },
+      {
+        "substance": "Poeira",
+        "reaction": "rinite",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Ricardo Oliveira",
+      "relationship": "filho(a)",
+      "phone": "11989743132"
+    }
+  },
+  {
+    "id": 106,
+    "cpf": "90106840632",
+    "fullName": "Mariana Silva Barbosa",
+    "birthDate": "1974-04-14",
+    "sex": "F",
+    "email": "mariana.barbosa106@email.com",
+    "phone": "11930699544",
+    "healthPlan": "Unimed",
+    "bloodType": "A+",
+    "heightCm": 173,
+    "weightKg": 80,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 413,
+      "neighborhood": "Ipiranga",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04263-198",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.608742,
+          -23.596795
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Alexandre Machado",
+      "relationship": "conjuge",
+      "phone": "11953607716"
+    }
+  },
+  {
+    "id": 107,
+    "cpf": "90107582659",
+    "fullName": "Henrique Lima Souza",
+    "birthDate": "2000-03-25",
+    "sex": "M",
+    "email": "henrique.souza107@email.com",
+    "phone": "11921967926",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 173,
+    "weightKg": 84,
+    "address": {
+      "street": "Rua Padre Joao Manuel",
+      "number": 1501,
+      "neighborhood": "Moema",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04077-788",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.668037,
+          -23.599394
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Latex",
+        "reaction": "dermatite de contato",
+        "severity": "LEVE"
+      }
+    ],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2015-12-01",
+        "controlled": true
+      },
+      {
+        "cid10": "G43",
+        "description": "Enxaqueca",
+        "since": "2023-02-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sumatriptano",
+        "dose": "50mg",
+        "frequency": "se necessario",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Marcelo Oliveira",
+      "relationship": "irmao(a)",
+      "phone": "11960206371"
+    }
+  },
+  {
+    "id": 108,
+    "cpf": "90108319061",
+    "fullName": "Francisco Ferreira Martins",
+    "birthDate": "1966-07-07",
+    "sex": "M",
+    "email": "francisco.martins108@email.com",
+    "phone": "11999891281",
+    "healthPlan": "Amil",
+    "bloodType": "O+",
+    "heightCm": 168,
+    "weightKg": 101,
+    "address": {
+      "street": "Rua Tuiuti",
+      "number": 370,
+      "neighborhood": "Saude",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04151-045",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.638994,
+          -23.618373
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2011-03-01",
+        "controlled": true
+      },
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2013-05-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Lucas Ribeiro",
+      "relationship": "filho(a)",
+      "phone": "11973613849"
+    }
+  },
+  {
+    "id": 109,
+    "cpf": "90109558837",
+    "fullName": "Paulo Souza Mendes",
+    "birthDate": "1970-10-24",
+    "sex": "M",
+    "email": "paulo.mendes109@email.com",
+    "phone": "11911810177",
+    "healthPlan": "Unimed",
+    "bloodType": "A-",
+    "heightCm": 188,
+    "weightKg": 94,
+    "address": {
+      "street": "Avenida Santo Amaro",
+      "number": 1782,
+      "neighborhood": "Santana",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "02013-702",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.619403,
+          -23.510621
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Ana Vieira",
+      "relationship": "pai",
+      "phone": "11949043036"
+    }
+  },
+  {
+    "id": 110,
+    "cpf": "90110913862",
+    "fullName": "Helena Barbosa Lima",
+    "birthDate": "2015-02-03",
+    "sex": "F",
+    "email": "helena.lima110@email.com",
+    "phone": "11987213734",
+    "healthPlan": "Amil",
+    "bloodType": "A+",
+    "heightCm": 113,
+    "weightKg": 15,
+    "address": {
+      "street": "Rua Galvao Bueno",
+      "number": 441,
+      "neighborhood": "Consolacao",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01302-659",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.657529,
+          -23.557165
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Renata Rodrigues",
+      "relationship": "pai",
+      "phone": "11966653453"
+    }
+  },
+  {
+    "id": 111,
+    "cpf": "90111970813",
+    "fullName": "Fernanda Azevedo Rocha",
+    "birthDate": "2000-03-18",
+    "sex": "F",
+    "email": "fernanda.rocha111@email.com",
+    "phone": "11973180392",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "B-",
+    "heightCm": 162,
+    "weightKg": 86,
+    "address": {
+      "street": "Rua Padre Joao Manuel",
+      "number": 128,
+      "neighborhood": "Ipiranga",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04263-863",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.609714,
+          -23.591066
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Francisco Monteiro",
+      "relationship": "conjuge",
+      "phone": "11986936564"
+    }
+  },
+  {
+    "id": 112,
+    "cpf": "90112686868",
+    "fullName": "Nicolas Moreira Cunha",
+    "birthDate": "1951-02-18",
+    "sex": "M",
+    "email": "nicolas.cunha112@email.com",
+    "phone": "11947409652",
+    "healthPlan": "Bradesco Saude",
+    "bloodType": "A+",
+    "heightCm": 168,
+    "weightKg": 73,
+    "address": {
+      "street": "Rua da Mooca",
+      "number": 1626,
+      "neighborhood": "Lapa",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05077-114",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.705787,
+          -23.517974
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2024-12-01",
+        "controlled": true
+      },
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2025-10-01",
+        "controlled": true
+      },
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2022-05-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Anlodipino",
+        "dose": "5mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Camila Ribeiro",
+      "relationship": "conjuge",
+      "phone": "11967637476"
+    }
+  },
+  {
+    "id": 113,
+    "cpf": "90113147717",
+    "fullName": "Luiz Alves Marques",
+    "birthDate": "1994-04-21",
+    "sex": "M",
+    "email": "luiz.marques113@email.com",
+    "phone": "11967932775",
+    "healthPlan": "Amil",
+    "bloodType": "B-",
+    "heightCm": 168,
+    "weightKg": 60,
+    "address": {
+      "street": "Rua Bom Pastor",
+      "number": 1257,
+      "neighborhood": "Analia Franco",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "03337-390",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.555981,
+          -23.549644
+        ]
+      }
+    },
+    "preferredUnit": "TATUAPE",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Ricardo Lima",
+      "relationship": "pai",
+      "phone": "11995195628"
+    }
+  },
+  {
+    "id": 114,
+    "cpf": "90114569373",
+    "fullName": "Vera Machado Fernandes",
+    "birthDate": "1961-09-25",
+    "sex": "F",
+    "email": "vera.fernandes114@email.com",
+    "phone": "11926782485",
+    "healthPlan": "SulAmerica",
+    "bloodType": "B+",
+    "heightCm": 158,
+    "weightKg": 79,
+    "address": {
+      "street": "Rua Cardeal Arcoverde",
+      "number": 1660,
+      "neighborhood": "Itaim Bibi",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04532-202",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.674307,
+          -23.585221
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "I10",
+        "description": "Hipertensao arterial essencial",
+        "since": "2021-01-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Losartana",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Francisco Azevedo",
+      "relationship": "pai",
+      "phone": "11997503620"
+    }
+  },
+  {
+    "id": 115,
+    "cpf": "90115693285",
+    "fullName": "Mateus Alves Mendes",
+    "birthDate": "2021-03-17",
+    "sex": "M",
+    "email": "mateus.mendes115@email.com",
+    "phone": "11952257031",
+    "healthPlan": "Particular",
+    "bloodType": "O+",
+    "heightCm": 114,
+    "weightKg": 23,
+    "address": {
+      "street": "Rua Tuiuti",
+      "number": 1517,
+      "neighborhood": "Vila Madalena",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05433-960",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.692376,
+          -23.551305
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Leticia Andrade",
+      "relationship": "mae",
+      "phone": "11963928917"
+    }
+  },
+  {
+    "id": 116,
+    "cpf": "90116072360",
+    "fullName": "Elisa Ribeiro Marques",
+    "birthDate": "1962-08-18",
+    "sex": "F",
+    "email": "elisa.marques116@email.com",
+    "phone": "11945265186",
+    "healthPlan": "Unimed",
+    "bloodType": "B+",
+    "heightCm": 162,
+    "weightKg": 90,
+    "address": {
+      "street": "Avenida Santo Amaro",
+      "number": 690,
+      "neighborhood": "Jardins",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01419-653",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.666827,
+          -23.56467
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "E11",
+        "description": "Diabetes mellitus tipo 2",
+        "since": "2012-11-01",
+        "controlled": true
+      }
+    ],
+    "medications": [
+      {
+        "name": "Glicazida",
+        "dose": "30mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Carlos Mendes",
+      "relationship": "irmao(a)",
+      "phone": "11943387101"
+    }
+  },
+  {
+    "id": 117,
+    "cpf": "90117244875",
+    "fullName": "Renata Pereira Mendes",
+    "birthDate": "1946-12-08",
+    "sex": "F",
+    "email": "renata.mendes117@email.com",
+    "phone": "11914720898",
+    "healthPlan": "SUS",
+    "bloodType": "O+",
+    "heightCm": 163,
+    "weightKg": 80,
+    "address": {
+      "street": "Avenida Sapopemba",
+      "number": 1166,
+      "neighborhood": "Perdizes",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "05015-627",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.67491,
+          -23.536093
+        ]
+      }
+    },
+    "preferredUnit": "PINHEIROS",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "F41.1",
+        "description": "Transtorno de ansiedade generalizada",
+        "since": "2020-08-01",
+        "controlled": true
+      },
+      {
+        "cid10": "I48",
+        "description": "Fibrilacao atrial",
+        "since": "2015-04-01",
+        "controlled": false
+      }
+    ],
+    "medications": [
+      {
+        "name": "Sertralina",
+        "dose": "50mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      },
+      {
+        "name": "Rivaroxabana",
+        "dose": "20mg",
+        "frequency": "1x ao dia",
+        "continuous": true
+      }
+    ],
+    "emergencyContact": {
+      "name": "Sofia Rocha",
+      "relationship": "irmao(a)",
+      "phone": "11989522567"
+    }
+  },
+  {
+    "id": 118,
+    "cpf": "90118584444",
+    "fullName": "Roberto Ferreira Lima",
+    "birthDate": "1971-04-22",
+    "sex": "M",
+    "email": "roberto.lima118@email.com",
+    "phone": "11933077636",
+    "healthPlan": "SUS",
+    "bloodType": "A+",
+    "heightCm": 175,
+    "weightKg": 69,
+    "address": {
+      "street": "Rua Augusta",
+      "number": 1926,
+      "neighborhood": "Ipiranga",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04263-762",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.609742,
+          -23.592894
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [],
+    "chronicConditions": [
+      {
+        "cid10": "H52.1",
+        "description": "Miopia",
+        "since": "2019-02-01",
+        "controlled": true
+      }
+    ],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Vera Marques",
+      "relationship": "conjuge",
+      "phone": "11910680893"
+    }
+  },
+  {
+    "id": 119,
+    "cpf": "90119746178",
+    "fullName": "Rafaela Nunes Rodrigues",
+    "birthDate": "1996-11-05",
+    "sex": "F",
+    "email": "rafaela.rodrigues119@email.com",
+    "phone": "11977084905",
+    "healthPlan": "Particular",
+    "bloodType": "A+",
+    "heightCm": 176,
+    "weightKg": 51,
+    "address": {
+      "street": "Rua Harmonia",
+      "number": 497,
+      "neighborhood": "Bela Vista",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "01310-826",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.643831,
+          -23.558378
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Amoxicilina",
+        "reaction": "exantema",
+        "severity": "LEVE"
+      },
+      {
+        "substance": "Contraste iodado",
+        "reaction": "broncoespasmo",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Daniela Ramos",
+      "relationship": "irmao(a)",
+      "phone": "11923837671"
+    }
+  },
+  {
+    "id": 120,
+    "cpf": "90120932161",
+    "fullName": "Vera Ferreira Barbosa",
+    "birthDate": "1969-12-13",
+    "sex": "F",
+    "email": "vera.barbosa120@email.com",
+    "phone": "11944645489",
+    "healthPlan": "Amil",
+    "bloodType": "B+",
+    "heightCm": 159,
+    "weightKg": 75,
+    "address": {
+      "street": "Rua Oscar Freire",
+      "number": 2008,
+      "neighborhood": "Vila Olimpia",
+      "city": "Sao Paulo",
+      "state": "SP",
+      "zipCode": "04551-343",
+      "location": {
+        "type": "Point",
+        "coordinates": [
+          -46.692039,
+          -23.596858
+        ]
+      }
+    },
+    "preferredUnit": "MOEMA",
+    "allergies": [
+      {
+        "substance": "Amendoim",
+        "reaction": "anafilaxia",
+        "severity": "GRAVE"
+      }
+    ],
+    "chronicConditions": [],
+    "medications": [],
+    "emergencyContact": {
+      "name": "Eduardo Moreira",
+      "relationship": "pai",
+      "phone": "11917791547"
+    }
+  }
+]

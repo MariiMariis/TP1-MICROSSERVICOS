@@ -22,3 +22,13 @@ target/
 Thumbs.db
 desktop.ini
 .DS_Store
+
+# ----- Node.js (medical-record-service e frontend) -----
+node_modules/
+dist/
+.env
+.env.local
+npm-debug.log*
+
+# ----- Claude Code (config local de preview) -----
+.claude/

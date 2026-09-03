@@ -1,125 +1,186 @@
 ### ====================================================================
-### medical-record-service - MongoDB / medflow_medical_records
+### medical-record-service - Node.js + Express + MongoDB Atlas
+### database: medflow_medical_records (colecoes prontuarios e atendimentos)
 ###
-### BANCO NAO RELACIONAL DO PROJETO.
-### Repare que cada POST abaixo envia um clinicalData com estrutura
-### COMPLETAMENTE diferente - e todos convivem na mesma colecao, sem
-### schema e sem migracao.
+### BANCO NAO RELACIONAL DO PROJETO. Todas as chamadas passam pelo gateway.
 ### ====================================================================
 
 @gateway = http://localhost:8080
+@mr = {{gateway}}/api/medical-records
 
-### Listar todos os registros clinicos
-GET {{gateway}}/api/medical-records
+### Saude do servico (mesmo formato dos servicos Spring)
+GET http://localhost:8083/actuator/health
 
-### Linha do tempo clinica de um paciente (consulta dominante do servico)
-GET {{gateway}}/api/medical-records/patient/1
+### -------------------------------------------------------------------
+### PRONTUARIOS (1 documento por paciente, com arrays embutidos)
+### -------------------------------------------------------------------
 
-### Filtrar por especialidade
-GET {{gateway}}/api/medical-records?specialty=Cardiologia
+### Lista paginada (projecao reduzida)
+GET {{mr}}/patients?page=0&size=10
 
-### Filtrar por tipo de registro
-GET {{gateway}}/api/medical-records?type=EXAME
+### Filtros sobre campos embutidos e arrays
+GET {{mr}}/patients?allergy=Penicilina
+###
+GET {{mr}}/patients?cid10=I10&unit=MOEMA
+###
+GET {{mr}}/patients?q=ribeiro
 
-### Filtrar por marcador clinico
-GET {{gateway}}/api/medical-records?tag=hipertensao
+### Prontuario completo do paciente 1
+GET {{mr}}/patients/1
+
+### $addToSet em array embutido
+POST {{mr}}/patients/1/allergies
+Content-Type: application/json
+
+{ "substance": "Contraste iodado", "reaction": "broncoespasmo", "severity": "GRAVE" }
+
+### $pull
+DELETE {{mr}}/patients/1/allergies/Contraste iodado
+
+### $push
+POST {{mr}}/patients/1/medications
+Content-Type: application/json
+
+{ "name": "Losartana", "dose": "50mg", "frequency": "1x ao dia" }
+
+### -------------------------------------------------------------------
+### ATENDIMENTOS (contrato da Entrega 1, mantido)
+### -------------------------------------------------------------------
+
+### Linha do tempo clinica (consulta dominante: indice {patientId:1, occurredAt:-1})
+GET {{mr}}/patient/1
+
+### Filtros
+GET {{mr}}?specialty=Cardiologia&size=5
+###
+GET {{mr}}?type=EXAME&size=5
+###
+GET {{mr}}?tag=hipertensao
+###
+GET {{mr}}?cid10=E11
+###
+GET {{mr}}?from=2026-08-01&to=2026-09-30
 
 ### CONSULTA QUE SO O MODELO DE DOCUMENTO TORNA NATURAL:
-### registros que possuam determinada medicao dentro de clinicalData,
-### campo que nem existe na maioria dos documentos.
-GET {{gateway}}/api/medical-records?clinicalDataKey=pressaoIntraocular
-
+### atendimentos que POSSUEM determinada medicao dentro de clinicalData.
+GET {{mr}}?clinicalDataKey=pressaoIntraocular
 ###
-GET {{gateway}}/api/medical-records?clinicalDataKey=hemograma
+GET {{mr}}?clinicalDataKey=hemograma.hemoglobina
 
-### -------------------------------------------------------------------
-### Registro de CARDIOLOGIA - medidas hemodinamicas
-### -------------------------------------------------------------------
-POST {{gateway}}/api/medical-records
+### Novo atendimento de CARDIOLOGIA
+POST {{mr}}
 Content-Type: application/json
 
 {
   "patientId": 1,
-  "patientName": "Ana Paula Ribeiro",
   "recordType": "CONSULTA",
   "specialty": "Cardiologia",
-  "professional": "Dr. Helio Vasconcelos",
-  "occurredAt": "2026-08-10T10:00:00",
+  "professional": { "name": "Dr. Helio Vasconcelos", "license": "CRM-SP 45871" },
+  "occurredAt": "2026-09-01T10:00:00",
+  "chiefComplaint": "Retorno para controle da pressao arterial",
+  "diagnosis": [{ "cid10": "I10", "description": "Hipertensao arterial essencial" }],
   "tags": ["hipertensao", "retorno"],
   "clinicalData": {
     "pressaoArterial": { "sistolica": 138, "diastolica": 86, "unidade": "mmHg" },
     "frequenciaCardiaca": 76,
     "ecg": { "ritmo": "sinusal", "alteracoes": [] },
-    "fracaoEjecao": 61.2,
-    "medicacoesEmUso": ["Losartana 50mg"]
+    "fracaoEjecao": 61.2
   },
-  "attachments": [
-    { "fileName": "ecg-2026-08.pdf", "contentType": "application/pdf", "url": "/laudos/ecg-2026-08.pdf", "sizeKb": 380 }
-  ]
+  "prescriptions": [{ "name": "Losartana", "dose": "50mg", "frequency": "1x ao dia", "days": 30 }]
 }
 
-### -------------------------------------------------------------------
-### Registro de ORTOPEDIA - estrutura totalmente diferente da anterior
-### Nenhum campo em comum. Nenhuma migracao de schema foi necessaria.
-### -------------------------------------------------------------------
-POST {{gateway}}/api/medical-records
+### Novo atendimento de OFTALMOLOGIA - estrutura completamente diferente, mesma colecao
+POST {{mr}}
 Content-Type: application/json
 
 {
   "patientId": 2,
-  "patientName": "Carlos Eduardo Souza",
-  "recordType": "PROCEDIMENTO",
-  "specialty": "Ortopedia",
-  "professional": "Dr. Andre Tavares",
-  "occurredAt": "2026-08-14T08:30:00",
-  "tags": ["joelho", "artroscopia"],
+  "recordType": "CONSULTA",
+  "specialty": "Oftalmologia",
+  "professional": "Dra. Renata Camargo",
+  "occurredAt": "2026-09-01T14:00:00",
+  "diagnosis": [{ "cid10": "H52.1", "description": "Miopia" }],
   "clinicalData": {
-    "articulacao": "joelho direito",
-    "procedimento": "artroscopia diagnostica",
-    "achados": {
-      "meniscoMedial": "lesao horizontal grau II",
-      "ligamentoCruzadoAnterior": "integro",
-      "cartilagem": "condropatia patelar grau I"
-    },
-    "anestesia": { "tipo": "raquidiana", "anestesista": "Dra. Lucia Moreira" },
-    "tempoCirurgicoMinutos": 55,
-    "orientacoesPosOperatorias": [
-      "crioterapia 20 minutos a cada 3 horas",
-      "carga parcial com muletas por 7 dias",
-      "fisioterapia a partir do 5o dia"
-    ]
+    "acuidadeVisual": { "olhoDireito": "20/40", "olhoEsquerdo": "20/30" },
+    "pressaoIntraocular": { "olhoDireito": 16, "olhoEsquerdo": 15, "unidade": "mmHg" },
+    "refracao": { "olhoDireito": { "esferico": -2.25, "cilindrico": -0.75, "eixo": 180 } }
   }
 }
 
-### -------------------------------------------------------------------
-### Registro de PSIQUIATRIA - texto livre e escalas, sem numeros fixos
-### -------------------------------------------------------------------
-POST {{gateway}}/api/medical-records
+### Documento INVALIDO: rejeitado pelo schema validation (422 com os detalhes)
+POST {{mr}}
 Content-Type: application/json
 
-{
-  "patientId": 3,
-  "patientName": "Marina Lopes Ferreira",
-  "recordType": "CONSULTA",
-  "specialty": "Psiquiatria",
-  "professional": "Dra. Beatriz Amaral",
-  "occurredAt": "2026-08-18T16:00:00",
-  "tags": ["ansiedade", "primeira-consulta"],
-  "clinicalData": {
-    "queixaPrincipal": "insonia e ansiedade ha 4 meses",
-    "escalas": { "GAD7": 14, "PHQ9": 9 },
-    "exameEstadoMental": {
-      "humor": "ansioso",
-      "pensamento": "logico e coerente",
-      "insight": "preservado"
-    },
-    "planoTerapeutico": ["psicoterapia semanal", "higiene do sono"]
-  }
-}
+{ "patientId": 1, "recordType": "CONSULTA", "specialty": "Cardiologia", "diagnosis": [{ "cid10": "hipertensao", "description": "codigo fora do padrao CID-10" }], "clinicalData": {} }
 
-### Buscar um registro especifico
-### (troque o id por um retornado nas listagens acima)
-GET {{gateway}}/api/medical-records/COLE_O_ID_AQUI
+### -------------------------------------------------------------------
+### ATLAS SEARCH
+### -------------------------------------------------------------------
 
-### Remover um registro
-DELETE {{gateway}}/api/medical-records/COLE_O_ID_AQUI
+### Full-text com fuzzy ("diabetis" encontra "diabetes") e facets
+GET {{mr}}/search?q=diabetis
+
+###
+GET {{mr}}/search?q=dor de cabeca&specialty=Clinica Geral
+
+### Autocomplete de nomes
+GET {{mr}}/search/autocomplete?q=mar
+
+### Estado dos indices de busca
+GET {{mr}}/search/status
+
+### -------------------------------------------------------------------
+### AGGREGATION (dashboard)
+### -------------------------------------------------------------------
+
+### Catalogo de analises
+GET {{mr}}/analytics
+
+### Todas as analises do dashboard de uma vez
+GET {{mr}}/analytics/dashboard
+
+### Uma analise, com o pipeline na resposta
+GET {{mr}}/analytics/diagnosticos
+###
+GET {{mr}}/analytics/conflitosAlergia
+###
+GET {{mr}}/analytics/evolucaoPressao?patientId=1
+
+### -------------------------------------------------------------------
+### GEOESPACIAL
+### -------------------------------------------------------------------
+
+### Pacientes a ate 2 km da unidade Moema
+GET {{mr}}/geo/near-unit/MOEMA?maxKm=2
+
+### Hipertensos a ate 3 km de um ponto qualquer (Av. Paulista)
+GET {{mr}}/geo/near?lng=-46.6560&lat=-23.5614&maxKm=3&cid10=I10
+
+### Cobertura por unidade
+GET {{mr}}/geo/coverage
+
+### -------------------------------------------------------------------
+### BASTIDORES
+### -------------------------------------------------------------------
+
+### Explain: mesma consulta sem indice (COLLSCAN) ...
+GET {{mr}}/admin/explain?field=patientId&value=7&index=false
+
+### ... e com indice (IXSCAN)
+GET {{mr}}/admin/explain?field=patientId&value=7&index=true
+
+### Indices, schema e estatisticas
+GET {{mr}}/admin/indexes
+###
+GET {{mr}}/admin/schema
+###
+GET {{mr}}/admin/overview
+
+### Documento cru aleatorio de uma especialidade
+GET {{mr}}/admin/sample/atendimentos?specialty=Psiquiatria
+
+### Schema validation em acao (documento invalido, nada e gravado)
+POST {{mr}}/admin/validation-demo
+
+### Recarregar a carga da demo (apaga e recria)
+POST {{mr}}/admin/seed?force=true

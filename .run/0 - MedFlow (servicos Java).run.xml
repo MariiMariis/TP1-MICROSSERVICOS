@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="0 - MedFlow (servicos Java)" type="CompoundRunConfigurationType">
+    <toRun name="1 - Discovery Server (8761)" type="Application" />
+    <toRun name="2 - Patient Service (8081)" type="Application" />
+    <toRun name="3 - Appointment Service (8082)" type="Application" />
+    <toRun name="5 - API Gateway (8080)" type="Application" />
+    <method v="2" />
+  </configuration>
+</component>
