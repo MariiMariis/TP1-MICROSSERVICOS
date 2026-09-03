@@ -275,7 +275,7 @@ gateway, então o navegador só fala com uma origem e **todas** as chamadas pass
 
 | Tela | Serviços consumidos | O que mostra |
 |---|---|---|
-| Dashboard | medical-record-service | KPIs e 11 gráficos/tabelas, cada um com o pipeline que o gerou |
+| Dashboard | medical-record-service | KPIs e 11 gráficos/tabelas, cada um com o pipeline que o gerou e o botão **"Como o Atlas processou"**: painel com cada estágio explicado em português, o plano real (`explain`: nó do cluster, índice ou varredura, documentos lidos, tempo por estágio) e o `explain()` bruto |
 | Pacientes | patient-service **+** medical-record-service | Lista que junta cadastro (PostgreSQL) e prontuário (Mongo) pelo id; cadastro novo grava nos dois |
 | Paciente | patient-service, medical-record-service, appointment-service | Cadastro, prontuário editável (`$addToSet`/`$pull`), linha do tempo, novo atendimento com formulário por especialidade, evolução da pressão arterial, agenda |
 | Agenda | appointment-service | Agendamento, ciclo de status, cancelamento, reconciliação e estado do circuit breaker |
@@ -433,8 +433,11 @@ Abra <http://localhost:5173>. (IntelliJ Ultimate: run config **`6 - Frontend (51
    "Última operação enviada ao Mongo".
 6. **Paciente → Novo atendimento:** registre uma consulta de Oftalmologia e depois uma "Livre" com um
    JSON qualquer; veja o `summary` do prontuário atualizado por `$inc/$max`.
-7. **Dashboard:** abra "Ver o aggregation pipeline" em *Conflitos com alergias* (`$lookup` + `$filter`)
-   e em *Campos por especialidade* (`$objectToArray`).
+7. **Dashboard:** clique em **"Como o Atlas processou"** no cartão *Conflitos com alergias*: a aba 1
+   explica os 7 estágios (`$lookup` + `$filter`), a aba 2 mostra que o join usou o índice
+   `uk_patient_id` e quantos documentos passaram por cada estágio. Faça o mesmo em *Campos por
+   especialidade* (`$objectToArray`) e, na ficha de um paciente, na aba *Pressão arterial*, para ver
+   uma consulta pontual usando `IXSCAN` em vez de `COLLSCAN`.
 8. **Busca:** digite `diabetis` (fuzzy), `dores` (stemming em português), um nome parcial (autocomplete)
    e filtre pelas facets.
 9. **Mapa:** selecione Moema com 2 km, filtre por `I10`, clique em outro ponto do mapa.

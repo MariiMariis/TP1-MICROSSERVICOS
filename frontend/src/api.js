@@ -77,6 +77,7 @@ export const api = {
     dashboard: () => get(`${MR}/analytics/dashboard`),
     list: () => get(`${MR}/analytics`),
     run: (key, params) => get(`${MR}/analytics/${key}`, params),
+    explain: (key, params) => get(`${MR}/analytics/${key}/explain`, params),
   },
   geo: {
     units: () => get(`${MR}/geo/units`),

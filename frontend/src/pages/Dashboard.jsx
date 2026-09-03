@@ -3,6 +3,7 @@ import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAx
 import { api } from "../api.js";
 import { Badge, Card, ErrorBox, Loading, StatTile, useLoad } from "../components/ui.jsx";
 import PipelineViewer from "../components/PipelineViewer.jsx";
+import { AtlasExplainButton } from "../components/AtlasExplain.jsx";
 import { fmtBRL, fmtDate, fmtNum, SERIES } from "../lib/format.js";
 
 const AXIS = { fontSize: 12, fill: "#7b8794" };
@@ -10,7 +11,7 @@ const GRID = "#eef0f3";
 
 function ChartCard({ report, children, subtitle }) {
   return (
-    <Card title={report.title} subtitle={subtitle ?? report.description}>
+    <Card title={report.title} subtitle={subtitle ?? report.description} actions={<AtlasExplainButton report={report} />}>
       {children}
       <PipelineViewer report={report} />
     </Card>
@@ -183,7 +184,7 @@ export default function Dashboard() {
           </div>
         </ChartCard>
 
-        <Card className="span-2" title={r.camposPorEspecialidade.title} subtitle={r.camposPorEspecialidade.description}>
+        <Card className="span-2" title={r.camposPorEspecialidade.title} subtitle={r.camposPorEspecialidade.description} actions={<AtlasExplainButton report={r.camposPorEspecialidade} />}>
           <div className="grid cols-3">
             {r.camposPorEspecialidade.result.map((e) => (
               <div key={e.especialidade}>

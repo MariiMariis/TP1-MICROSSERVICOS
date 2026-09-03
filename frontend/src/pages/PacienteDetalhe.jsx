@@ -5,6 +5,7 @@ import { api } from "../api.js";
 import { Badge, Card, Empty, ErrorBox, Loading, Tabs, useLoad } from "../components/ui.jsx";
 import JsonView from "../components/JsonView.jsx";
 import PipelineViewer from "../components/PipelineViewer.jsx";
+import { AtlasExplainButton } from "../components/AtlasExplain.jsx";
 import { age, cpfMask, fmtBRL, fmtDate, fmtDateTime, SERIES, SEVERITY_TONE, STATUS_TONE, TYPE_LABEL, TYPE_TONE, UNIT_LABEL } from "../lib/format.js";
 import { buildClinicalData, SPECIALTIES, TEMPLATES } from "../lib/specialtyTemplates.js";
 
@@ -242,6 +243,7 @@ export default function PacienteDetalhe() {
                 </LineChart>
               </ResponsiveContainer>
             )}
+            <div className="row" style={{ marginTop: 10 }}><AtlasExplainButton report={bp.data} params={{ patientId }} /><span className="muted small">Consulta pontual: repare que aqui o servidor usa o indice, ao contrario das analises do dashboard.</span></div>
             <PipelineViewer report={bp.data} />
           </>
         ))}
