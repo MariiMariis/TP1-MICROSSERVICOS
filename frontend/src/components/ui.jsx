@@ -31,7 +31,7 @@ export function StatTile({ label, value, hint }) {
   );
 }
 
-export function Loading({ text = "Carregando..." }) {
+export function Loading({ text = "Loading..." }) {
   return <div className="loading">{text}</div>;
 }
 
@@ -44,10 +44,10 @@ export function ErrorBox({ error, onRetry }) {
   const body = error.body;
   return (
     <div className="alert error">
-      <b>{error.status ? `HTTP ${error.status}` : "Erro"}</b> — {error.message}
+      <b>{error.status ? `HTTP ${error.status}` : "Error"}</b> — {error.message}
       {body?.path && <span className="muted"> ({body.path})</span>}
       {body?.details && <pre style={{ whiteSpace: "pre-wrap", margin: "6px 0 0", fontSize: 12 }}>{JSON.stringify(body.details, null, 2)}</pre>}
-      {onRetry && <div style={{ marginTop: 8 }}><button className="btn sm" onClick={onRetry}>Tentar de novo</button></div>}
+      {onRetry && <div style={{ marginTop: 8 }}><button className="btn sm" onClick={onRetry}>Try again</button></div>}
     </div>
   );
 }
@@ -62,7 +62,7 @@ export function Tabs({ tabs, active, onChange }) {
   );
 }
 
-// Hook simples para carregar dados: { data, error, loading, reload }
+// Simple data-loading hook: { data, error, loading, reload }
 export function useLoad(fn, deps = []) {
   const [state, setState] = useState({ data: null, error: null, loading: true });
   const [tick, setTick] = useState(0);

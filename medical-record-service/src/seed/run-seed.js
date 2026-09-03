@@ -6,13 +6,13 @@ const force = process.argv.includes("--force");
 
 try {
   await connect();
-  console.log("[seed] conectado:", await serverInfo());
+  console.log("[seed] connected:", await serverInfo());
   await ensureSchema();
   const result = await seedDatabase({ force });
-  console.log("[seed] resultado:", result);
-  console.log("[seed] indices do Atlas Search:", await ensureSearchIndexes());
+  console.log("[seed] result:", result);
+  console.log("[seed] Atlas Search indexes:", await ensureSearchIndexes());
 } catch (err) {
-  console.error("[seed] falhou:", err);
+  console.error("[seed] failed:", err);
   process.exitCode = 1;
 } finally {
   await close();

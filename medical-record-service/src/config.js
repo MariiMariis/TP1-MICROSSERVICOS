@@ -1,4 +1,4 @@
-// Configuracao externalizada, no mesmo espirito do ${VARIAVEL:padrao} dos servicos Java.
+// Externalized configuration, in the same spirit as the ${VARIABLE:default} of the Java services.
 import "dotenv/config";
 
 const bool = (value, fallback) => (value === undefined || value === "" ? fallback : value === "true");
@@ -22,15 +22,15 @@ export const config = {
 };
 
 export const COLLECTIONS = {
-  prontuarios: "prontuarios",
-  atendimentos: "atendimentos",
+  records: "medical_records",
+  encounters: "encounters",
 };
 
-// Unidades da rede MedFlow em Sao Paulo (GeoJSON usa [longitude, latitude]).
+// MedFlow clinic units in Sao Paulo (GeoJSON uses [longitude, latitude]).
 export const UNITS = [
   { code: "PINHEIROS", name: "MedFlow Pinheiros", address: "Rua dos Pinheiros, 1000 - Pinheiros", location: { type: "Point", coordinates: [-46.6917, -23.5646] } },
   { code: "MOEMA", name: "MedFlow Moema", address: "Av. Ibirapuera, 2300 - Moema", location: { type: "Point", coordinates: [-46.6650, -23.6010] } },
   { code: "TATUAPE", name: "MedFlow Tatuape", address: "Rua Tuiuti, 500 - Tatuape", location: { type: "Point", coordinates: [-46.5760, -23.5400] } },
 ];
 
-export const RECORD_TYPES = ["CONSULTA", "EXAME", "PROCEDIMENTO", "INTERNACAO", "VACINA"];
+export const RECORD_TYPES = ["CONSULTATION", "EXAM", "PROCEDURE", "ADMISSION", "VACCINE"];

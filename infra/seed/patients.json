@@ -30,8 +30,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2020-01-01",
         "controlled": false
       }
@@ -39,7 +39,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Camila Lima",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11921759857"
     }
   },
@@ -51,7 +51,7 @@
     "sex": "M",
     "email": "carlos.souza@email.com",
     "phone": "31988880002",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "AB+",
     "heightCm": 170,
     "weightKg": 71,
@@ -74,23 +74,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F32.1",
-        "description": "Episodio depressivo moderado",
+        "icd10": "F32.1",
+        "description": "Moderate depressive episode",
         "since": "2011-10-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Fluoxetina",
+        "name": "Fluoxetine",
         "dose": "20mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Luiz Oliveira",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11983939212"
     }
   },
@@ -102,7 +102,7 @@
     "sex": "F",
     "email": "marina.ferreira@email.com",
     "phone": "31988880003",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 171,
     "weightKg": 51,
@@ -124,16 +124,16 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Frutos do mar",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Shellfish",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Gustavo Pinto",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11937203220"
     }
   },
@@ -168,29 +168,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2011-12-01",
         "controlled": true
       },
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2012-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Leticia Gomes",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11974381875"
     }
   },
@@ -202,7 +202,7 @@
     "sex": "F",
     "email": "renata.almeida5@email.com",
     "phone": "11931350561",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "A+",
     "heightCm": 170,
     "weightKg": 93,
@@ -225,35 +225,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2023-05-01",
         "controlled": true
       },
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2019-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
         "name": "Escitalopram",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Paulo Monteiro",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11934389733"
     }
   },
@@ -288,35 +288,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2021-12-01",
         "controlled": true
       },
       {
-        "cid10": "I48",
-        "description": "Fibrilacao atrial",
+        "icd10": "I48",
+        "description": "Atrial fibrillation",
         "since": "2024-02-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       },
       {
-        "name": "Rivaroxabana",
+        "name": "Rivaroxaban",
         "dose": "20mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Rafaela Moreira",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11937414632"
     }
   },
@@ -351,20 +351,20 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2018-11-01",
         "controlled": true
       },
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2011-06-01",
         "controlled": false
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2012-12-01",
         "controlled": true
       }
@@ -373,13 +373,13 @@
       {
         "name": "Escitalopram",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Jose Soares",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11919883170"
     }
   },
@@ -414,23 +414,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2018-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Anlodipino",
+        "name": "Amlodipine",
         "dose": "5mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Roberto Lopes",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11916113672"
     }
   },
@@ -442,7 +442,7 @@
     "sex": "F",
     "email": "carolina.dias9@email.com",
     "phone": "11997271348",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O-",
     "heightCm": 163,
     "weightKg": 92,
@@ -465,29 +465,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2025-09-01",
         "controlled": false
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2016-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sinvastatina",
+        "name": "Simvastatin",
         "dose": "20mg",
-        "frequency": "1x a noite",
+        "frequency": "at night",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Marcia Carvalho",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11971834453"
     }
   },
@@ -522,23 +522,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2023-08-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Paulo Fernandes",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11910434222"
     }
   },
@@ -550,7 +550,7 @@
     "sex": "F",
     "email": "sofia.ferreira11@email.com",
     "phone": "11953501805",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O-",
     "heightCm": 164,
     "weightKg": 78,
@@ -575,7 +575,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Fabio Almeida",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11950143696"
     }
   },
@@ -610,35 +610,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2022-03-01",
         "controlled": true
       },
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2026-10-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Budesonida inalatoria",
+        "name": "Budesonide inhaler",
         "dose": "200mcg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Juliana Pereira",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11928623968"
     }
   },
@@ -673,29 +673,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2018-04-01",
         "controlled": true
       },
       {
-        "cid10": "N18.3",
-        "description": "Doenca renal cronica estagio 3",
+        "icd10": "N18.3",
+        "description": "Chronic kidney disease, stage 3",
         "since": "2024-02-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Carlos Carvalho",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11953479932"
     }
   },
@@ -732,7 +732,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Vinicius Pereira",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11977534716"
     }
   },
@@ -767,15 +767,15 @@
     "allergies": [
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Rosangela Pinto",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11979843184"
     }
   },
@@ -810,8 +810,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2014-10-01",
         "controlled": true
       }
@@ -819,7 +819,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Juliana Mendes",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11951149183"
     }
   },
@@ -856,7 +856,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Gustavo Dias",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11982863232"
     }
   },
@@ -891,20 +891,20 @@
     "allergies": [
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       },
       {
         "substance": "Latex",
-        "reaction": "dermatite de contato",
-        "severity": "LEVE"
+        "reaction": "contact dermatitis",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Mateus Lima",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11918518907"
     }
   },
@@ -938,16 +938,16 @@
     "preferredUnit": "TATUAPE",
     "allergies": [
       {
-        "substance": "Amendoim",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Peanut",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Leonardo Nunes",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11916085553"
     }
   },
@@ -981,60 +981,60 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Poeira",
-        "reaction": "rinite",
-        "severity": "LEVE"
+        "substance": "Dust",
+        "reaction": "rhinitis",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2016-11-01",
         "controlled": false
       },
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2020-12-01",
         "controlled": true
       },
       {
-        "cid10": "E03.9",
-        "description": "Hipotireoidismo",
+        "icd10": "E03.9",
+        "description": "Hypothyroidism",
         "since": "2021-08-01",
         "controlled": false
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2020-06-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Anlodipino",
+        "name": "Amlodipine",
         "dose": "5mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Sinvastatina",
+        "name": "Simvastatin",
         "dose": "20mg",
-        "frequency": "1x a noite",
+        "frequency": "at night",
         "continuous": true
       },
       {
-        "name": "Levotiroxina",
+        "name": "Levothyroxine",
         "dose": "50mcg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Pedro Vieira",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11962325373"
     }
   },
@@ -1069,23 +1069,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2025-06-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Mariana Moreira",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11959678853"
     }
   },
@@ -1097,7 +1097,7 @@
     "sex": "F",
     "email": "fernanda.almeida22@email.com",
     "phone": "11992788618",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O-",
     "heightCm": 164,
     "weightKg": 61,
@@ -1120,53 +1120,53 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2021-04-01",
         "controlled": false
       },
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2024-04-01",
         "controlled": true
       },
       {
-        "cid10": "E03.9",
-        "description": "Hipotireoidismo",
+        "icd10": "E03.9",
+        "description": "Hypothyroidism",
         "since": "2026-10-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2023-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Anlodipino",
+        "name": "Amlodipine",
         "dose": "5mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Rosuvastatina",
+        "name": "Rosuvastatin",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Levotiroxina",
+        "name": "Levothyroxine",
         "dose": "50mcg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Priscila Soares",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11984697374"
     }
   },
@@ -1178,7 +1178,7 @@
     "sex": "F",
     "email": "vera.barbosa23@email.com",
     "phone": "11924878531",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 154,
     "weightKg": 96,
@@ -1201,59 +1201,59 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2026-11-01",
         "controlled": false
       },
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2015-02-01",
         "controlled": true
       },
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2011-03-01",
         "controlled": true
       },
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2019-12-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sinvastatina",
+        "name": "Simvastatin",
         "dose": "20mg",
-        "frequency": "1x a noite",
+        "frequency": "at night",
         "continuous": true
       },
       {
-        "name": "Salbutamol spray",
+        "name": "Salbutamol inhaler",
         "dose": "100mcg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       },
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Luiz Pinto",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11978165127"
     }
   },
@@ -1290,7 +1290,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Helena Correia",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11986366628"
     }
   },
@@ -1302,7 +1302,7 @@
     "sex": "M",
     "email": "roberto.rodrigues25@email.com",
     "phone": "11964690322",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O+",
     "heightCm": 192,
     "weightKg": 107,
@@ -1325,35 +1325,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2021-01-01",
         "controlled": true
       },
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2011-10-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Mateus Souza",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11962284041"
     }
   },
@@ -1365,7 +1365,7 @@
     "sex": "F",
     "email": "priscila.pinto26@email.com",
     "phone": "11917755445",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "A+",
     "heightCm": 168,
     "weightKg": 68,
@@ -1388,47 +1388,47 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2017-04-01",
         "controlled": true
       },
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2025-07-01",
         "controlled": true
       },
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2019-09-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Patricia Nascimento",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11982837879"
     }
   },
@@ -1440,7 +1440,7 @@
     "sex": "M",
     "email": "thiago.mendes27@email.com",
     "phone": "11949987263",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 167,
     "weightKg": 66,
@@ -1463,35 +1463,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2016-03-01",
         "controlled": true
       },
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2023-09-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Isabela Silva",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11934642367"
     }
   },
@@ -1526,23 +1526,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2026-08-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Cristina Costa",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11917020583"
     }
   },
@@ -1577,8 +1577,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2022-06-01",
         "controlled": true
       }
@@ -1586,7 +1586,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Bruno Souza",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11940649699"
     }
   },
@@ -1620,47 +1620,47 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "AAS",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Aspirin",
+        "reaction": "hives",
+        "severity": "MODERATE"
       },
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2015-09-01",
         "controlled": true
       },
       {
-        "cid10": "F32.1",
-        "description": "Episodio depressivo moderado",
+        "icd10": "F32.1",
+        "description": "Moderate depressive episode",
         "since": "2012-01-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Fluoxetina",
+        "name": "Fluoxetine",
         "dose": "20mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Carlos Castro",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11987153700"
     }
   },
@@ -1697,7 +1697,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Mateus Carvalho",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11932321956"
     }
   },
@@ -1731,30 +1731,30 @@
     "preferredUnit": "TATUAPE",
     "allergies": [
       {
-        "substance": "Ibuprofeno",
-        "reaction": "edema de face",
-        "severity": "MODERADA"
+        "substance": "Ibuprofen",
+        "reaction": "facial swelling",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2014-10-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Salbutamol spray",
+        "name": "Salbutamol inhaler",
         "dose": "100mcg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Vera Ferreira",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11959871031"
     }
   },
@@ -1766,7 +1766,7 @@
     "sex": "M",
     "email": "gustavo.dias33@email.com",
     "phone": "11961746274",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "A+",
     "heightCm": 171,
     "weightKg": 88,
@@ -1791,7 +1791,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Sofia Dias",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11951450800"
     }
   },
@@ -1825,48 +1825,48 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Dipirona",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Dipyrone",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2015-07-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2021-02-01",
         "controlled": false
       },
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2025-04-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Budesonida inalatoria",
+        "name": "Budesonide inhaler",
         "dose": "200mcg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       },
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Helena Freitas",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11987973083"
     }
   },
@@ -1903,7 +1903,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Leonardo Pinto",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11981948256"
     }
   },
@@ -1915,7 +1915,7 @@
     "sex": "M",
     "email": "thiago.dias36@email.com",
     "phone": "11943903449",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O-",
     "heightCm": 171,
     "weightKg": 98,
@@ -1937,30 +1937,30 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "Poeira",
-        "reaction": "rinite",
-        "severity": "LEVE"
+        "substance": "Dust",
+        "reaction": "rhinitis",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "F32.1",
-        "description": "Episodio depressivo moderado",
+        "icd10": "F32.1",
+        "description": "Moderate depressive episode",
         "since": "2011-10-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Fluoxetina",
+        "name": "Fluoxetine",
         "dose": "20mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Pedro Carvalho",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11947401292"
     }
   },
@@ -1994,41 +1994,41 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Contraste iodado",
-        "reaction": "broncoespasmo",
-        "severity": "GRAVE"
+        "substance": "Iodinated contrast",
+        "reaction": "bronchospasm",
+        "severity": "SEVERE"
       },
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "E03.9",
-        "description": "Hipotireoidismo",
+        "icd10": "E03.9",
+        "description": "Hypothyroidism",
         "since": "2015-10-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2024-08-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Levotiroxina",
+        "name": "Levothyroxine",
         "dose": "50mcg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Vinicius Campos",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11992452466"
     }
   },
@@ -2040,7 +2040,7 @@
     "sex": "F",
     "email": "larissa.teixeira38@email.com",
     "phone": "11944464247",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "A+",
     "heightCm": 154,
     "weightKg": 70,
@@ -2062,30 +2062,30 @@
     "preferredUnit": "TATUAPE",
     "allergies": [
       {
-        "substance": "Amendoim",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Peanut",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2024-09-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Alexandre Rocha",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11999387877"
     }
   },
@@ -2119,30 +2119,30 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Penicilina",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Penicillin",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2018-05-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Otavio Azevedo",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11993640323"
     }
   },
@@ -2154,7 +2154,7 @@
     "sex": "M",
     "email": "lucas.campos40@email.com",
     "phone": "11919888917",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O-",
     "heightCm": 178,
     "weightKg": 98,
@@ -2176,54 +2176,54 @@
     "preferredUnit": "TATUAPE",
     "allergies": [
       {
-        "substance": "Penicilina",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Penicillin",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2024-05-01",
         "controlled": true
       },
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2018-06-01",
         "controlled": true
       },
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2012-06-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Rosuvastatina",
+        "name": "Rosuvastatin",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Budesonida inalatoria",
+        "name": "Budesonide inhaler",
         "dose": "200mcg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       },
       {
         "name": "Escitalopram",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Renata Barbosa",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11922868680"
     }
   },
@@ -2257,16 +2257,16 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Contraste iodado",
-        "reaction": "broncoespasmo",
-        "severity": "GRAVE"
+        "substance": "Iodinated contrast",
+        "reaction": "bronchospasm",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Joao Castro",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11987901808"
     }
   },
@@ -2301,59 +2301,59 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2017-08-01",
         "controlled": true
       },
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2011-06-01",
         "controlled": true
       },
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2012-12-01",
         "controlled": true
       },
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2017-08-01",
         "controlled": false
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2016-07-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Metformina",
+        "name": "Metformin",
         "dose": "850mg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       },
       {
-        "name": "Sinvastatina",
+        "name": "Simvastatin",
         "dose": "20mg",
-        "frequency": "1x a noite",
+        "frequency": "at night",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Andre Marques",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11985872491"
     }
   },
@@ -2388,35 +2388,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2011-02-01",
         "controlled": true
       },
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2016-08-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Beatriz Ramos",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11949615374"
     }
   },
@@ -2428,7 +2428,7 @@
     "sex": "M",
     "email": "henrique.pinto44@email.com",
     "phone": "11995744508",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "B+",
     "heightCm": 184,
     "weightKg": 66,
@@ -2451,23 +2451,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E03.9",
-        "description": "Hipotireoidismo",
+        "icd10": "E03.9",
+        "description": "Hypothyroidism",
         "since": "2025-03-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Levotiroxina",
+        "name": "Levothyroxine",
         "dose": "50mcg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Antonio Lopes",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11996707182"
     }
   },
@@ -2479,7 +2479,7 @@
     "sex": "M",
     "email": "igor.gomes45@email.com",
     "phone": "11992182772",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "A+",
     "heightCm": 71,
     "weightKg": 29,
@@ -2504,7 +2504,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Antonio Campos",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11927429587"
     }
   },
@@ -2539,35 +2539,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2015-07-01",
         "controlled": true
       },
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2024-11-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       },
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Mateus Ramos",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11946753641"
     }
   },
@@ -2601,16 +2601,16 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "Contraste iodado",
-        "reaction": "broncoespasmo",
-        "severity": "GRAVE"
+        "substance": "Iodinated contrast",
+        "reaction": "bronchospasm",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Marcelo Ferreira",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11913469393"
     }
   },
@@ -2647,7 +2647,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Rafael Moreira",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11982972807"
     }
   },
@@ -2682,35 +2682,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2017-03-01",
         "controlled": false
       },
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2019-08-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Bruno Andrade",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11947846126"
     }
   },
@@ -2722,7 +2722,7 @@
     "sex": "F",
     "email": "amanda.pinto50@email.com",
     "phone": "11922542899",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "A+",
     "heightCm": 60,
     "weightKg": 12,
@@ -2747,7 +2747,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Vanessa Souza",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11986841339"
     }
   },
@@ -2782,23 +2782,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2024-08-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Fabio Rodrigues",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11993006847"
     }
   },
@@ -2810,7 +2810,7 @@
     "sex": "M",
     "email": "diego.mendes52@email.com",
     "phone": "11989462754",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "A+",
     "heightCm": 186,
     "weightKg": 87,
@@ -2833,29 +2833,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2016-09-01",
         "controlled": true
       },
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2020-04-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Fabio Santos",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11949220033"
     }
   },
@@ -2890,14 +2890,14 @@
     "allergies": [
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2011-03-01",
         "controlled": false
       }
@@ -2905,7 +2905,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Larissa Marques",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11974339728"
     }
   },
@@ -2917,7 +2917,7 @@
     "sex": "F",
     "email": "marcia.ribeiro54@email.com",
     "phone": "11917933078",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O+",
     "heightCm": 161,
     "weightKg": 53,
@@ -2942,7 +2942,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Thiago Nunes",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11997463388"
     }
   },
@@ -2954,7 +2954,7 @@
     "sex": "F",
     "email": "daniela.azevedo55@email.com",
     "phone": "11965476915",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "B+",
     "heightCm": 166,
     "weightKg": 78,
@@ -2977,8 +2977,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2025-11-01",
         "controlled": true
       }
@@ -2986,7 +2986,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Alexandre Lima",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11990403351"
     }
   },
@@ -2998,7 +2998,7 @@
     "sex": "M",
     "email": "thiago.campos56@email.com",
     "phone": "11938091651",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "AB-",
     "heightCm": 179,
     "weightKg": 107,
@@ -3021,77 +3021,77 @@
     "allergies": [
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2019-02-01",
         "controlled": true
       },
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2024-07-01",
         "controlled": true
       },
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2019-06-01",
         "controlled": true
       },
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2021-04-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2011-06-01",
         "controlled": true
       },
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2025-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Sinvastatina",
+        "name": "Simvastatin",
         "dose": "20mg",
-        "frequency": "1x a noite",
+        "frequency": "at night",
         "continuous": true
       },
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Tatiana Lopes",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11972182742"
     }
   },
@@ -3125,30 +3125,30 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "Frutos do mar",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Shellfish",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2021-08-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Henrique Rodrigues",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11990616055"
     }
   },
@@ -3183,23 +3183,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2023-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Renata Vieira",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11942128765"
     }
   },
@@ -3233,16 +3233,16 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Amoxicilina",
-        "reaction": "exantema",
-        "severity": "LEVE"
+        "substance": "Amoxicillin",
+        "reaction": "rash",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Antonio Moreira",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11963485564"
     }
   },
@@ -3279,7 +3279,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Andre Lopes",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11953104229"
     }
   },
@@ -3291,7 +3291,7 @@
     "sex": "F",
     "email": "cristina.rocha61@email.com",
     "phone": "11934245014",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O-",
     "heightCm": 170,
     "weightKg": 70,
@@ -3313,16 +3313,16 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "AAS",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Aspirin",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Pedro Campos",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11930932826"
     }
   },
@@ -3359,7 +3359,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Daniela Costa",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11993326957"
     }
   },
@@ -3393,35 +3393,35 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Amendoim",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Peanut",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       },
       {
-        "substance": "Penicilina",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Penicillin",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2018-11-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Marcelo Fernandes",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11993127759"
     }
   },
@@ -3455,30 +3455,30 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "Penicilina",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Penicillin",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2015-11-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Larissa Lima",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11947532236"
     }
   },
@@ -3513,35 +3513,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2026-03-01",
         "controlled": false
       },
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2016-10-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Metformina",
+        "name": "Metformin",
         "dose": "850mg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       },
       {
-        "name": "Rosuvastatina",
+        "name": "Rosuvastatin",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Thiago Souza",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11967651095"
     }
   },
@@ -3578,7 +3578,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Rosangela Carvalho",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11994406124"
     }
   },
@@ -3612,42 +3612,42 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "AAS",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Aspirin",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2016-05-01",
         "controlled": false
       },
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2018-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Anlodipino",
+        "name": "Amlodipine",
         "dose": "5mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Budesonida inalatoria",
+        "name": "Budesonide inhaler",
         "dose": "200mcg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Amanda Cardoso",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11919290631"
     }
   },
@@ -3682,15 +3682,15 @@
     "allergies": [
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Otavio Ribeiro",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11933931779"
     }
   },
@@ -3724,16 +3724,16 @@
     "preferredUnit": "TATUAPE",
     "allergies": [
       {
-        "substance": "Dipirona",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Dipyrone",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Lucas Freitas",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11939356139"
     }
   },
@@ -3745,7 +3745,7 @@
     "sex": "M",
     "email": "diego.rodrigues70@email.com",
     "phone": "11931899997",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "AB-",
     "heightCm": 173,
     "weightKg": 74,
@@ -3767,21 +3767,21 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Penicilina",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Penicillin",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       },
       {
-        "substance": "Amoxicilina",
-        "reaction": "exantema",
-        "severity": "LEVE"
+        "substance": "Amoxicillin",
+        "reaction": "rash",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Otavio Andrade",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11939564876"
     }
   },
@@ -3815,16 +3815,16 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "Amoxicilina",
-        "reaction": "exantema",
-        "severity": "LEVE"
+        "substance": "Amoxicillin",
+        "reaction": "rash",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Renata Campos",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11916083338"
     }
   },
@@ -3836,7 +3836,7 @@
     "sex": "M",
     "email": "joao.mendes72@email.com",
     "phone": "11946228372",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "A+",
     "heightCm": 189,
     "weightKg": 117,
@@ -3859,23 +3859,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2015-11-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Anlodipino",
+        "name": "Amlodipine",
         "dose": "5mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Leticia Moreira",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11977119671"
     }
   },
@@ -3887,7 +3887,7 @@
     "sex": "F",
     "email": "larissa.teixeira73@email.com",
     "phone": "11912915075",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O+",
     "heightCm": 157,
     "weightKg": 78,
@@ -3910,23 +3910,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2024-01-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Salbutamol spray",
+        "name": "Salbutamol inhaler",
         "dose": "100mcg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Tatiana Pinto",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11985044812"
     }
   },
@@ -3963,7 +3963,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Leticia Silva",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11964460541"
     }
   },
@@ -3998,8 +3998,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2011-06-01",
         "controlled": true
       }
@@ -4007,7 +4007,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Ricardo Alves",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11942056987"
     }
   },
@@ -4041,15 +4041,15 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Contraste iodado",
-        "reaction": "broncoespasmo",
-        "severity": "GRAVE"
+        "substance": "Iodinated contrast",
+        "reaction": "bronchospasm",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2015-05-01",
         "controlled": false
       }
@@ -4057,7 +4057,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Rosangela Freitas",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11935877139"
     }
   },
@@ -4069,7 +4069,7 @@
     "sex": "M",
     "email": "antonio.freitas77@email.com",
     "phone": "11974177635",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "A+",
     "heightCm": 182,
     "weightKg": 105,
@@ -4092,23 +4092,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2026-07-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Helena Machado",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11925605810"
     }
   },
@@ -4143,14 +4143,14 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2019-12-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2012-12-01",
         "controlled": true
       }
@@ -4159,13 +4159,13 @@
       {
         "name": "Escitalopram",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Nicolas Correia",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11947338904"
     }
   },
@@ -4200,41 +4200,41 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2016-11-01",
         "controlled": false
       },
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2011-03-01",
         "controlled": true
       },
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2018-04-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Sergio Ribeiro",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11952999598"
     }
   },
@@ -4269,29 +4269,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2026-03-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2024-11-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Budesonida inalatoria",
+        "name": "Budesonide inhaler",
         "dose": "200mcg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Carolina Martins",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11957662647"
     }
   },
@@ -4326,23 +4326,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2025-09-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Luiza Nascimento",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11991573515"
     }
   },
@@ -4379,7 +4379,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Cristina Martins",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11938339701"
     }
   },
@@ -4416,7 +4416,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Pedro Freitas",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11956278426"
     }
   },
@@ -4428,7 +4428,7 @@
     "sex": "F",
     "email": "sofia.nunes84@email.com",
     "phone": "11983210526",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O-",
     "heightCm": 161,
     "weightKg": 97,
@@ -4451,29 +4451,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F32.1",
-        "description": "Episodio depressivo moderado",
+        "icd10": "F32.1",
+        "description": "Moderate depressive episode",
         "since": "2022-04-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2013-12-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Fluoxetina",
+        "name": "Fluoxetine",
         "dose": "20mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Igor Castro",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11921812303"
     }
   },
@@ -4510,7 +4510,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Marcelo Marques",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11938986418"
     }
   },
@@ -4544,30 +4544,30 @@
     "preferredUnit": "TATUAPE",
     "allergies": [
       {
-        "substance": "Penicilina",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Penicillin",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2022-06-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Hidroclorotiazida",
+        "name": "Hydrochlorothiazide",
         "dose": "25mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Vanessa Almeida",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11952520459"
     }
   },
@@ -4579,7 +4579,7 @@
     "sex": "F",
     "email": "marcia.ferreira87@email.com",
     "phone": "11948484152",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 157,
     "weightKg": 69,
@@ -4602,29 +4602,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2014-07-01",
         "controlled": true
       },
       {
-        "cid10": "I48",
-        "description": "Fibrilacao atrial",
+        "icd10": "I48",
+        "description": "Atrial fibrillation",
         "since": "2019-09-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Rivaroxabana",
+        "name": "Rivaroxaban",
         "dose": "20mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Paulo Rodrigues",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11982345599"
     }
   },
@@ -4661,7 +4661,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Cristina Costa",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11987753494"
     }
   },
@@ -4673,7 +4673,7 @@
     "sex": "M",
     "email": "igor.ramos89@email.com",
     "phone": "11949260879",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O-",
     "heightCm": 166,
     "weightKg": 62,
@@ -4698,7 +4698,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Ricardo Rocha",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11928866173"
     }
   },
@@ -4710,7 +4710,7 @@
     "sex": "F",
     "email": "priscila.cunha90@email.com",
     "phone": "11938542896",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "A+",
     "heightCm": 172,
     "weightKg": 89,
@@ -4733,23 +4733,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "J45",
-        "description": "Asma",
+        "icd10": "J45",
+        "description": "Asthma",
         "since": "2026-06-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Salbutamol spray",
+        "name": "Salbutamol inhaler",
         "dose": "100mcg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Ricardo Cunha",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11954754787"
     }
   },
@@ -4784,29 +4784,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2026-08-01",
         "controlled": false
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2022-04-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Ricardo Ferreira",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11965091040"
     }
   },
@@ -4840,15 +4840,15 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "Amendoim",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Peanut",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2017-02-01",
         "controlled": true
       }
@@ -4856,7 +4856,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Bruna Ribeiro",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11923614802"
     }
   },
@@ -4868,7 +4868,7 @@
     "sex": "F",
     "email": "isabela.dias93@email.com",
     "phone": "11929060816",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 171,
     "weightKg": 77,
@@ -4890,16 +4890,16 @@
     "preferredUnit": "TATUAPE",
     "allergies": [
       {
-        "substance": "AAS",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Aspirin",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Luiz Lopes",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11964356368"
     }
   },
@@ -4933,30 +4933,30 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Contraste iodado",
-        "reaction": "broncoespasmo",
-        "severity": "GRAVE"
+        "substance": "Iodinated contrast",
+        "reaction": "bronchospasm",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2022-11-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Rosuvastatina",
+        "name": "Rosuvastatin",
         "dose": "10mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Luiz Correia",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11987404615"
     }
   },
@@ -4991,8 +4991,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2022-09-01",
         "controlled": true
       }
@@ -5000,7 +5000,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Bruna Nascimento",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11931373681"
     }
   },
@@ -5012,7 +5012,7 @@
     "sex": "F",
     "email": "amanda.castro96@email.com",
     "phone": "11928131193",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 161,
     "weightKg": 59,
@@ -5035,15 +5035,15 @@
     "allergies": [
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Isabela Dias",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11993683176"
     }
   },
@@ -5078,23 +5078,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2021-09-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Metformina",
+        "name": "Metformin",
         "dose": "850mg",
-        "frequency": "2x ao dia",
+        "frequency": "twice daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Lucas Monteiro",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11967900670"
     }
   },
@@ -5129,29 +5129,29 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2013-07-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2015-01-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Elisa Martins",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11957877858"
     }
   },
@@ -5163,7 +5163,7 @@
     "sex": "F",
     "email": "beatriz.rodrigues99@email.com",
     "phone": "11958986139",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O-",
     "heightCm": 164,
     "weightKg": 63,
@@ -5185,35 +5185,35 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Amoxicilina",
-        "reaction": "exantema",
-        "severity": "LEVE"
+        "substance": "Amoxicillin",
+        "reaction": "rash",
+        "severity": "MILD"
       },
       {
-        "substance": "Ibuprofeno",
-        "reaction": "edema de face",
-        "severity": "MODERADA"
+        "substance": "Ibuprofen",
+        "reaction": "facial swelling",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2026-06-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Pedro Pereira",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11914230254"
     }
   },
@@ -5225,7 +5225,7 @@
     "sex": "M",
     "email": "diego.correia100@email.com",
     "phone": "11911892957",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "A+",
     "heightCm": 167,
     "weightKg": 65,
@@ -5248,34 +5248,34 @@
     "allergies": [
       {
         "substance": "Lactose",
-        "reaction": "desconforto gastrointestinal",
-        "severity": "LEVE"
+        "reaction": "gastrointestinal discomfort",
+        "severity": "MILD"
       },
       {
-        "substance": "AAS",
-        "reaction": "urticaria",
-        "severity": "MODERADA"
+        "substance": "Aspirin",
+        "reaction": "hives",
+        "severity": "MODERATE"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "K21.0",
-        "description": "Doenca do refluxo gastroesofagico",
+        "icd10": "K21.0",
+        "description": "Gastro-esophageal reflux disease",
         "since": "2016-06-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Omeprazol",
+        "name": "Omeprazole",
         "dose": "20mg",
-        "frequency": "1x em jejum",
+        "frequency": "once daily, fasting",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Igor Oliveira",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11993191656"
     }
   },
@@ -5310,23 +5310,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E78.5",
-        "description": "Hiperlipidemia",
+        "icd10": "E78.5",
+        "description": "Hyperlipidemia",
         "since": "2022-03-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Sinvastatina",
+        "name": "Simvastatin",
         "dose": "20mg",
-        "frequency": "1x a noite",
+        "frequency": "at night",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Rafael Martins",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11913973593"
     }
   },
@@ -5361,8 +5361,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "M54.5",
-        "description": "Dor lombar baixa",
+        "icd10": "M54.5",
+        "description": "Low back pain",
         "since": "2023-01-01",
         "controlled": true
       }
@@ -5370,7 +5370,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Felipe Gomes",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11962828351"
     }
   },
@@ -5382,7 +5382,7 @@
     "sex": "F",
     "email": "luiza.freitas103@email.com",
     "phone": "11968769716",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "A+",
     "heightCm": 164,
     "weightKg": 69,
@@ -5407,7 +5407,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Vera Castro",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11987030118"
     }
   },
@@ -5442,23 +5442,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2019-05-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Rosangela Barbosa",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11960725859"
     }
   },
@@ -5492,21 +5492,21 @@
     "preferredUnit": "PINHEIROS",
     "allergies": [
       {
-        "substance": "Amendoim",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Peanut",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       },
       {
-        "substance": "Poeira",
-        "reaction": "rinite",
-        "severity": "LEVE"
+        "substance": "Dust",
+        "reaction": "rhinitis",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Ricardo Oliveira",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11989743132"
     }
   },
@@ -5543,7 +5543,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Alexandre Machado",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11953607716"
     }
   },
@@ -5555,7 +5555,7 @@
     "sex": "M",
     "email": "henrique.souza107@email.com",
     "phone": "11921967926",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 173,
     "weightKg": 84,
@@ -5578,35 +5578,35 @@
     "allergies": [
       {
         "substance": "Latex",
-        "reaction": "dermatite de contato",
-        "severity": "LEVE"
+        "reaction": "contact dermatitis",
+        "severity": "MILD"
       }
     ],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2015-12-01",
         "controlled": true
       },
       {
-        "cid10": "G43",
-        "description": "Enxaqueca",
+        "icd10": "G43",
+        "description": "Migraine",
         "since": "2023-02-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Sumatriptano",
+        "name": "Sumatriptan",
         "dose": "50mg",
-        "frequency": "se necessario",
+        "frequency": "as needed",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Marcelo Oliveira",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11960206371"
     }
   },
@@ -5641,35 +5641,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2011-03-01",
         "controlled": true
       },
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2013-05-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Lucas Ribeiro",
-      "relationship": "filho(a)",
+      "relationship": "child",
       "phone": "11973613849"
     }
   },
@@ -5706,7 +5706,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Ana Vieira",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11949043036"
     }
   },
@@ -5743,7 +5743,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Renata Rodrigues",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11966653453"
     }
   },
@@ -5780,7 +5780,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Francisco Monteiro",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11986936564"
     }
   },
@@ -5815,41 +5815,41 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2024-12-01",
         "controlled": true
       },
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2025-10-01",
         "controlled": true
       },
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2022-05-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Anlodipino",
+        "name": "Amlodipine",
         "dose": "5mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Camila Ribeiro",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11967637476"
     }
   },
@@ -5886,7 +5886,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Ricardo Lima",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11995195628"
     }
   },
@@ -5921,23 +5921,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "I10",
-        "description": "Hipertensao arterial essencial",
+        "icd10": "I10",
+        "description": "Essential hypertension",
         "since": "2021-01-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Losartana",
+        "name": "Losartan",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Francisco Azevedo",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11997503620"
     }
   },
@@ -5949,7 +5949,7 @@
     "sex": "M",
     "email": "mateus.mendes115@email.com",
     "phone": "11952257031",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "O+",
     "heightCm": 114,
     "weightKg": 23,
@@ -5974,7 +5974,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Leticia Andrade",
-      "relationship": "mae",
+      "relationship": "mother",
       "phone": "11963928917"
     }
   },
@@ -6009,23 +6009,23 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "E11",
-        "description": "Diabetes mellitus tipo 2",
+        "icd10": "E11",
+        "description": "Type 2 diabetes mellitus",
         "since": "2012-11-01",
         "controlled": true
       }
     ],
     "medications": [
       {
-        "name": "Glicazida",
+        "name": "Gliclazide",
         "dose": "30mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Carlos Mendes",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11943387101"
     }
   },
@@ -6037,7 +6037,7 @@
     "sex": "F",
     "email": "renata.mendes117@email.com",
     "phone": "11914720898",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "O+",
     "heightCm": 163,
     "weightKg": 80,
@@ -6060,35 +6060,35 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "F41.1",
-        "description": "Transtorno de ansiedade generalizada",
+        "icd10": "F41.1",
+        "description": "Generalized anxiety disorder",
         "since": "2020-08-01",
         "controlled": true
       },
       {
-        "cid10": "I48",
-        "description": "Fibrilacao atrial",
+        "icd10": "I48",
+        "description": "Atrial fibrillation",
         "since": "2015-04-01",
         "controlled": false
       }
     ],
     "medications": [
       {
-        "name": "Sertralina",
+        "name": "Sertraline",
         "dose": "50mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       },
       {
-        "name": "Rivaroxabana",
+        "name": "Rivaroxaban",
         "dose": "20mg",
-        "frequency": "1x ao dia",
+        "frequency": "once daily",
         "continuous": true
       }
     ],
     "emergencyContact": {
       "name": "Sofia Rocha",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11989522567"
     }
   },
@@ -6100,7 +6100,7 @@
     "sex": "M",
     "email": "roberto.lima118@email.com",
     "phone": "11933077636",
-    "healthPlan": "SUS",
+    "healthPlan": "SUS (public)",
     "bloodType": "A+",
     "heightCm": 175,
     "weightKg": 69,
@@ -6123,8 +6123,8 @@
     "allergies": [],
     "chronicConditions": [
       {
-        "cid10": "H52.1",
-        "description": "Miopia",
+        "icd10": "H52.1",
+        "description": "Myopia",
         "since": "2019-02-01",
         "controlled": true
       }
@@ -6132,7 +6132,7 @@
     "medications": [],
     "emergencyContact": {
       "name": "Vera Marques",
-      "relationship": "conjuge",
+      "relationship": "spouse",
       "phone": "11910680893"
     }
   },
@@ -6144,7 +6144,7 @@
     "sex": "F",
     "email": "rafaela.rodrigues119@email.com",
     "phone": "11977084905",
-    "healthPlan": "Particular",
+    "healthPlan": "Private",
     "bloodType": "A+",
     "heightCm": 176,
     "weightKg": 51,
@@ -6166,21 +6166,21 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Amoxicilina",
-        "reaction": "exantema",
-        "severity": "LEVE"
+        "substance": "Amoxicillin",
+        "reaction": "rash",
+        "severity": "MILD"
       },
       {
-        "substance": "Contraste iodado",
-        "reaction": "broncoespasmo",
-        "severity": "GRAVE"
+        "substance": "Iodinated contrast",
+        "reaction": "bronchospasm",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Daniela Ramos",
-      "relationship": "irmao(a)",
+      "relationship": "sibling",
       "phone": "11923837671"
     }
   },
@@ -6214,16 +6214,16 @@
     "preferredUnit": "MOEMA",
     "allergies": [
       {
-        "substance": "Amendoim",
-        "reaction": "anafilaxia",
-        "severity": "GRAVE"
+        "substance": "Peanut",
+        "reaction": "anaphylaxis",
+        "severity": "SEVERE"
       }
     ],
     "chronicConditions": [],
     "medications": [],
     "emergencyContact": {
       "name": "Eduardo Moreira",
-      "relationship": "pai",
+      "relationship": "father",
       "phone": "11917791547"
     }
   }

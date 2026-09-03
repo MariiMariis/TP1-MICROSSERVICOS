@@ -1,123 +1,122 @@
-// Formularios de "novo atendimento": cada especialidade tem os proprios campos, que viram
-// o clinicalData do documento. Nenhuma migracao e necessaria para acrescentar uma especialidade
-// aqui - basta descrever os campos.
+// "New encounter" forms: each specialty has its own fields, which become the document's
+// clinicalData. No migration is needed to add a specialty here - just describe the fields.
 export const TEMPLATES = {
-  Cardiologia: {
-    recordType: "CONSULTA",
+  Cardiology: {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "pressaoArterial.sistolica", label: "PA sistolica (mmHg)", type: "number", value: 130 },
-      { path: "pressaoArterial.diastolica", label: "PA diastolica (mmHg)", type: "number", value: 85 },
-      { path: "pressaoArterial.unidade", label: "Unidade", type: "hidden", value: "mmHg" },
-      { path: "frequenciaCardiaca", label: "Frequencia cardiaca (bpm)", type: "number", value: 72 },
-      { path: "ecg.ritmo", label: "ECG - ritmo", type: "select", options: ["sinusal", "fibrilacao atrial", "taquicardia sinusal"], value: "sinusal" },
-      { path: "fracaoEjecao", label: "Fracao de ejecao (%)", type: "number", value: 60 },
-      { path: "riscoCardiovascular", label: "Risco cardiovascular", type: "select", options: ["baixo", "moderado", "alto"], value: "moderado" },
+      { path: "bloodPressure.systolic", label: "Systolic BP (mmHg)", type: "number", value: 130 },
+      { path: "bloodPressure.diastolic", label: "Diastolic BP (mmHg)", type: "number", value: 85 },
+      { path: "bloodPressure.unit", label: "Unit", type: "hidden", value: "mmHg" },
+      { path: "heartRate", label: "Heart rate (bpm)", type: "number", value: 72 },
+      { path: "ecg.rhythm", label: "ECG rhythm", type: "select", options: ["sinus", "atrial fibrillation", "sinus tachycardia"], value: "sinus" },
+      { path: "ejectionFraction", label: "Ejection fraction (%)", type: "number", value: 60 },
+      { path: "cardiovascularRisk", label: "Cardiovascular risk", type: "select", options: ["low", "moderate", "high"], value: "moderate" },
     ],
   },
-  Oftalmologia: {
-    recordType: "CONSULTA",
+  Ophthalmology: {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "acuidadeVisual.olhoDireito", label: "Acuidade OD", type: "text", value: "20/30" },
-      { path: "acuidadeVisual.olhoEsquerdo", label: "Acuidade OE", type: "text", value: "20/25" },
-      { path: "pressaoIntraocular.olhoDireito", label: "PIO OD (mmHg)", type: "number", value: 15 },
-      { path: "pressaoIntraocular.olhoEsquerdo", label: "PIO OE (mmHg)", type: "number", value: 14 },
-      { path: "refracao.olhoDireito.esferico", label: "Refracao OD esferico", type: "number", value: -1.25, step: 0.25 },
-      { path: "refracao.olhoEsquerdo.esferico", label: "Refracao OE esferico", type: "number", value: -1.0, step: 0.25 },
-      { path: "fundoDeOlho", label: "Fundo de olho", type: "text", value: "sem alteracoes" },
+      { path: "visualAcuity.rightEye", label: "Visual acuity, right eye", type: "text", value: "20/30" },
+      { path: "visualAcuity.leftEye", label: "Visual acuity, left eye", type: "text", value: "20/25" },
+      { path: "intraocularPressure.rightEye", label: "IOP right eye (mmHg)", type: "number", value: 15 },
+      { path: "intraocularPressure.leftEye", label: "IOP left eye (mmHg)", type: "number", value: 14 },
+      { path: "refraction.rightEye.sphere", label: "Refraction right eye, sphere", type: "number", value: -1.25, step: 0.25 },
+      { path: "refraction.leftEye.sphere", label: "Refraction left eye, sphere", type: "number", value: -1.0, step: 0.25 },
+      { path: "fundus", label: "Fundus", type: "text", value: "no abnormalities" },
     ],
   },
-  Ortopedia: {
-    recordType: "CONSULTA",
+  Orthopedics: {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "articulacao", label: "Articulacao", type: "select", options: ["coluna lombar", "coluna cervical", "joelho", "ombro", "tornozelo", "quadril"], value: "joelho" },
-      { path: "lado", label: "Lado", type: "select", options: ["direito", "esquerdo", "n/a"], value: "direito" },
-      { path: "escalaDor", label: "Escala de dor (0-10)", type: "number", value: 5, min: 0, max: 10 },
-      { path: "amplitudeMovimento", label: "Amplitude de movimento", type: "select", options: ["preservada", "reduzida", "muito reduzida"], value: "reduzida" },
-      { path: "conduta", label: "Conduta", type: "text", value: "fisioterapia 2x/semana" },
+      { path: "joint", label: "Joint", type: "select", options: ["lumbar spine", "cervical spine", "knee", "shoulder", "ankle", "hip"], value: "knee" },
+      { path: "side", label: "Side", type: "select", options: ["right", "left", "n/a"], value: "right" },
+      { path: "painScale", label: "Pain scale (0-10)", type: "number", value: 5, min: 0, max: 10 },
+      { path: "rangeOfMotion", label: "Range of motion", type: "select", options: ["preserved", "reduced", "severely reduced"], value: "reduced" },
+      { path: "plan", label: "Plan", type: "text", value: "physiotherapy twice a week" },
     ],
   },
-  Psiquiatria: {
-    recordType: "CONSULTA",
+  Psychiatry: {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "escalas.GAD7", label: "GAD-7 (0-21)", type: "number", value: 8, min: 0, max: 21 },
-      { path: "escalas.PHQ9", label: "PHQ-9 (0-27)", type: "number", value: 6, min: 0, max: 27 },
-      { path: "exameEstadoMental.humor", label: "Humor", type: "select", options: ["eutimico", "ansioso", "deprimido", "irritavel"], value: "ansioso" },
-      { path: "exameEstadoMental.sono", label: "Sono", type: "select", options: ["preservado", "insonia inicial", "insonia terminal"], value: "insonia inicial" },
-      { path: "psicoterapia", label: "Em psicoterapia?", type: "select", options: ["true", "false"], value: "true", cast: "boolean" },
+      { path: "scales.GAD7", label: "GAD-7 (0-21)", type: "number", value: 8, min: 0, max: 21 },
+      { path: "scales.PHQ9", label: "PHQ-9 (0-27)", type: "number", value: 6, min: 0, max: 27 },
+      { path: "mentalStatusExam.mood", label: "Mood", type: "select", options: ["euthymic", "anxious", "depressed", "irritable"], value: "anxious" },
+      { path: "mentalStatusExam.sleep", label: "Sleep", type: "select", options: ["preserved", "initial insomnia", "terminal insomnia"], value: "initial insomnia" },
+      { path: "psychotherapy", label: "In psychotherapy?", type: "select", options: ["true", "false"], value: "true", cast: "boolean" },
     ],
   },
-  Endocrinologia: {
-    recordType: "CONSULTA",
+  Endocrinology: {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "glicemiaJejum.valor", label: "Glicemia de jejum (mg/dL)", type: "number", value: 98 },
-      { path: "glicemiaJejum.unidade", type: "hidden", value: "mg/dL" },
-      { path: "hba1c.valor", label: "HbA1c (%)", type: "number", value: 5.6, step: 0.1 },
-      { path: "hba1c.unidade", type: "hidden", value: "%" },
-      { path: "tsh.valor", label: "TSH (mUI/L)", type: "number", value: 2.1, step: 0.1 },
-      { path: "tsh.unidade", type: "hidden", value: "mUI/L" },
-      { path: "imc", label: "IMC", type: "number", value: 26.4, step: 0.1 },
+      { path: "fastingGlucose.value", label: "Fasting glucose (mg/dL)", type: "number", value: 98 },
+      { path: "fastingGlucose.unit", type: "hidden", value: "mg/dL" },
+      { path: "hba1c.value", label: "HbA1c (%)", type: "number", value: 5.6, step: 0.1 },
+      { path: "hba1c.unit", type: "hidden", value: "%" },
+      { path: "tsh.value", label: "TSH (mIU/L)", type: "number", value: 2.1, step: 0.1 },
+      { path: "tsh.unit", type: "hidden", value: "mIU/L" },
+      { path: "bmi", label: "BMI", type: "number", value: 26.4, step: 0.1 },
     ],
   },
-  Dermatologia: {
-    recordType: "CONSULTA",
+  Dermatology: {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "fototipo", label: "Fototipo", type: "select", options: ["I", "II", "III", "IV", "V", "VI"], value: "III" },
-      { path: "lesoes.0.localizacao", label: "Lesao - localizacao", type: "text", value: "dorso" },
-      { path: "lesoes.0.tipo", label: "Lesao - tipo", type: "select", options: ["macula", "papula", "placa", "nevo", "pustula"], value: "nevo" },
-      { path: "lesoes.0.tamanhoMm", label: "Lesao - tamanho (mm)", type: "number", value: 4 },
-      { path: "lesoes.0.dermatoscopia", label: "Dermatoscopia", type: "text", value: "sem atipias" },
+      { path: "skinType", label: "Fitzpatrick skin type", type: "select", options: ["I", "II", "III", "IV", "V", "VI"], value: "III" },
+      { path: "lesions.0.location", label: "Lesion location", type: "text", value: "back" },
+      { path: "lesions.0.type", label: "Lesion type", type: "select", options: ["macule", "papule", "plaque", "nevus", "pustule"], value: "nevus" },
+      { path: "lesions.0.sizeMm", label: "Lesion size (mm)", type: "number", value: 4 },
+      { path: "lesions.0.dermoscopy", label: "Dermoscopy", type: "text", value: "no atypia" },
     ],
   },
-  Pediatria: {
-    recordType: "CONSULTA",
+  Pediatrics: {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "pesoKg", label: "Peso (kg)", type: "number", value: 18.5, step: 0.1 },
-      { path: "alturaCm", label: "Altura (cm)", type: "number", value: 108 },
-      { path: "percentil.peso", label: "Percentil peso", type: "number", value: 50 },
-      { path: "percentil.altura", label: "Percentil altura", type: "number", value: 50 },
-      { path: "marcosDesenvolvimento.0", label: "Marcos do desenvolvimento", type: "text", value: "adequados para a idade" },
+      { path: "weightKg", label: "Weight (kg)", type: "number", value: 18.5, step: 0.1 },
+      { path: "heightCm", label: "Height (cm)", type: "number", value: 108 },
+      { path: "percentile.weight", label: "Weight percentile", type: "number", value: 50 },
+      { path: "percentile.height", label: "Height percentile", type: "number", value: 50 },
+      { path: "developmentalMilestones.0", label: "Developmental milestones", type: "text", value: "appropriate for age" },
     ],
   },
-  "Clinica Geral": {
-    recordType: "CONSULTA",
+  "General Practice": {
+    recordType: "CONSULTATION",
     fields: [
-      { path: "sinaisVitais.pressaoArterial.sistolica", label: "PA sistolica", type: "number", value: 120 },
-      { path: "sinaisVitais.pressaoArterial.diastolica", label: "PA diastolica", type: "number", value: 80 },
-      { path: "sinaisVitais.temperaturaC", label: "Temperatura (°C)", type: "number", value: 36.6, step: 0.1 },
-      { path: "sinaisVitais.saturacaoO2", label: "SpO2 (%)", type: "number", value: 97 },
-      { path: "exameFisico", label: "Exame fisico", type: "text", value: "sem alteracoes" },
-      { path: "conduta", label: "Conduta", type: "text", value: "sintomaticos e retorno se necessario" },
+      { path: "vitals.bloodPressure.systolic", label: "Systolic BP", type: "number", value: 120 },
+      { path: "vitals.bloodPressure.diastolic", label: "Diastolic BP", type: "number", value: 80 },
+      { path: "vitals.temperatureC", label: "Temperature (°C)", type: "number", value: 36.6, step: 0.1 },
+      { path: "vitals.spo2", label: "SpO2 (%)", type: "number", value: 97 },
+      { path: "physicalExam", label: "Physical exam", type: "text", value: "unremarkable" },
+      { path: "plan", label: "Plan", type: "text", value: "symptomatic treatment, return if needed" },
     ],
   },
-  "Analises Clinicas": {
-    recordType: "EXAME",
+  "Clinical Laboratory": {
+    recordType: "EXAM",
     fields: [
-      { path: "hemograma.hemoglobina.valor", label: "Hemoglobina (g/dL)", type: "number", value: 13.8, step: 0.1 },
-      { path: "hemograma.hemoglobina.unidade", type: "hidden", value: "g/dL" },
-      { path: "hemograma.hemoglobina.referencia", type: "hidden", value: "12.0-15.5" },
-      { path: "bioquimica.glicose.valor", label: "Glicose (mg/dL)", type: "number", value: 92 },
-      { path: "bioquimica.glicose.unidade", type: "hidden", value: "mg/dL" },
-      { path: "bioquimica.glicose.referencia", type: "hidden", value: "70-99" },
-      { path: "bioquimica.colesterolTotal.valor", label: "Colesterol total (mg/dL)", type: "number", value: 185 },
-      { path: "bioquimica.colesterolTotal.unidade", type: "hidden", value: "mg/dL" },
-      { path: "bioquimica.creatinina.valor", label: "Creatinina (mg/dL)", type: "number", value: 0.9, step: 0.01 },
-      { path: "bioquimica.creatinina.unidade", type: "hidden", value: "mg/dL" },
-      { path: "jejumHoras", label: "Jejum (horas)", type: "number", value: 12 },
+      { path: "cbc.hemoglobin.value", label: "Hemoglobin (g/dL)", type: "number", value: 13.8, step: 0.1 },
+      { path: "cbc.hemoglobin.unit", type: "hidden", value: "g/dL" },
+      { path: "cbc.hemoglobin.reference", type: "hidden", value: "12.0-15.5" },
+      { path: "chemistry.glucose.value", label: "Glucose (mg/dL)", type: "number", value: 92 },
+      { path: "chemistry.glucose.unit", type: "hidden", value: "mg/dL" },
+      { path: "chemistry.glucose.reference", type: "hidden", value: "70-99" },
+      { path: "chemistry.totalCholesterol.value", label: "Total cholesterol (mg/dL)", type: "number", value: 185 },
+      { path: "chemistry.totalCholesterol.unit", type: "hidden", value: "mg/dL" },
+      { path: "chemistry.creatinine.value", label: "Creatinine (mg/dL)", type: "number", value: 0.9, step: 0.01 },
+      { path: "chemistry.creatinine.unit", type: "hidden", value: "mg/dL" },
+      { path: "fastingHours", label: "Fasting (hours)", type: "number", value: 12 },
     ],
   },
-  Imunizacao: {
-    recordType: "VACINA",
+  Immunization: {
+    recordType: "VACCINE",
     fields: [
-      { path: "imunobiologico", label: "Imunobiologico", type: "select", options: ["Influenza (gripe)", "COVID-19 (bivalente)", "Hepatite B", "dT (difteria e tetano)", "Febre amarela", "Triplice viral (SCR)"], value: "Influenza (gripe)" },
-      { path: "fabricante", label: "Fabricante", type: "text", value: "Butantan" },
-      { path: "lote", label: "Lote", type: "text", value: "A123456" },
-      { path: "dose", label: "Dose", type: "select", options: ["1a dose", "2a dose", "reforco", "dose unica", "dose anual"], value: "dose anual" },
-      { path: "via", label: "Via", type: "select", options: ["intramuscular", "subcutanea", "oral"], value: "intramuscular" },
-      { path: "reacaoAdversa", label: "Reacao adversa", type: "text", value: "nenhuma" },
+      { path: "vaccine", label: "Vaccine", type: "select", options: ["Influenza (flu)", "COVID-19 (bivalent)", "Hepatitis B", "Td (diphtheria and tetanus)", "Yellow fever", "MMR"], value: "Influenza (flu)" },
+      { path: "manufacturer", label: "Manufacturer", type: "text", value: "Butantan" },
+      { path: "lot", label: "Lot", type: "text", value: "A123456" },
+      { path: "dose", label: "Dose", type: "select", options: ["1st dose", "2nd dose", "booster", "single dose", "annual dose"], value: "annual dose" },
+      { path: "route", label: "Route", type: "select", options: ["intramuscular", "subcutaneous", "oral"], value: "intramuscular" },
+      { path: "adverseReaction", label: "Adverse reaction", type: "text", value: "none" },
     ],
   },
-  Livre: {
-    recordType: "CONSULTA",
+  "Free form": {
+    recordType: "CONSULTATION",
     free: true,
     fields: [],
   },
@@ -125,7 +124,7 @@ export const TEMPLATES = {
 
 export const SPECIALTIES = Object.keys(TEMPLATES);
 
-// Monta o objeto clinicalData a partir dos campos preenchidos ("a.b.0.c" vira objeto/array aninhado).
+// Builds the clinicalData object from the filled fields ("a.b.0.c" becomes nested object/array).
 export function buildClinicalData(fields, values) {
   const out = {};
   for (const f of fields) {

@@ -5,13 +5,13 @@ import JsonView from "./JsonView.jsx";
 import { explainStage, PLAN_STAGES } from "../lib/stageExplainer.js";
 import { fmtNum } from "../lib/format.js";
 
-// Botao "Como o Atlas processou" + painel lateral com o pipeline explicado e o explain real.
+// "How Atlas processed it" button + side panel with the explained pipeline and the real explain.
 export function AtlasExplainButton({ report, params }) {
   const [open, setOpen] = useState(false);
   if (!report?.key) return null;
   return (
     <>
-      <button className="btn sm atlas" onClick={() => setOpen(true)} title="Mostra o pipeline explicado e o plano de execucao real desta consulta">🍃 Como o Atlas processou</button>
+      <button className="btn sm atlas" onClick={() => setOpen(true)} title="Shows the explained pipeline and the real execution plan of this query">🍃 How Atlas processed it</button>
       {open && <AtlasExplainDrawer report={report} params={params} onClose={() => setOpen(false)} />}
     </>
   );
@@ -42,7 +42,7 @@ export function AtlasExplainDrawer({ report, params, onClose }) {
   }, [report.key, params, onClose]);
 
   const pipeline = report.pipeline || data?.pipeline || [];
-  const r = data?.resumo;
+  const s = data?.summary;
 
   return (
     <div className="drawer-backdrop" onClick={onClose}>
@@ -53,31 +53,31 @@ export function AtlasExplainDrawer({ report, params, onClose }) {
             <h2 style={{ marginTop: 6 }}>{report.title}</h2>
             {report.description && <p className="muted small" style={{ marginTop: 4 }}>{report.description}</p>}
           </div>
-          <button className="btn ghost" onClick={onClose} aria-label="Fechar">✕</button>
+          <button className="btn ghost" onClick={onClose} aria-label="Close">✕</button>
         </header>
 
         {error && <ErrorBox error={error} />}
-        {!data && !error && <Loading text="Executando explain('executionStats') no Atlas..." />}
+        {!data && !error && <Loading text="Running explain('executionStats') on Atlas..." />}
 
         {data && (
           <>
             <div className="metrics">
-              <Metric label="Executado no no" value={data.servidor?.host?.split(".")[0] ?? "?"} hint={data.servidor ? `MongoDB ${data.servidor.version} · ${data.servidor.host?.split(".").slice(1).join(".")}` : null} />
-              <Metric label="Documentos lidos da colecao" value={fmtNum(r.documentosLidos)} hint={r.varreuColecaoInteira ? "varredura completa (COLLSCAN)" : "leitura por indice"} />
-              <Metric label="Chaves de indice lidas" value={fmtNum(r.chavesDeIndiceLidas)} hint={r.indicesUsados.length ? `indices envolvidos: ${r.indicesUsados.join(", ")}` : "nenhum indice"} />
-              <Metric label="Documentos devolvidos" value={fmtNum(r.documentosDevolvidos)} hint={`${r.estagiosExecutados} estagio${r.estagiosExecutados === 1 ? "" : "s"} executado${r.estagiosExecutados === 1 ? "" : "s"}`} />
-              <Metric label="Tempo no servidor" value={`${r.tempoServidorMs} ms`} hint={`${data.tempoIdaEVoltaMs} ms ida e volta ate aqui`} />
+              <Metric label="Executed on node" value={data.server?.host?.split(".")[0] ?? "?"} hint={data.server ? `MongoDB ${data.server.version} · ${data.server.host?.split(".").slice(1).join(".")}` : null} />
+              <Metric label="Documents read from the collection" value={fmtNum(s.docsExamined)} hint={s.fullCollectionScan ? "full scan (COLLSCAN)" : "read through an index"} />
+              <Metric label="Index keys read" value={fmtNum(s.keysExamined)} hint={s.indexesUsed.length ? `indexes involved: ${s.indexesUsed.join(", ")}` : "no index"} />
+              <Metric label="Documents returned" value={fmtNum(s.docsReturned)} hint={`${s.stagesExecuted} stage${s.stagesExecuted === 1 ? "" : "s"} executed`} />
+              <Metric label="Server time" value={`${s.serverTimeMs} ms`} hint={`${data.roundTripMs} ms round trip to here`} />
             </div>
-            {r.varreuColecaoInteira && (
+            {s.fullCollectionScan && (
               <div className="alert info small" style={{ marginTop: 10 }}>
-                Esta analise agrega a colecao inteira, entao a varredura completa e o plano correto: um indice so ajudaria se houvesse um $match seletivo no inicio. Compare com a aba <b>Explain</b> em Bastidores, onde a consulta pontual por paciente le 14 documentos em vez de {fmtNum(r.documentosLidos)}.
+                This analysis aggregates the whole collection, so the full scan is the correct plan: an index would only help with a selective $match at the start. Compare with the <b>Explain</b> tab in Behind the scenes, where the point query by patient reads 14 documents instead of {fmtNum(s.docsExamined)}.
               </div>
             )}
 
             <div className="tabs" style={{ marginTop: 14 }}>
-              <button className={tab === "pipeline" ? "active" : ""} onClick={() => setTab("pipeline")}>1. O que pedimos ({pipeline.length} estagios)</button>
-              <button className={tab === "exec" ? "active" : ""} onClick={() => setTab("exec")}>2. O que o servidor fez ({data.estagios.length})</button>
-              <button className={tab === "raw" ? "active" : ""} onClick={() => setTab("raw")}>3. explain() bruto</button>
+              <button className={tab === "pipeline" ? "active" : ""} onClick={() => setTab("pipeline")}>1. What we asked for ({pipeline.length} stages)</button>
+              <button className={tab === "exec" ? "active" : ""} onClick={() => setTab("exec")}>2. What the server did ({data.stages.length})</button>
+              <button className={tab === "raw" ? "active" : ""} onClick={() => setTab("raw")}>3. Raw explain()</button>
             </div>
 
             {tab === "pipeline" && (
@@ -90,7 +90,7 @@ export function AtlasExplainDrawer({ report, params, onClose }) {
                       <div className="step-head"><span className="step-n">{i + 1}</span><code className="step-name">{name}</code><b>{ex.title}</b></div>
                       <p>{ex.text}</p>
                       {ex.detail && <p className="muted small">{ex.detail}</p>}
-                      <details><summary className="muted small">ver o estagio como enviado</summary><JsonView data={stage} maxHeight={220} /></details>
+                      <details><summary className="muted small">view the stage as sent</summary><JsonView data={stage} maxHeight={220} /></details>
                     </li>
                   );
                 })}
@@ -99,24 +99,24 @@ export function AtlasExplainDrawer({ report, params, onClose }) {
 
             {tab === "exec" && (
               <div className="stack">
-                <p className="muted small">O otimizador reorganiza o pipeline: $match, $sort e $project iniciais viram a leitura da colecao ($cursor) e, em versoes recentes, estagios inteiros sao compilados no motor de execucao. Por isso a lista abaixo pode ter menos itens que o pipeline enviado.</p>
+                <p className="muted small">The optimizer reorganizes the pipeline: leading $match, $sort and $project become the collection read ($cursor) and, in recent versions, whole stages are compiled into the execution engine. That is why this list can be shorter than the pipeline sent.</p>
                 <ol className="steps">
-                  {data.estagios.map((s, i) => (
+                  {data.stages.map((st, i) => (
                     <li key={i} className="step">
-                      <div className="step-head"><span className="step-n">{i + 1}</span><code className="step-name">{s.stage}</code>
-                        {s.nReturned != null && <Badge>{fmtNum(s.nReturned)} doc{s.nReturned === 1 ? "" : "s"} de saida</Badge>}
-                        {s.ms != null && <Badge>{s.ms} ms</Badge>}
-                        {s.docsExamined != null && <Badge tone="warn">{fmtNum(s.docsExamined)} docs lidos</Badge>}
-                        {s.keysExamined != null && s.keysExamined > 0 && <Badge tone="ok">{fmtNum(s.keysExamined)} chaves de indice</Badge>}
-                        {s.usedDisk && <Badge tone="danger">usou disco</Badge>}
-                        {s.memoriaBytes != null && <Badge>{fmtNum(Math.round(s.memoriaBytes / 1024))} KB em memoria</Badge>}
+                      <div className="step-head"><span className="step-n">{i + 1}</span><code className="step-name">{st.stage}</code>
+                        {st.nReturned != null && <Badge>{fmtNum(st.nReturned)} doc{st.nReturned === 1 ? "" : "s"} out</Badge>}
+                        {st.ms != null && <Badge>{st.ms} ms</Badge>}
+                        {st.docsExamined != null && <Badge tone="warn">{fmtNum(st.docsExamined)} docs read</Badge>}
+                        {st.keysExamined != null && st.keysExamined > 0 && <Badge tone="ok">{fmtNum(st.keysExamined)} index keys</Badge>}
+                        {st.usedDisk && <Badge tone="danger">used disk</Badge>}
+                        {st.memoryBytes != null && <Badge>{fmtNum(Math.round(st.memoryBytes / 1024))} KB in memory</Badge>}
                       </div>
-                      {s.descricao && <p className="muted small">{s.descricao}</p>}
-                      {s.filtro && <p className="small">Filtro aplicado na leitura: <code>{JSON.stringify(s.filtro)}</code></p>}
-                      {s.indexesUsed?.length > 0 && <p className="small">Indices usados no join: {s.indexesUsed.join(", ")}</p>}
-                      {s.plano?.length > 0 && (
+                      {st.description && <p className="muted small">{st.description}</p>}
+                      {st.filter && <p className="small">Filter applied on read: <code>{JSON.stringify(st.filter)}</code></p>}
+                      {st.indexesUsed?.length > 0 && <p className="small">Indexes used in the join: {st.indexesUsed.join(", ")}</p>}
+                      {st.plan?.length > 0 && (
                         <div className="plan">
-                          {[...s.plano].reverse().map((p, j) => {
+                          {[...st.plan].reverse().map((p, j) => {
                             const info = PLAN_STAGES[p.stage] || { label: p.stage, text: "", tone: "" };
                             return (
                               <div key={j} className="plan-node">
@@ -130,11 +130,11 @@ export function AtlasExplainDrawer({ report, params, onClose }) {
                     </li>
                   ))}
                 </ol>
-                {data.motor && <p className="muted small">Motor de consulta: <code>{data.motor}</code></p>}
+                {data.engine && <p className="muted small">Query engine: <code>{data.engine}</code></p>}
               </div>
             )}
 
-            {tab === "raw" && <JsonView data={data.bruto} maxHeight={640} />}
+            {tab === "raw" && <JsonView data={data.raw} maxHeight={640} />}
           </>
         )}
       </aside>

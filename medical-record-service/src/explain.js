@@ -1,10 +1,10 @@
-// Transforma a saida de aggregate(...).explain("executionStats") em um resumo legivel.
+// Turns the output of aggregate(...).explain("executionStats") into a readable digest.
 //
-// O servidor pode responder de duas formas:
-//   a) "stages": [ { $cursor: {...} }, { $group: {...} }, ... ]  - pipeline classico, estagio a estagio
-//   b) sem "stages", com queryPlanner/executionStats na raiz     - pipeline inteiro "empurrado" para o
-//      motor de execucao (SBE), como acontece em 8.0 com $group/$project sobre a colecao
-// Os dois casos viram a mesma estrutura.
+// The server can answer in two shapes:
+//   a) "stages": [ { $cursor: {...} }, { $group: {...} }, ... ]  - classic pipeline, stage by stage
+//   b) no "stages", with queryPlanner/executionStats at the root  - whole pipeline "pushed down" to
+//      the execution engine (SBE), as happens in 8.0 with $group/$project over the collection
+// Both become the same structure.
 
 function planChain(plan) {
   const out = [];
@@ -21,7 +21,7 @@ function planChain(plan) {
   return out;
 }
 
-// Estatisticas por estagio do plano executado (COLLSCAN, IXSCAN, GROUP...), quando disponiveis.
+// Per-stage statistics of the executed plan (COLLSCAN, IXSCAN, GROUP...), when available.
 function execChain(execStage) {
   const out = [];
   let node = execStage;
@@ -48,7 +48,7 @@ export function digestExplain(explain) {
         const es = body.executionStats;
         plan = planChain(qp?.winningPlan);
         cursorStats = es ? { nReturned: es.nReturned, docsExamined: es.totalDocsExamined, keysExamined: es.totalKeysExamined, ms: es.executionTimeMillis, planExec: execChain(es.executionStages) } : null;
-        stages.push({ stage: "$cursor", descricao: "Leitura da colecao (o $match/$sort/$project iniciais sao fundidos aqui)", filtro: qp?.parsedQuery ?? null, plano: plan, ...(cursorStats || {}) });
+        stages.push({ stage: "$cursor", description: "Collection read (leading $match/$sort/$project are merged here)", filter: qp?.parsedQuery ?? null, plan, ...(cursorStats || {}) });
       } else {
         stages.push({
           stage: name,
@@ -59,7 +59,7 @@ export function digestExplain(explain) {
           ...(st.indexesUsed ? { indexesUsed: st.indexesUsed } : {}),
           ...(st.usedDisk != null ? { usedDisk: st.usedDisk } : {}),
           ...(st.spilledRecords != null ? { spilledRecords: st.spilledRecords } : {}),
-          ...(st.maxAccumulatorMemoryUsageBytes ? { memoriaBytes: Object.values(st.maxAccumulatorMemoryUsageBytes).reduce((a, b) => a + b, 0) } : {}),
+          ...(st.maxAccumulatorMemoryUsageBytes ? { memoryBytes: Object.values(st.maxAccumulatorMemoryUsageBytes).reduce((a, b) => a + b, 0) } : {}),
         });
       }
     }
@@ -68,27 +68,25 @@ export function digestExplain(explain) {
     const es = explain.executionStats;
     plan = planChain(qp.winningPlan);
     cursorStats = es ? { nReturned: es.nReturned, docsExamined: es.totalDocsExamined, keysExamined: es.totalKeysExamined, ms: es.executionTimeMillis, planExec: execChain(es.executionStages) } : null;
-    stages.push({ stage: "plano unico", descricao: "O pipeline inteiro foi compilado em um plano so pelo motor de execucao (pushdown), sem estagios intermediarios", plano: plan, ...(cursorStats || {}) });
+    stages.push({ stage: "single plan", description: "The whole pipeline was compiled into one plan by the execution engine (pushdown), with no intermediate stages", plan, ...(cursorStats || {}) });
   }
 
-  const indices = [...new Set([...plan.filter((p) => p.indexName).map((p) => p.indexName), ...stages.flatMap((s) => s.indexesUsed || [])])];
+  const indexes = [...new Set([...plan.filter((p) => p.indexName).map((p) => p.indexName), ...stages.flatMap((s) => s.indexesUsed || [])])];
   const collscan = plan.some((p) => p.stage === "COLLSCAN");
   const msTotal = stages.reduce((acc, s) => Math.max(acc, s.ms ?? 0), 0);
-  const docsExamined = cursorStats?.docsExamined ?? null;
-  const keysExamined = cursorStats?.keysExamined ?? null;
 
   return {
-    servidor: server,
-    motor: engine,
-    resumo: {
-      estagiosExecutados: stages.length,
-      varreuColecaoInteira: collscan,
-      indicesUsados: indices,
-      documentosLidos: docsExamined,
-      chavesDeIndiceLidas: keysExamined,
-      documentosDevolvidos: stages.length ? stages[stages.length - 1].nReturned ?? null : null,
-      tempoServidorMs: msTotal,
+    server,
+    engine,
+    summary: {
+      stagesExecuted: stages.length,
+      fullCollectionScan: collscan,
+      indexesUsed: indexes,
+      docsExamined: cursorStats?.docsExamined ?? null,
+      keysExamined: cursorStats?.keysExamined ?? null,
+      docsReturned: stages.length ? stages[stages.length - 1].nReturned ?? null : null,
+      serverTimeMs: msTotal,
     },
-    estagios: stages,
+    stages,
   };
 }

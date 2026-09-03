@@ -1,8 +1,8 @@
-// medical-record-service - Prontuario eletronico do MedFlow em Node.js + Express + MongoDB Atlas.
+// medical-record-service - MedFlow electronic medical record in Node.js + Express + MongoDB Atlas.
 //
-// Mantem o contrato externo da Entrega 1 (/api/medical-records/**, porta 8083, registro no
-// Eureka) e acrescenta as rotas da demonstracao do Atlas: prontuarios, busca, analytics,
-// geoespacial e "bastidores" (explain, indices, schema validation).
+// Keeps the external contract of Delivery 1 (/api/medical-records/**, port 8083, Eureka
+// registration) and adds the Atlas demo routes: patient records, search, analytics,
+// geospatial and "behind the scenes" (explain, indexes, schema validation).
 import cors from "cors";
 import express from "express";
 import { config } from "./config.js";
@@ -11,9 +11,9 @@ import { errorHandler } from "./errors.js";
 import { startEureka } from "./eureka.js";
 import { adminRouter } from "./routes/admin.js";
 import { analyticsRouter } from "./routes/analytics.js";
-import { atendimentosRouter } from "./routes/atendimentos.js";
+import { encountersRouter } from "./routes/encounters.js";
 import { geoRouter } from "./routes/geo.js";
-import { prontuariosRouter } from "./routes/prontuarios.js";
+import { recordsRouter } from "./routes/records.js";
 import { searchRouter } from "./routes/search.js";
 import { seedDatabase } from "./seed/seed.js";
 
@@ -28,7 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Endpoints "actuator", no mesmo formato dos servicos Spring, para o Eureka e para o 00-health.http.
+// "actuator" endpoints, in the same shape as the Spring services, for Eureka and for 00-health.http.
 app.get("/actuator/health", async (req, res) => {
   try {
     const info = await serverInfo();
@@ -38,21 +38,21 @@ app.get("/actuator/health", async (req, res) => {
   }
 });
 app.get("/actuator/info", (req, res) => {
-  res.json({ app: { name: config.appName, responsibility: "Prontuario eletronico do paciente", database: `MongoDB ${isAtlas() ? "Atlas" : "local"} / ${config.mongoDb}`, runtime: `Node.js ${process.version}` } });
+  res.json({ app: { name: config.appName, responsibility: "Patient electronic medical record", database: `MongoDB ${isAtlas() ? "Atlas" : "local"} / ${config.mongoDb}`, runtime: `Node.js ${process.version}` } });
 });
 app.get("/", (req, res) => res.redirect("/actuator/info"));
 
-// Ordem importa: os sub-caminhos vem antes do router que tem /:id.
+// Order matters: the sub-paths come before the router that has /:id.
 const base = "/api/medical-records";
 app.get(`${base}/info`, (req, res) => res.json({ service: config.appName, port: String(config.port), database: `MongoDB Atlas / ${config.mongoDb}`, runtime: `Node.js ${process.version}` }));
-app.use(`${base}/patients`, prontuariosRouter);
+app.use(`${base}/patients`, recordsRouter);
 app.use(`${base}/search`, searchRouter);
 app.use(`${base}/analytics`, analyticsRouter);
 app.use(`${base}/geo`, geoRouter);
 app.use(`${base}/admin`, adminRouter);
-app.use(base, atendimentosRouter);
+app.use(base, encountersRouter);
 
-app.use((req, res) => res.status(404).json({ timestamp: new Date().toISOString(), status: 404, error: "Not Found", message: `Rota ${req.method} ${req.originalUrl} nao existe`, path: req.originalUrl }));
+app.use((req, res) => res.status(404).json({ timestamp: new Date().toISOString(), status: 404, error: "Not Found", message: `Route ${req.method} ${req.originalUrl} does not exist`, path: req.originalUrl }));
 app.use(errorHandler);
 
 // ------------------------------------------------------------------ Boot
@@ -62,15 +62,15 @@ let server = null;
 async function start() {
   await connect();
   const info = await serverInfo();
-  console.log(`[db] conectado ao MongoDB ${info.version} (${info.atlas ? "Atlas" : "local"}), database ${info.database}`);
+  console.log(`[db] connected to MongoDB ${info.version} (${info.atlas ? "Atlas" : "local"}), database ${info.database}`);
   await ensureSchema();
   if (config.seedOnStartup) await seedDatabase();
 
-  // Indices do Atlas Search sao assincronos e demoram ~1 min: nao seguram a subida do servico.
+  // Atlas Search indexes are asynchronous and take ~1 min: they do not block the service start.
   ensureSearchIndexes().then((report) => report.forEach((r) => console.log(`[search] ${r.collection}/${r.name}: ${r.status}${r.reason ? " - " + r.reason : ""}`)));
 
   server = app.listen(config.port, () => {
-    console.log(`[http] ${config.appName} ouvindo em http://localhost:${config.port}${base}`);
+    console.log(`[http] ${config.appName} listening at http://localhost:${config.port}${base}`);
     if (config.eureka.enabled) {
       eureka = startEureka({
         appName: config.appName,
@@ -82,13 +82,13 @@ async function start() {
         metadata: { database: `mongodb-${config.mongoDb}` },
       });
     } else {
-      console.log("[eureka] desabilitado (EUREKA_ENABLED=false)");
+      console.log("[eureka] disabled (EUREKA_ENABLED=false)");
     }
   });
 }
 
 async function shutdown(signal) {
-  console.log(`\n[app] ${signal} recebido, encerrando...`);
+  console.log(`\n[app] ${signal} received, shutting down...`);
   try {
     await eureka?.deregister();
     await new Promise((resolve) => (server ? server.close(resolve) : resolve()));
@@ -101,9 +101,9 @@ process.on("SIGINT", () => shutdown("SIGINT"));
 process.on("SIGTERM", () => shutdown("SIGTERM"));
 
 start().catch((err) => {
-  console.error("[app] falha ao iniciar:", err.message);
+  console.error("[app] failed to start:", err.message);
   if (/ENOTFOUND|ECONNREFUSED|Server selection timed out|authentication failed/i.test(err.message)) {
-    console.error("[app] confira MONGODB_URI no arquivo .env e se o IP desta maquina esta liberado no Network Access do Atlas.");
+    console.error("[app] check MONGODB_URI in the .env file and whether this machine's IP is allowed in Atlas Network Access.");
   }
   process.exit(1);
 });

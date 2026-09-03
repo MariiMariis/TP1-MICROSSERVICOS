@@ -1,5 +1,5 @@
-// Cliente HTTP do front-end. Tudo passa pelo api-gateway (porta 8080): em desenvolvimento
-// o Vite faz proxy de /api, em producao basta apontar VITE_API_BASE para o gateway.
+// Front-end HTTP client. Everything goes through the api-gateway (port 8080): in development
+// Vite proxies /api, in production just point VITE_API_BASE at the gateway.
 const BASE = import.meta.env.VITE_API_BASE || "/api";
 
 export class ApiError extends Error {
@@ -40,7 +40,7 @@ export const api = {
     update: (id, body) => put(`/patients/${id}`, body),
     deactivate: (id) => del(`/patients/${id}`),
   },
-  // appointment-service (PostgreSQL) - chama o patient-service com circuit breaker
+  // appointment-service (PostgreSQL) - calls patient-service with a circuit breaker
   appointments: {
     list: (params) => get("/appointments", params),
     create: (body) => post("/appointments", body),
@@ -50,14 +50,14 @@ export const api = {
     circuit: () => get("/appointments/resilience/circuit-breaker"),
   },
   // medical-record-service (MongoDB Atlas)
-  records: {
+  encounters: {
     list: (params) => get(MR, params),
     get: (id) => get(`${MR}/${id}`),
     timeline: (patientId, type) => get(`${MR}/patient/${patientId}`, { type }),
     create: (body) => post(MR, body),
     remove: (id) => del(`${MR}/${id}`),
   },
-  prontuarios: {
+  records: {
     list: (params) => get(`${MR}/patients`, params),
     get: (patientId) => get(`${MR}/patients/${patientId}`),
     upsert: (patientId, body) => put(`${MR}/patients/${patientId}`, body),
@@ -66,7 +66,7 @@ export const api = {
     addMedication: (patientId, body) => post(`${MR}/patients/${patientId}/medications`, body),
     removeMedication: (patientId, name) => del(`${MR}/patients/${patientId}/medications/${encodeURIComponent(name)}`),
     addCondition: (patientId, body) => post(`${MR}/patients/${patientId}/conditions`, body),
-    removeCondition: (patientId, cid10) => del(`${MR}/patients/${patientId}/conditions/${encodeURIComponent(cid10)}`),
+    removeCondition: (patientId, icd10) => del(`${MR}/patients/${patientId}/conditions/${encodeURIComponent(icd10)}`),
   },
   search: {
     query: (q, params) => get(`${MR}/search`, { q, ...params }),

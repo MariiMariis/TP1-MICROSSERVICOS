@@ -1,5 +1,5 @@
-// Traduz cada estagio de um aggregation pipeline para uma frase em portugues.
-// Recebe o estagio como veio do servico (ex.: { $group: { _id: "$specialty", total: { $sum: 1 } } }).
+// Translates each stage of an aggregation pipeline into a plain-English sentence.
+// Receives the stage as it came from the service (e.g. { $group: { _id: "$specialty", total: { $sum: 1 } } }).
 
 const short = (v) => {
   const s = JSON.stringify(v);
@@ -8,14 +8,14 @@ const short = (v) => {
 const keys = (o) => Object.keys(o || {});
 const fieldName = (v) => (typeof v === "string" && v.startsWith("$") ? v.slice(1) : short(v));
 
-const ACCUM = { $sum: "soma", $avg: "media", $min: "minimo", $max: "maximo", $first: "primeiro valor", $last: "ultimo valor", $push: "lista", $addToSet: "conjunto (sem repeticao)", $count: "contagem" };
+const ACCUM = { $sum: "sum", $avg: "average", $min: "minimum", $max: "maximum", $first: "first value", $last: "last value", $push: "list", $addToSet: "set (no duplicates)", $count: "count" };
 
 function describeAccumulators(group) {
   return keys(group).filter((k) => k !== "_id").map((k) => {
     const op = keys(group[k])[0];
     const label = ACCUM[op] || op;
     const arg = group[k][op];
-    return `${k} = ${label}${arg === 1 ? " de 1 por documento (contagem)" : typeof arg === "string" ? ` de ${arg}` : ""}`;
+    return `${k} = ${label}${arg === 1 ? " of 1 per document (a count)" : typeof arg === "string" ? ` of ${arg}` : ""}`;
   });
 }
 
@@ -24,62 +24,62 @@ export function explainStage(stage) {
   const body = stage[name];
   switch (name) {
     case "$match":
-      return { title: "Filtra documentos", text: `So passam os documentos que atendem ${short(body)}. Quando e o primeiro estagio, o servidor consegue usar indices para isso.` };
+      return { title: "Filters documents", text: `Only documents matching ${short(body)} pass through. When it is the first stage, the server can use indexes for it.` };
     case "$group":
-      return { title: `Agrupa por ${body._id === null ? "todos os documentos (um grupo so)" : fieldName(body._id)}`, text: `Para cada grupo calcula: ${describeAccumulators(body).join("; ")}.`, detail: "Equivale ao GROUP BY do SQL, mas os acumuladores podem montar arrays e conjuntos, nao so numeros." };
+      return { title: `Groups by ${body._id === null ? "all documents (a single group)" : fieldName(body._id)}`, text: `For each group it computes: ${describeAccumulators(body).join("; ")}.`, detail: "Equivalent to SQL's GROUP BY, but accumulators can build arrays and sets, not just numbers." };
     case "$project":
-      return { title: "Escolhe e renomeia campos", text: `Saida com os campos ${keys(body).join(", ")}; o que nao esta aqui e descartado, e expressoes calculam novos valores.` };
+      return { title: "Selects and renames fields", text: `Output with the fields ${keys(body).join(", ")}; anything not listed is dropped, and expressions compute new values.` };
     case "$addFields":
     case "$set":
-      return { title: "Calcula campos novos", text: `Acrescenta ${keys(body).join(", ")} a cada documento, sem remover os existentes.`, detail: JSON.stringify(body).includes("$dateDiff") ? "$dateDiff calcula a idade a partir da data de nascimento no momento da consulta: nao existe campo 'idade' gravado." : undefined };
+      return { title: "Computes new fields", text: `Adds ${keys(body).join(", ")} to each document without removing the existing ones.`, detail: JSON.stringify(body).includes("$dateDiff") ? "$dateDiff computes the age from the birth date at query time: there is no stored 'age' field." : undefined };
     case "$sort":
-      return { title: "Ordena", text: `Por ${keys(body).map((k) => `${k} ${body[k] === -1 ? "decrescente" : "crescente"}`).join(", ")}.`, detail: "Se houver um indice com essa ordem, o servidor le os documentos ja ordenados e evita o estagio SORT em memoria." };
+      return { title: "Sorts", text: `By ${keys(body).map((k) => `${k} ${body[k] === -1 ? "descending" : "ascending"}`).join(", ")}.`, detail: "If an index provides this order, the server reads the documents already sorted and avoids an in-memory SORT stage." };
     case "$limit":
-      return { title: `Mantem os primeiros ${body}`, text: "Corta o fluxo, entao os estagios seguintes processam menos documentos." };
+      return { title: `Keeps the first ${body}`, text: "Cuts the stream, so the following stages process fewer documents." };
     case "$skip":
-      return { title: `Pula os primeiros ${body}`, text: "Usado com $limit para paginacao." };
+      return { title: `Skips the first ${body}`, text: "Used with $limit for pagination." };
     case "$unwind":
-      return { title: `Desmembra o array ${fieldName(typeof body === "string" ? body : body.path)}`, text: "Cada elemento do array vira um documento proprio, o que permite agrupar e contar itens embutidos (diagnosticos, medicamentos, alergias) sem tabela de associacao." };
+      return { title: `Unwinds the array ${fieldName(typeof body === "string" ? body : body.path)}`, text: "Each array element becomes its own document, which allows grouping and counting embedded items (diagnoses, medications, allergies) with no join table." };
     case "$lookup":
-      return { title: `Junta com a colecao ${body.from}`, text: body.localField ? `Liga ${body.localField} daqui com ${body.foreignField} de ${body.from} e coloca os documentos encontrados no array ${body.as}.` : `Executa um sub-pipeline em ${body.from} para cada documento e guarda o resultado em ${body.as}.`, detail: "E o join do MongoDB. Nao existe chave estrangeira: a ligacao e logica, feita na consulta." };
+      return { title: `Joins with the ${body.from} collection`, text: body.localField ? `Links ${body.localField} here with ${body.foreignField} in ${body.from} and puts the matching documents in the ${body.as} array.` : `Runs a sub-pipeline on ${body.from} for each document and stores the result in ${body.as}.`, detail: "This is MongoDB's join. There is no foreign key: the link is logical, made in the query." };
     case "$facet":
-      return { title: `Executa ${keys(body).length} analises em uma passada`, text: `Sub-pipelines ${keys(body).join(", ")} rodam sobre os mesmos documentos de entrada e cada um devolve seu proprio array.`, detail: "Um unico acesso a colecao alimenta varios indicadores: e o que permite montar um painel inteiro com uma consulta." };
+      return { title: `Runs ${keys(body).length} analyses in one pass`, text: `Sub-pipelines ${keys(body).join(", ")} run over the same input documents and each returns its own array.`, detail: "A single collection access feeds several indicators: this is what allows building a whole panel with one query." };
     case "$bucket":
-      return { title: `Distribui em faixas de ${fieldName(body.groupBy)}`, text: `Limites ${JSON.stringify(body.boundaries)}; para cada faixa calcula ${keys(body.output || {}).join(", ")}.` };
+      return { title: `Distributes ${fieldName(body.groupBy)} into ranges`, text: `Boundaries ${JSON.stringify(body.boundaries)}; for each range it computes ${keys(body.output || {}).join(", ")}.` };
     case "$bucketAuto":
-      return { title: `Distribui ${fieldName(body.groupBy)} em ${body.buckets} faixas automaticas`, text: "O servidor escolhe os limites para equilibrar a quantidade por faixa." };
+      return { title: `Distributes ${fieldName(body.groupBy)} into ${body.buckets} automatic ranges`, text: "The server picks the boundaries to balance the count per range." };
     case "$count":
-      return { title: "Conta documentos", text: `Devolve a quantidade no campo ${body}.` };
+      return { title: "Counts documents", text: `Returns the count in the field ${body}.` };
     case "$geoNear":
-      return { title: "Ordena por distancia geografica", text: `A partir do ponto ${JSON.stringify(body.near?.coordinates)}, usando o indice 2dsphere em ${body.key}; grava a distancia em ${body.distanceField}${body.maxDistance ? ` e limita a ${body.maxDistance} m` : ""}.` };
+      return { title: "Sorts by geographic distance", text: `From the point ${JSON.stringify(body.near?.coordinates)}, using the 2dsphere index on ${body.key}; stores the distance in ${body.distanceField}${body.maxDistance ? ` and limits it to ${body.maxDistance} m` : ""}.` };
     case "$search":
-      return { title: "Busca full-text no Atlas Search", text: `Consulta o indice Lucene ${body.index}, fora do mongod, e devolve os documentos por relevancia.` };
+      return { title: "Full-text search in Atlas Search", text: `Queries the Lucene index ${body.index}, outside mongod, and returns documents by relevance.` };
     case "$searchMeta":
-      return { title: "Metadados da busca (facets)", text: "Conta os resultados por categoria sem trazer os documentos." };
+      return { title: "Search metadata (facets)", text: "Counts results per category without fetching the documents." };
     case "$sample":
-      return { title: `Sorteia ${body.size} documento(s)`, text: "Amostra aleatoria da colecao." };
+      return { title: `Picks ${body.size} random document(s)`, text: "A random sample of the collection." };
     case "$replaceRoot":
     case "$replaceWith":
-      return { title: "Troca a raiz do documento", text: `O documento passa a ser ${short(body)}.` };
+      return { title: "Replaces the document root", text: `The document becomes ${short(body)}.` };
     default:
       return { title: name, text: short(body) };
   }
 }
 
-// Nome do estagio de plano de execucao -> explicacao curta.
+// Execution plan stage name -> short explanation.
 export const PLAN_STAGES = {
-  COLLSCAN: { label: "Varredura da colecao", text: "Leu todos os documentos. Normal em analises que agregam a colecao inteira; ruim em consultas pontuais.", tone: "warn" },
-  IXSCAN: { label: "Leitura por indice", text: "Percorreu apenas as chaves do indice que atendem ao filtro.", tone: "ok" },
-  FETCH: { label: "Busca do documento", text: "Carregou o documento completo a partir da chave encontrada no indice.", tone: "" },
-  SORT: { label: "Ordenacao em memoria", text: "Nenhum indice fornecia a ordem pedida.", tone: "warn" },
-  GROUP: { label: "Agrupamento (motor SBE)", text: "O $group foi compilado direto no plano de execucao.", tone: "ok" },
-  PROJECTION_DEFAULT: { label: "Projecao", text: "Seleciona campos.", tone: "" },
-  PROJECTION_SIMPLE: { label: "Projecao", text: "Seleciona campos.", tone: "" },
-  PROJECTION_COVERED: { label: "Projecao coberta", text: "Tudo veio do indice, sem ler documentos.", tone: "ok" },
-  LIMIT: { label: "Limite", text: "Corta o fluxo.", tone: "" },
-  SKIP: { label: "Pulo", text: "Descarta os primeiros documentos.", tone: "" },
-  GEO_NEAR_2DSPHERE: { label: "Busca geoespacial", text: "Usou o indice 2dsphere.", tone: "ok" },
-  UNWIND: { label: "Desmembramento", text: "Abre arrays.", tone: "" },
-  EQ_LOOKUP: { label: "Join", text: "Executa o $lookup.", tone: "" },
-  SUBPLAN: { label: "Sub-planos", text: "Cada ramo do $or ganhou um plano.", tone: "" },
+  COLLSCAN: { label: "Collection scan", text: "Read every document. Normal for analyses that aggregate the whole collection; bad for point queries.", tone: "warn" },
+  IXSCAN: { label: "Index scan", text: "Walked only the index keys that match the filter.", tone: "ok" },
+  FETCH: { label: "Document fetch", text: "Loaded the full document from the key found in the index.", tone: "" },
+  SORT: { label: "In-memory sort", text: "No index provided the requested order.", tone: "warn" },
+  GROUP: { label: "Grouping (SBE engine)", text: "The $group was compiled straight into the execution plan.", tone: "ok" },
+  PROJECTION_DEFAULT: { label: "Projection", text: "Selects fields.", tone: "" },
+  PROJECTION_SIMPLE: { label: "Projection", text: "Selects fields.", tone: "" },
+  PROJECTION_COVERED: { label: "Covered projection", text: "Everything came from the index, no documents read.", tone: "ok" },
+  LIMIT: { label: "Limit", text: "Cuts the stream.", tone: "" },
+  SKIP: { label: "Skip", text: "Discards the first documents.", tone: "" },
+  GEO_NEAR_2DSPHERE: { label: "Geospatial search", text: "Used the 2dsphere index.", tone: "ok" },
+  UNWIND: { label: "Unwind", text: "Opens arrays.", tone: "" },
+  EQ_LOOKUP: { label: "Join", text: "Executes the $lookup.", tone: "" },
+  SUBPLAN: { label: "Sub-plans", text: "Each $or branch got its own plan.", tone: "" },
 };

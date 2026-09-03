@@ -1,11 +1,11 @@
-// Cliente Eureka minimo, escrito sobre a API REST do Netflix Eureka.
+// Minimal Eureka client written on top of the Netflix Eureka REST API.
 //
-// O servico Node faz exatamente o que o spring-cloud-starter-netflix-eureka-client faz
-// nos servicos Java: registra a instancia, envia heartbeat a cada 5s e se remove ao
-// encerrar. Assim o api-gateway continua resolvendo lb://medical-record-service sem
-// saber (nem precisar saber) que este servico nao e mais Java.
+// The Node service does exactly what spring-cloud-starter-netflix-eureka-client does in the
+// Java services: registers the instance, sends a heartbeat every 5s and removes itself on
+// shutdown. That way the api-gateway keeps resolving lb://medical-record-service without
+// knowing (or needing to know) that this service is no longer Java.
 //
-// Referencia: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
+// Reference: https://github.com/Netflix/eureka/wiki/Eureka-REST-operations
 import os from "node:os";
 
 function detectIp() {
@@ -22,7 +22,6 @@ function detectIp() {
 export function startEureka({ appName, port, serviceUrl, instanceIp, renewalIntervalSecs, leaseDurationSecs, metadata = {} }) {
   const app = appName.toUpperCase();
   const ip = instanceIp || detectIp();
-  const hostName = os.hostname();
   const instanceId = `${ip}:${appName}:${port}`;
   const base = `http://${ip}:${port}`;
   const appsUrl = `${serviceUrl}/apps/${app}`;
@@ -57,9 +56,9 @@ export function startEureka({ appName, port, serviceUrl, instanceIp, renewalInte
       body: JSON.stringify(body),
       signal: AbortSignal.timeout(4000),
     });
-    if (res.status !== 204 && res.status !== 200) throw new Error(`Eureka respondeu ${res.status}`);
+    if (res.status !== 204 && res.status !== 200) throw new Error(`Eureka answered ${res.status}`);
     state.registered = true;
-    console.log(`[eureka] registrado como ${app} (${instanceId}) em ${serviceUrl}`);
+    console.log(`[eureka] registered as ${app} (${instanceId}) at ${serviceUrl}`);
   }
 
   async function heartbeat() {
@@ -71,15 +70,15 @@ export function startEureka({ appName, port, serviceUrl, instanceIp, renewalInte
       }
       const res = await fetch(`${instanceUrl}?status=UP`, { method: "PUT", signal: AbortSignal.timeout(4000) });
       if (res.status === 404) {
-        // O Eureka reiniciou ou expirou o lease: registra de novo.
+        // Eureka restarted or the lease expired: register again.
         state.registered = false;
         await register();
       } else if (!res.ok) {
-        throw new Error(`heartbeat respondeu ${res.status}`);
+        throw new Error(`heartbeat answered ${res.status}`);
       }
     } catch (err) {
-      if (state.registered) console.warn(`[eureka] heartbeat falhou: ${err.message}`);
-      else console.warn(`[eureka] discovery-server indisponivel em ${serviceUrl} (${err.message}); tentando novamente...`);
+      if (state.registered) console.warn(`[eureka] heartbeat failed: ${err.message}`);
+      else console.warn(`[eureka] discovery-server unavailable at ${serviceUrl} (${err.message}); retrying...`);
       state.registered = false;
     }
   }
@@ -90,9 +89,9 @@ export function startEureka({ appName, port, serviceUrl, instanceIp, renewalInte
     if (!state.registered) return;
     try {
       await fetch(instanceUrl, { method: "DELETE", signal: AbortSignal.timeout(3000) });
-      console.log("[eureka] instancia removida do registro");
+      console.log("[eureka] instance removed from the registry");
     } catch (err) {
-      console.warn(`[eureka] falha ao remover registro: ${err.message}`);
+      console.warn(`[eureka] failed to deregister: ${err.message}`);
     }
   }
 

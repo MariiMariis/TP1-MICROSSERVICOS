@@ -1,10 +1,10 @@
-// Gera infra/seed/patients.json: a base cadastral compartilhada pelos seeds do
-// patient-service (PostgreSQL) e do medical-record-service (MongoDB Atlas).
+// Generates infra/seed/patients.json: the shared patient registry used by both the
+// patient-service seed (PostgreSQL) and the medical-record-service seed (MongoDB Atlas).
 //
-// E deterministico: a mesma semente produz sempre os mesmos 120 pacientes, o que
-// garante que o id N no Postgres e o patientId N no Mongo sejam a mesma pessoa.
+// Deterministic: the same seed always produces the same 120 patients, so id N in
+// PostgreSQL and patientId N in MongoDB are the same person.
 //
-// Uso:  node infra/seed/generate-patients.mjs
+// Usage:  node infra/seed/generate-patients.mjs
 
 import { writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -28,7 +28,7 @@ const int = (min, max) => Math.floor(rnd() * (max - min + 1)) + min;
 const chance = (p) => rnd() < p;
 const pad = (n, w) => String(n).padStart(w, "0");
 
-// ---------------------------------------------------------------- Dados base
+// ---------------------------------------------------------------- Base data (Brazilian names, Sao Paulo clinic)
 const FIRST_F = ["Ana", "Beatriz", "Camila", "Daniela", "Elisa", "Fernanda", "Gabriela", "Helena", "Isabela",
   "Juliana", "Larissa", "Mariana", "Natalia", "Patricia", "Rafaela", "Sofia", "Tatiana", "Vanessa", "Luiza",
   "Carolina", "Renata", "Priscila", "Bruna", "Leticia", "Amanda", "Cristina", "Simone", "Marcia", "Rosangela", "Vera"];
@@ -41,8 +41,8 @@ const MIDDLE = ["Silva", "Santos", "Oliveira", "Souza", "Rodrigues", "Ferreira",
   "Cardoso", "Ramos", "Teixeira", "Correia", "Castro", "Pinto", "Monteiro", "Azevedo", "Cunha", "Campos"];
 
 const PLANS = [
-  ["SUS", 0.30], ["Unimed", 0.18], ["Amil", 0.12], ["Bradesco Saude", 0.10], ["SulAmerica", 0.08],
-  ["Particular", 0.10], ["Porto Seguro Saude", 0.06], ["NotreDame Intermedica", 0.06],
+  ["SUS (public)", 0.30], ["Unimed", 0.18], ["Amil", 0.12], ["Bradesco Saude", 0.10], ["SulAmerica", 0.08],
+  ["Private", 0.10], ["Porto Seguro Saude", 0.06], ["NotreDame Intermedica", 0.06],
 ];
 const BLOOD = [["O+", 0.36], ["A+", 0.34], ["B+", 0.08], ["AB+", 0.025], ["O-", 0.09], ["A-", 0.06], ["B-", 0.02], ["AB-", 0.005]];
 
@@ -52,7 +52,7 @@ function weighted(table) {
   return table[table.length - 1][0];
 }
 
-// Bairros de Sao Paulo com coordenada aproximada do centro (lat, lng) e o CEP-base.
+// Sao Paulo neighborhoods with approximate center (lat, lng) and base ZIP code.
 const NEIGHBORHOODS = [
   ["Pinheiros", -23.5646, -46.6917, "05422"], ["Vila Madalena", -23.5540, -46.6910, "05433"],
   ["Perdizes", -23.5370, -46.6750, "05015"], ["Moema", -23.6010, -46.6650, "04077"],
@@ -72,7 +72,7 @@ const STREETS = ["Rua das Acacias", "Avenida Paulista", "Rua Augusta", "Rua Harm
   "Rua da Mooca", "Avenida Sapopemba", "Rua Voluntarios da Patria", "Rua Galvao Bueno", "Avenida Santo Amaro",
   "Rua Domingos de Morais", "Rua Bom Pastor", "Avenida Pompeia", "Rua Teodoro Sampaio", "Rua Padre Joao Manuel"];
 
-// A unidade "preferida" do paciente e a mais proxima de casa (Pinheiros, Moema ou Tatuape).
+// The patient's "preferred unit" is the closest clinic (Pinheiros, Moema or Tatuape).
 const UNITS = [
   { code: "PINHEIROS", lat: -23.5646, lng: -46.6917 },
   { code: "MOEMA", lat: -23.6010, lng: -46.6650 },
@@ -88,46 +88,46 @@ function nearestUnit(lat, lng) {
 }
 
 const ALLERGIES = [
-  ["Dipirona", "urticaria", "MODERADA"], ["Penicilina", "anafilaxia", "GRAVE"], ["Amoxicilina", "exantema", "LEVE"],
-  ["Ibuprofeno", "edema de face", "MODERADA"], ["Latex", "dermatite de contato", "LEVE"], ["Frutos do mar", "urticaria", "MODERADA"],
-  ["Amendoim", "anafilaxia", "GRAVE"], ["Lactose", "desconforto gastrointestinal", "LEVE"], ["Poeira", "rinite", "LEVE"],
-  ["Contraste iodado", "broncoespasmo", "GRAVE"], ["AAS", "urticaria", "MODERADA"], ["Sulfa", "exantema", "MODERADA"],
+  ["Dipyrone", "hives", "MODERATE"], ["Penicillin", "anaphylaxis", "SEVERE"], ["Amoxicillin", "rash", "MILD"],
+  ["Ibuprofen", "facial swelling", "MODERATE"], ["Latex", "contact dermatitis", "MILD"], ["Shellfish", "hives", "MODERATE"],
+  ["Peanut", "anaphylaxis", "SEVERE"], ["Lactose", "gastrointestinal discomfort", "MILD"], ["Dust", "rhinitis", "MILD"],
+  ["Iodinated contrast", "bronchospasm", "SEVERE"], ["Aspirin", "hives", "MODERATE"], ["Sulfa", "rash", "MODERATE"],
 ];
 
-// Condicoes cronicas com CID-10 e os medicamentos tipicamente associados.
+// Chronic conditions with ICD-10 codes and the medications typically associated with them.
 const CONDITIONS = [
-  { cid10: "I10", description: "Hipertensao arterial essencial", minAge: 35, p: 0.30,
-    meds: [["Losartana", "50mg", "1x ao dia"], ["Hidroclorotiazida", "25mg", "1x ao dia"], ["Anlodipino", "5mg", "1x ao dia"]] },
-  { cid10: "E11", description: "Diabetes mellitus tipo 2", minAge: 40, p: 0.16,
-    meds: [["Metformina", "850mg", "2x ao dia"], ["Glicazida", "30mg", "1x ao dia"]] },
-  { cid10: "E78.5", description: "Hiperlipidemia", minAge: 40, p: 0.18, meds: [["Sinvastatina", "20mg", "1x a noite"], ["Rosuvastatina", "10mg", "1x ao dia"]] },
-  { cid10: "J45", description: "Asma", minAge: 0, p: 0.09, meds: [["Salbutamol spray", "100mcg", "se necessario"], ["Budesonida inalatoria", "200mcg", "2x ao dia"]] },
-  { cid10: "E03.9", description: "Hipotireoidismo", minAge: 25, p: 0.08, meds: [["Levotiroxina", "50mcg", "1x em jejum"]] },
-  { cid10: "F41.1", description: "Transtorno de ansiedade generalizada", minAge: 16, p: 0.11, meds: [["Sertralina", "50mg", "1x ao dia"], ["Escitalopram", "10mg", "1x ao dia"]] },
-  { cid10: "F32.1", description: "Episodio depressivo moderado", minAge: 18, p: 0.06, meds: [["Fluoxetina", "20mg", "1x ao dia"]] },
-  { cid10: "M54.5", description: "Dor lombar baixa", minAge: 25, p: 0.10, meds: [] },
-  { cid10: "H52.1", description: "Miopia", minAge: 6, p: 0.20, meds: [] },
-  { cid10: "K21.0", description: "Doenca do refluxo gastroesofagico", minAge: 20, p: 0.08, meds: [["Omeprazol", "20mg", "1x em jejum"]] },
-  { cid10: "G43", description: "Enxaqueca", minAge: 12, p: 0.07, meds: [["Sumatriptano", "50mg", "se necessario"]] },
-  { cid10: "N18.3", description: "Doenca renal cronica estagio 3", minAge: 55, p: 0.03, meds: [] },
-  { cid10: "I48", description: "Fibrilacao atrial", minAge: 60, p: 0.04, meds: [["Rivaroxabana", "20mg", "1x ao dia"]] },
+  { icd10: "I10", description: "Essential hypertension", minAge: 35, p: 0.30,
+    meds: [["Losartan", "50mg", "once daily"], ["Hydrochlorothiazide", "25mg", "once daily"], ["Amlodipine", "5mg", "once daily"]] },
+  { icd10: "E11", description: "Type 2 diabetes mellitus", minAge: 40, p: 0.16,
+    meds: [["Metformin", "850mg", "twice daily"], ["Gliclazide", "30mg", "once daily"]] },
+  { icd10: "E78.5", description: "Hyperlipidemia", minAge: 40, p: 0.18, meds: [["Simvastatin", "20mg", "at night"], ["Rosuvastatin", "10mg", "once daily"]] },
+  { icd10: "J45", description: "Asthma", minAge: 0, p: 0.09, meds: [["Salbutamol inhaler", "100mcg", "as needed"], ["Budesonide inhaler", "200mcg", "twice daily"]] },
+  { icd10: "E03.9", description: "Hypothyroidism", minAge: 25, p: 0.08, meds: [["Levothyroxine", "50mcg", "once daily, fasting"]] },
+  { icd10: "F41.1", description: "Generalized anxiety disorder", minAge: 16, p: 0.11, meds: [["Sertraline", "50mg", "once daily"], ["Escitalopram", "10mg", "once daily"]] },
+  { icd10: "F32.1", description: "Moderate depressive episode", minAge: 18, p: 0.06, meds: [["Fluoxetine", "20mg", "once daily"]] },
+  { icd10: "M54.5", description: "Low back pain", minAge: 25, p: 0.10, meds: [] },
+  { icd10: "H52.1", description: "Myopia", minAge: 6, p: 0.20, meds: [] },
+  { icd10: "K21.0", description: "Gastro-esophageal reflux disease", minAge: 20, p: 0.08, meds: [["Omeprazole", "20mg", "once daily, fasting"]] },
+  { icd10: "G43", description: "Migraine", minAge: 12, p: 0.07, meds: [["Sumatriptan", "50mg", "as needed"]] },
+  { icd10: "N18.3", description: "Chronic kidney disease, stage 3", minAge: 55, p: 0.03, meds: [] },
+  { icd10: "I48", description: "Atrial fibrillation", minAge: 60, p: 0.04, meds: [["Rivaroxaban", "20mg", "once daily"]] },
 ];
 
 function makeCpf(n) {
-  // 11 digitos unicos e claramente ficticios (nao passam pelo algoritmo de validacao de proposito).
+  // 11 unique, clearly fictitious digits (they intentionally fail the CPF check digit algorithm).
   return "9" + pad(n, 4) + pad(int(0, 999999), 6);
 }
 
-// ---------------------------------------------------------------- Geracao
+// ---------------------------------------------------------------- Generation
 const today = new Date("2026-09-02T00:00:00Z");
 const patients = [];
 const usedCpf = new Set();
 
-// Os 4 primeiros pacientes sao os mesmos da Entrega 1, para manter os exemplos do README e dos .http validos.
+// The first 4 patients are the same as in Delivery 1, keeping the README and .http examples valid.
 const LEGACY = [
   ["11122233344", "Ana Paula Ribeiro", "1988-03-12", "F", "ana.ribeiro@email.com", "31988880001", "Unimed"],
-  ["22233344455", "Carlos Eduardo Souza", "1975-11-02", "M", "carlos.souza@email.com", "31988880002", "SUS"],
-  ["33344455566", "Marina Lopes Ferreira", "1996-07-25", "F", "marina.ferreira@email.com", "31988880003", "Particular"],
+  ["22233344455", "Carlos Eduardo Souza", "1975-11-02", "M", "carlos.souza@email.com", "31988880002", "SUS (public)"],
+  ["33344455566", "Marina Lopes Ferreira", "1996-07-25", "F", "marina.ferreira@email.com", "31988880003", "Private"],
   ["44455566677", "Roberto Nunes Almeida", "1962-01-30", "M", "roberto.almeida@email.com", "31988880004", "Bradesco Saude"],
 ];
 
@@ -141,7 +141,7 @@ for (let i = 1; i <= TOTAL; i++) {
     const mid = pick(MIDDLE);
     let last = pick(MIDDLE); while (last === mid) last = pick(MIDDLE);
     fullName = `${first} ${mid} ${last}`;
-    // Distribuicao etaria: de bebes a idosos, com concentracao entre 25 e 65.
+    // Age distribution: from infants to the elderly, concentrated between 25 and 65.
     const age = weighted([[int(0, 12), 0.10], [int(13, 24), 0.12], [int(25, 44), 0.33], [int(45, 64), 0.30], [int(65, 89), 0.15]]);
     const birth = new Date(today); birth.setUTCFullYear(today.getUTCFullYear() - age); birth.setUTCMonth(int(0, 11)); birth.setUTCDate(int(1, 28));
     birthDate = birth.toISOString().slice(0, 10);
@@ -153,7 +153,7 @@ for (let i = 1; i <= TOTAL; i++) {
   usedCpf.add(cpf);
 
   const age = Math.floor((today - new Date(birthDate)) / (365.25 * 24 * 3600 * 1000));
-  const [neighborhood, baseLat, baseLng, cepBase] = pick(NEIGHBORHOODS);
+  const [neighborhood, baseLat, baseLng, zipBase] = pick(NEIGHBORHOODS);
   const lat = +(baseLat + (rnd() - 0.5) * 0.016).toFixed(6);
   const lng = +(baseLng + (rnd() - 0.5) * 0.016).toFixed(6);
 
@@ -171,7 +171,7 @@ for (let i = 1; i <= TOTAL; i++) {
   for (const c of CONDITIONS) {
     if (age >= c.minAge && chance(c.p)) {
       const sinceYear = today.getUTCFullYear() - int(0, Math.min(15, Math.max(1, age - c.minAge)));
-      chronicConditions.push({ cid10: c.cid10, description: c.description, since: `${sinceYear}-${pad(int(1, 12), 2)}-01`, controlled: chance(0.7) });
+      chronicConditions.push({ icd10: c.icd10, description: c.description, since: `${sinceYear}-${pad(int(1, 12), 2)}-01`, controlled: chance(0.7) });
       if (c.meds.length) {
         const [name, dose, frequency] = pick(c.meds);
         if (!medications.some(m => m.name === name)) medications.push({ name, dose, frequency, continuous: true });
@@ -197,17 +197,17 @@ for (let i = 1; i <= TOTAL; i++) {
       neighborhood,
       city: "Sao Paulo",
       state: "SP",
-      zipCode: `${cepBase}-${pad(int(0, 999), 3)}`,
+      zipCode: `${zipBase}-${pad(int(0, 999), 3)}`,
       location: { type: "Point", coordinates: [lng, lat] },
     },
     preferredUnit: nearestUnit(lat, lng),
     allergies,
     chronicConditions,
     medications,
-    emergencyContact: { name: `${pick(FIRST_F.concat(FIRST_M))} ${pick(MIDDLE)}`, relationship: pick(["conjuge", "mae", "pai", "filho(a)", "irmao(a)"]), phone: `119${pad(int(10000000, 99999999), 8)}` },
+    emergencyContact: { name: `${pick(FIRST_F.concat(FIRST_M))} ${pick(MIDDLE)}`, relationship: pick(["spouse", "mother", "father", "child", "sibling"]), phone: `119${pad(int(10000000, 99999999), 8)}` },
   });
 }
 
 const out = join(dirname(fileURLToPath(import.meta.url)), "patients.json");
 writeFileSync(out, JSON.stringify(patients, null, 2) + "\n", "utf8");
-console.log(`patients.json gerado com ${patients.length} pacientes em ${out}`);
+console.log(`patients.json generated with ${patients.length} patients at ${out}`);

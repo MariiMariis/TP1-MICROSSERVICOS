@@ -1,21 +1,21 @@
 import { NavLink, Navigate, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
-import Pacientes from "./pages/Pacientes.jsx";
-import PacienteDetalhe from "./pages/PacienteDetalhe.jsx";
-import Agenda from "./pages/Agenda.jsx";
-import Busca from "./pages/Busca.jsx";
-import Mapa from "./pages/Mapa.jsx";
+import Patients from "./pages/Patients.jsx";
+import PatientDetail from "./pages/PatientDetail.jsx";
+import Schedule from "./pages/Schedule.jsx";
+import Search from "./pages/Search.jsx";
+import Map from "./pages/Map.jsx";
 import MongoLab from "./pages/MongoLab.jsx";
 
 const NAV = [
-  { section: "Clinica" },
+  { section: "Clinic" },
   { to: "/dashboard", label: "Dashboard", icon: "📊" },
-  { to: "/pacientes", label: "Pacientes", icon: "🧑‍⚕️" },
-  { to: "/agenda", label: "Agenda", icon: "📅" },
+  { to: "/patients", label: "Patients", icon: "🧑‍⚕️" },
+  { to: "/schedule", label: "Schedule", icon: "📅" },
   { section: "MongoDB Atlas" },
-  { to: "/busca", label: "Busca (Atlas Search)", icon: "🔎" },
-  { to: "/mapa", label: "Mapa (geoespacial)", icon: "🗺️" },
-  { to: "/mongo", label: "Bastidores do Mongo", icon: "🍃" },
+  { to: "/search", label: "Search (Atlas Search)", icon: "🔎" },
+  { to: "/map", label: "Map (geospatial)", icon: "🗺️" },
+  { to: "/mongo", label: "Behind the scenes", icon: "🍃" },
 ];
 
 export default function App() {
@@ -26,7 +26,7 @@ export default function App() {
           <span style={{ fontSize: 26 }}>🩺</span>
           <div>
             <b>MedFlow</b>
-            <small>Gestao clinica distribuida</small>
+            <small>Distributed clinic management</small>
           </div>
         </div>
         {NAV.map((item, i) =>
@@ -39,18 +39,18 @@ export default function App() {
           ),
         )}
         <div className="foot">
-          Front-end React → api-gateway :8080 → Eureka → patient-service (PostgreSQL), appointment-service (PostgreSQL), medical-record-service (Node.js + MongoDB Atlas)
+          React front-end → api-gateway :8080 → Eureka → patient-service (PostgreSQL), appointment-service (PostgreSQL), medical-record-service (Node.js + MongoDB Atlas)
         </div>
       </aside>
       <main className="main">
         <Routes>
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/pacientes" element={<Pacientes />} />
-          <Route path="/pacientes/:id" element={<PacienteDetalhe />} />
-          <Route path="/agenda" element={<Agenda />} />
-          <Route path="/busca" element={<Busca />} />
-          <Route path="/mapa" element={<Mapa />} />
+          <Route path="/patients" element={<Patients />} />
+          <Route path="/patients/:id" element={<PatientDetail />} />
+          <Route path="/schedule" element={<Schedule />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/map" element={<Map />} />
           <Route path="/mongo" element={<MongoLab />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Routes>

@@ -7,6 +7,10 @@ Trabalho Prático - Arquitetura de Microservices e DevOps
   **MongoDB Atlas**, com carga de 120 pacientes e uma demonstração guiada das capacidades do Atlas
   (schema flexível, aggregation pipelines, Atlas Search, geoespacial, índices e schema validation).
 
+> **Idioma:** a interface, a API do prontuário (`medical-record-service`) e os dados de demonstração
+> estão em **inglês**, porque a apresentação é em inglês. Os serviços Java da Entrega 1 não mudaram
+> (o front-end traduz os status da agenda). Esta documentação continua em português.
+
 ---
 
 ## Integrantes
@@ -136,7 +140,7 @@ chamada entre microservices.
 
 | Grupo | Rotas | Capacidade do Mongo demonstrada |
 |---|---|---|
-| Atendimentos (contrato da Entrega 1) | `GET /`, `GET /{id}`, `GET /patient/{patientId}`, `POST /`, `DELETE /{id}`; filtros `specialty`, `type`, `tag`, `cid10`, `unit`, `from`, `to`, `clinicalDataKey` | schema flexível, índice composto, `$exists` |
+| Atendimentos (contrato da Entrega 1) | `GET /`, `GET /{id}`, `GET /patient/{patientId}`, `POST /`, `DELETE /{id}`; filtros `specialty`, `type`, `tag`, `icd10`, `unit`, `from`, `to`, `clinicalDataKey` | schema flexível, índice composto, `$exists` |
 | Prontuários | `GET /patients`, `GET /patients/{id}`, `PUT /patients/{id}`, `POST/DELETE .../allergies`, `.../medications`, `.../conditions` | documentos embutidos, upsert, `$addToSet`, `$push`, `$pull` |
 | Busca | `GET /search?q=`, `GET /search/autocomplete?q=`, `GET /search/status` | Atlas Search: full-text, fuzzy, autocomplete, highlights, facets |
 | Analytics | `GET /analytics`, `GET /analytics/dashboard`, `GET /analytics/{chave}` | 13 aggregation pipelines (`$facet`, `$bucket`, `$lookup`, `$unwind`, `$dateDiff`, `$objectToArray`...) |
@@ -152,7 +156,7 @@ mostra essa consulta ao lado do resultado.
 
 Database `medflow_medical_records`, duas coleções:
 
-### `prontuarios` — um documento por paciente
+### `medical_records` — um documento por paciente
 
 ```json
 {
@@ -167,12 +171,12 @@ Database `medflow_medical_records`, duas coleções:
     "location": { "type": "Point", "coordinates": [-46.633742, -23.496569] }   // GeoJSON, índice 2dsphere
   },
   "preferredUnit": "TATUAPE",
-  "allergies": [ { "substance": "Dipirona", "reaction": "urticaria", "severity": "MODERADA" } ],
-  "chronicConditions": [ { "cid10": "I10", "description": "Hipertensao arterial essencial", "since": ISODate("2018-07-01"), "controlled": true } ],
-  "medications": [ { "name": "Losartana", "dose": "50mg", "frequency": "1x ao dia", "continuous": true } ],
-  "emergencyContact": { "name": "...", "relationship": "conjuge", "phone": "..." },
-  "summary": { "totalEncounters": 9, "lastEncounterAt": ISODate("2026-08-14"), "lastSpecialty": "Cardiologia",
-               "specialties": ["Cardiologia", "Analises Clinicas"], "byType": { "CONSULTA": 6, "EXAME": 3 } }
+  "allergies": [ { "substance": "Dipyrone", "reaction": "hives", "severity": "MODERATE" } ],
+  "chronicConditions": [ { "icd10": "I10", "description": "Essential hypertension", "since": ISODate("2018-07-01"), "controlled": true } ],
+  "medications": [ { "name": "Losartan", "dose": "50mg", "frequency": "once daily", "continuous": true } ],
+  "emergencyContact": { "name": "...", "relationship": "spouse", "phone": "..." },
+  "summary": { "totalEncounters": 9, "lastEncounterAt": ISODate("2026-08-14"), "lastSpecialty": "Cardiology",
+               "specialties": ["Cardiology", "Clinical Laboratory"], "byType": { "CONSULTATION": 6, "EXAM": 3 } }
 }
 ```
 
@@ -180,24 +184,24 @@ Tudo o que se lê junto fica junto (**embedding**): alergias, condições e medi
 próprio documento. O bloco `summary` é o **computed pattern**: mantido por operadores atômicos
 (`$inc`, `$max`, `$addToSet`) a cada novo atendimento, sem reler a outra coleção.
 
-### `atendimentos` — um documento por evento clínico
+### `encounters` — um documento por evento clínico
 
 ```json
 {
   "patientId": 87, "patientName": "Marcia Silva Ferreira",     // referência + snapshot do nome
-  "recordType": "CONSULTA", "specialty": "Cardiologia", "unit": "PINHEIROS",
+  "recordType": "CONSULTATION", "specialty": "Cardiology", "unit": "PINHEIROS",
   "professional": { "name": "Dr. Helio Vasconcelos", "license": "CRM-SP 45871" },
   "occurredAt": ISODate("2023-09-04T07:00:00Z"), "durationMin": 44,
-  "chiefComplaint": "Palpitacoes aos esforcos",
-  "diagnosis": [ { "cid10": "I48", "description": "Fibrilacao atrial" } ],
-  "tags": ["cardiologia", "fibrilacao", "primeira-consulta"],
+  "chiefComplaint": "Palpitations on exertion",
+  "diagnosis": [ { "icd10": "I48", "description": "Atrial fibrillation" } ],
+  "tags": ["cardiology", "atrial", "first-visit"],
   "clinicalData": {                                              // <- estrutura livre, por especialidade
-    "pressaoArterial": { "sistolica": 124, "diastolica": 77, "unidade": "mmHg" },
-    "frequenciaCardiaca": 89,
-    "ecg": { "ritmo": "fibrilacao atrial", "alteracoes": [] },
-    "fracaoEjecao": 58.9, "riscoCardiovascular": "moderado"
+    "bloodPressure": { "systolic": 124, "diastolic": 77, "unit": "mmHg" },
+    "heartRate": 89,
+    "ecg": { "rhythm": "atrial fibrillation", "findings": [] },
+    "ejectionFraction": 58.9, "cardiovascularRisk": "moderate"
   },
-  "prescriptions": [ { "name": "AAS", "dose": "100mg", "frequency": "1x ao dia", "days": 30 } ],
+  "prescriptions": [ { "name": "Aspirin", "dose": "100mg", "frequency": "once daily", "days": 30 } ],
   "attachments": [], "billing": { "amount": 320, "payer": "Unimed", "currency": "BRL" }
 }
 ```
@@ -238,11 +242,11 @@ com o erro 121 e a lista das regras violadas, que a API devolve como `422`.
 
 | Coleção | Índice | Para quê |
 |---|---|---|
-| atendimentos | `{patientId: 1, occurredAt: -1}` | linha do tempo do paciente (consulta dominante) |
-| atendimentos | `{specialty, occurredAt}`, `{unit, occurredAt}`, `{occurredAt}`, `{recordType}`, `{tags}`, `{diagnosis.cid10}` | filtros e dashboards |
-| prontuarios | `{patientId}` e `{cpf}` **únicos** | identidade |
-| prontuarios | `{address.location: "2dsphere"}` | `$geoNear` |
-| prontuarios | `{allergies.substance}`, `{chronicConditions.cid10}`, `{healthPlan}`, `{fullName}` | filtros sobre arrays embutidos |
+| encounters | `{patientId: 1, occurredAt: -1}` | linha do tempo do paciente (consulta dominante) |
+| encounters | `{specialty, occurredAt}`, `{unit, occurredAt}`, `{occurredAt}`, `{recordType}`, `{tags}`, `{diagnosis.icd10}` | filtros e dashboards |
+| medical_records | `{patientId}` e `{cpf}` **únicos** | identidade |
+| medical_records | `{address.location: "2dsphere"}` | `$geoNear` |
+| medical_records | `{allergies.substance}`, `{chronicConditions.icd10}`, `{healthPlan}`, `{fullName}` | filtros sobre arrays embutidos |
 | Atlas Search | `atendimentos_search`, `prontuarios_search` | full-text (analisador padrão + português), autocomplete `edgeGram`, facets |
 
 A tela **Bastidores do Mongo → Explain** executa a mesma consulta com `hint({$natural: 1})` e com o
@@ -497,7 +501,7 @@ curl http://localhost:8080/api/medical-records/search?q=diabetis
 ```
 
 ```bash
-curl "http://localhost:8080/api/medical-records/geo/near-unit/MOEMA?maxKm=2&cid10=I10"
+curl "http://localhost:8080/api/medical-records/geo/near-unit/MOEMA?maxKm=2&icd10=I10"
 ```
 
 ```bash

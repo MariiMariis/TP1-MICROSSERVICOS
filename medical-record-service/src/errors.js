@@ -1,4 +1,4 @@
-// Erros de API no mesmo formato do ApiError dos servicos Java (status, error, message, path, timestamp).
+// API errors in the same shape as the Java services' ApiError (status, error, message, path, timestamp).
 
 export class ApiError extends Error {
   constructor(status, message, details) {
@@ -17,19 +17,19 @@ const REASONS = { 400: "Bad Request", 404: "Not Found", 409: "Conflict", 422: "U
 // eslint-disable-next-line no-unused-vars
 export function errorHandler(err, req, res, _next) {
   let status = err.status || 500;
-  let message = err.message || "Erro interno";
+  let message = err.message || "Internal error";
   let details = err.details;
 
-  // Schema validation do MongoDB (validator $jsonSchema) chega como erro 121 do servidor.
+  // MongoDB schema validation ($jsonSchema validator) arrives as server error 121.
   if (err.code === 121) {
     status = 422;
-    message = "Documento rejeitado pelo schema validation da colecao";
+    message = "Document rejected by the collection's schema validation";
     details = err.errInfo?.details;
   }
-  // Violacao de indice unico.
+  // Unique index violation.
   if (err.code === 11000) {
     status = 409;
-    message = "Ja existe um documento com essa chave unica";
+    message = "A document with this unique key already exists";
     details = err.keyValue;
   }
 

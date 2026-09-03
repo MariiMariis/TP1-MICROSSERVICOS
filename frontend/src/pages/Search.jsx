@@ -6,14 +6,14 @@ import JsonView from "../components/JsonView.jsx";
 import PipelineViewer from "../components/PipelineViewer.jsx";
 import { fmtDate, TYPE_LABEL, TYPE_TONE } from "../lib/format.js";
 
-const EXAMPLES = ["dor de cabeça", "hipertensao", "palpitacoes", "Losartana", "insonia", "Vasconcelos", "torceu o tornozelo", "diabetis"];
+const EXAMPLES = ["headaches", "hypertension", "palpitations", "Losartan", "insomnia", "Vasconcelos", "sprained ankle", "diabetis"];
 
-// Converte o formato de highlights do Atlas Search em JSX com <mark>.
+// Converts the Atlas Search highlight format into JSX with <mark>.
 function Highlight({ h }) {
   return <span>{h.texts.map((t, i) => (t.type === "hit" ? <mark key={i}>{t.value}</mark> : <span key={i}>{t.value}</span>))}</span>;
 }
 
-export default function Busca() {
+export default function Search() {
   const [q, setQ] = useState("");
   const [specialty, setSpecialty] = useState("");
   const [type, setType] = useState("");
@@ -55,29 +55,29 @@ export default function Busca() {
     <>
       <div className="page-head">
         <div>
-          <h1>Busca no prontuario</h1>
-          <p>Atlas Search: full-text em portugues com tolerancia a erros de digitacao (fuzzy), autocomplete de nomes e facets. Quando o indice nao esta disponivel, o servico cai para $regex e avisa - compare os dois.</p>
+          <h1>Medical record search</h1>
+          <p>Atlas Search: full-text in English with typo tolerance (fuzzy), name autocomplete and facets. When the index is unavailable, the service falls back to $regex and says so - compare the two.</p>
         </div>
         <div className="row">
-          {status.data && Object.values(status.data).map((s) => <Badge key={s.name} tone={s.queryable ? "mongo" : "warn"} title={s.reason || s.status}>{s.name}: {s.queryable ? "pronto" : s.status}</Badge>)}
+          {status.data && Object.values(status.data).map((s) => <Badge key={s.name} tone={s.queryable ? "mongo" : "warn"} title={s.reason || s.status}>{s.name}: {s.queryable ? "ready" : s.status}</Badge>)}
         </div>
       </div>
 
       <Card style={{ marginBottom: 16 }}>
         <form className="row" onSubmit={(e) => { e.preventDefault(); run(); }}>
           <div className="autocomplete" style={{ flex: 1, minWidth: 280 }}>
-            <input className="input" placeholder="Sintoma, diagnostico, medicamento, profissional ou nome do paciente..." value={q} onChange={(e) => { setQ(e.target.value); setShowSuggest(true); }} onFocus={() => setShowSuggest(true)} onBlur={() => setTimeout(() => setShowSuggest(false), 150)} />
+            <input className="input" placeholder="Symptom, diagnosis, medication, professional or patient name..." value={q} onChange={(e) => { setQ(e.target.value); setShowSuggest(true); }} onFocus={() => setShowSuggest(true)} onBlur={() => setTimeout(() => setShowSuggest(false), 150)} />
             {showSuggest && suggest.length > 0 && (
               <ul>
-                {suggest.map((s) => <li key={s.patientId} onMouseDown={() => { window.location.assign(`/pacientes/${s.patientId}`); }}><span>{s.fullName}</span><span className="muted small">#{s.patientId} · {s.healthPlan}</span></li>)}
-                <li className="muted small" style={{ cursor: "default" }}>autocomplete (edgeGram) sobre prontuarios.fullName</li>
+                {suggest.map((s) => <li key={s.patientId} onMouseDown={() => { window.location.assign(`/patients/${s.patientId}`); }}><span>{s.fullName}</span><span className="muted small">#{s.patientId} · {s.healthPlan}</span></li>)}
+                <li className="muted small" style={{ cursor: "default" }}>autocomplete (edgeGram) over medical_records.fullName</li>
               </ul>
             )}
           </div>
-          <button className="btn primary" disabled={busy}>{busy ? "Buscando..." : "Buscar"}</button>
+          <button className="btn primary" disabled={busy}>{busy ? "Searching..." : "Search"}</button>
         </form>
         <div className="row" style={{ marginTop: 10 }}>
-          <span className="muted small">Experimente:</span>
+          <span className="muted small">Try:</span>
           {EXAMPLES.map((ex) => <button key={ex} className="btn sm ghost" onClick={() => { setQ(ex); run(ex); }}>{ex}</button>)}
         </div>
       </Card>
@@ -86,43 +86,43 @@ export default function Busca() {
 
       {result && (
         <div className="grid" style={{ gridTemplateColumns: "220px 1fr" }}>
-          <Card title="Facets" subtitle="$searchMeta conta por categoria">
+          <Card title="Facets" subtitle="$searchMeta counts per category">
             <div className="stack">
-              {facetButtons("especialidade", "specialty", specialty, setSpecialty)}
-              {facetButtons("tipo", "type", type, setType)}
-              {facetButtons("unidade", "unit", "", () => {})}
-              {!result.facets && <p className="muted small">Facets so existem no Atlas Search.</p>}
-              {(specialty || type) && <button className="btn sm" onClick={() => { setSpecialty(""); setType(""); run(q, "", ""); }}>Limpar filtros</button>}
+              {facetButtons("specialty", "specialty", specialty, setSpecialty)}
+              {facetButtons("type", "type", type, setType)}
+              {facetButtons("unit", "unit", "", () => {})}
+              {!result.facets && <p className="muted small">Facets only exist in Atlas Search.</p>}
+              {(specialty || type) && <button className="btn sm" onClick={() => { setSpecialty(""); setType(""); run(q, "", ""); }}>Clear filters</button>}
             </div>
           </Card>
           <Card
-            title={`${result.total} resultado${result.total === 1 ? "" : "s"} para "${result.q}"`}
-            subtitle={result.engine === "atlas-search" ? "Ordenado por relevancia (searchScore), com trechos destacados." : `Fallback por expressao regular: ${result.reason || "Atlas Search indisponivel"}. Sem ranking, sem fuzzy, sem destaque.`}
+            title={`${result.total} result${result.total === 1 ? "" : "s"} for "${result.q}"`}
+            subtitle={result.engine === "atlas-search" ? "Sorted by relevance (searchScore), with highlighted snippets." : `Regular-expression fallback: ${result.reason || "Atlas Search unavailable"}. No ranking, no fuzzy, no highlights.`}
             actions={<><Badge tone={result.engine === "atlas-search" ? "mongo" : "warn"}>{result.engine}</Badge><Badge>{result.tookMs} ms</Badge></>}
           >
-            {result.results.length === 0 ? <Empty>Nada encontrado.</Empty> : (
+            {result.results.length === 0 ? <Empty>Nothing found.</Empty> : (
               <div className="timeline">
                 {result.results.map((r) => (
                   <div key={r._id} className="tl-item">
                     <div className="when"><b>{fmtDate(r.occurredAt)}</b>{r.score != null && <span title="searchScore">score {r.score.toFixed(2)}</span>}</div>
                     <div>
-                      <div className="title"><Badge tone={TYPE_TONE[r.recordType]}>{TYPE_LABEL[r.recordType]}</Badge><Link to={`/pacientes/${r.patientId}`}><b>{r.patientName}</b></Link><span className="muted">{r.specialty} · {r.professional?.name}</span></div>
+                      <div className="title"><Badge tone={TYPE_TONE[r.recordType]}>{TYPE_LABEL[r.recordType]}</Badge><Link to={`/patients/${r.patientId}`}><b>{r.patientName}</b></Link><span className="muted">{r.specialty} · {r.professional?.name}</span></div>
                       {r.highlights?.length ? r.highlights.slice(0, 3).map((h, i) => <div key={i} className="body"><span className="muted small">{h.path}: </span><Highlight h={h} /></div>) : (
                         <>{r.chiefComplaint && <div className="body">{r.chiefComplaint}</div>}{r.notes && <div className="body small">{r.notes}</div>}</>
                       )}
-                      {r.diagnosis?.length > 0 && <div className="chips" style={{ marginTop: 4 }}>{r.diagnosis.map((d) => <span key={d.cid10} className="chip"><code>{d.cid10}</code> {d.description}</span>)}</div>}
+                      {r.diagnosis?.length > 0 && <div className="chips" style={{ marginTop: 4 }}>{r.diagnosis.map((d) => <span key={d.icd10} className="chip"><code>{d.icd10}</code> {d.description}</span>)}</div>}
                     </div>
                   </div>
                 ))}
               </div>
             )}
-            <PipelineViewer report={{ ...result, collection: "atendimentos" }} label={result.engine === "atlas-search" ? "Ver o pipeline $search" : "Ver o filtro $regex usado no fallback"} />
+            <PipelineViewer report={{ ...result, collection: "encounters" }} label={result.engine === "atlas-search" ? "View the $search pipeline" : "View the $regex filter used in the fallback"} />
           </Card>
         </div>
       )}
 
       {!result && status.data && (
-        <Card title="Definicao dos indices do Atlas Search" subtitle="Criados pelo servico via createSearchIndexes(); se o cluster nao permitir, cole a definicao no painel do Atlas (Search > Create Index > JSON Editor).">
+        <Card title="Atlas Search index definitions" subtitle="Created by the service through createSearchIndexes(); if the cluster refuses, paste the definition in the Atlas UI (Search > Create Index > JSON Editor).">
           <div className="grid cols-2">
             {Object.entries(status.data).map(([col, s]) => <div key={col}><h3>{col} → {s.name} <Badge tone={s.queryable ? "ok" : "warn"}>{s.status}</Badge></h3><JsonView data={s.definition || s.expectedDefinition} maxHeight={360} /></div>)}
           </div>

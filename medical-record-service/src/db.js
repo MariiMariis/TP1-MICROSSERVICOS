@@ -1,7 +1,7 @@
-// Conexao com o MongoDB Atlas, schema validation das colecoes, indices e indices do Atlas Search.
+// MongoDB Atlas connection, collection schema validation, indexes and Atlas Search indexes.
 //
-// Tudo o que o banco "sabe" sobre o dominio esta declarado aqui: e o equivalente,
-// no mundo de documentos, ao DDL de um banco relacional - so que opcional e evolutivo.
+// Everything the database "knows" about the domain is declared here: the document-world
+// equivalent of a relational DDL, except optional and evolutionary.
 import dns from "node:dns";
 import { MongoClient } from "mongodb";
 import { config, COLLECTIONS, RECORD_TYPES, UNITS } from "./config.js";
@@ -9,16 +9,16 @@ import { config, COLLECTIONS, RECORD_TYPES, UNITS } from "./config.js";
 let client;
 let db;
 
-// Estado do Atlas Search: null = ainda nao testado, true/false depois da primeira consulta.
+// Atlas Search state: null = not tried yet, true/false after the first query.
 export const searchState = { available: null, reason: null };
 
 export function isAtlas() {
   return /mongodb\.net/i.test(config.mongoUri);
 }
 
-// mongodb+srv:// depende de uma consulta DNS do tipo SRV. Em algumas redes o resolver do
-// sistema (ex.: um roteador IPv6 link-local) nao responde SRV para o Node, e a conexao falha
-// com "querySrv ECONNREFUSED" mesmo com internet funcionando. Nesse caso, usamos resolvers publicos.
+// mongodb+srv:// depends on a DNS SRV lookup. On some networks the system resolver (e.g. an
+// IPv6 link-local router) does not answer SRV queries for Node, and the connection fails with
+// "querySrv ECONNREFUSED" even though the internet works. In that case we use public resolvers.
 async function ensureSrvResolvable(uri) {
   if (!uri.startsWith("mongodb+srv://")) return;
   const host = new URL(uri).hostname;
@@ -26,7 +26,7 @@ async function ensureSrvResolvable(uri) {
     await dns.promises.resolveSrv(`_mongodb._tcp.${host}`);
   } catch (err) {
     const servers = (process.env.DNS_SERVERS || "8.8.8.8,1.1.1.1").split(",").map((s) => s.trim()).filter(Boolean);
-    console.warn(`[db] resolver DNS do sistema (${dns.getServers().join(", ")}) nao respondeu a consulta SRV (${err.code}); usando ${servers.join(", ")}`);
+    console.warn(`[db] system DNS resolver (${dns.getServers().join(", ")}) did not answer the SRV query (${err.code}); using ${servers.join(", ")}`);
     dns.setServers(servers);
   }
 }
@@ -44,12 +44,12 @@ export async function connect() {
 }
 
 export function getDb() {
-  if (!db) throw new Error("Banco ainda nao conectado");
+  if (!db) throw new Error("Database not connected yet");
   return db;
 }
 
-export const prontuarios = () => getDb().collection(COLLECTIONS.prontuarios);
-export const atendimentos = () => getDb().collection(COLLECTIONS.atendimentos);
+export const records = () => getDb().collection(COLLECTIONS.records);
+export const encounters = () => getDb().collection(COLLECTIONS.encounters);
 
 export async function close() {
   await client?.close();
@@ -57,10 +57,9 @@ export async function close() {
 
 // ------------------------------------------------------------------ Schema validation
 //
-// O MongoDB e "schema flexivel", nao "sem schema": a colecao pode declarar um
-// $jsonSchema que o servidor aplica em toda escrita. Aqui validamos o que e
-// invariante (identidade do paciente, tipos, enums, GeoJSON) e deixamos livre
-// exatamente o que varia por especialidade (clinicalData).
+// MongoDB is "flexible schema", not "schemaless": a collection can declare a $jsonSchema
+// that the server enforces on every write. Here we validate what is invariant (patient
+// identity, types, enums, GeoJSON) and leave free exactly what varies by specialty (clinicalData).
 
 const GEO_POINT = {
   bsonType: "object",
@@ -72,18 +71,18 @@ const GEO_POINT = {
       minItems: 2,
       maxItems: 2,
       items: { bsonType: ["double", "int"] },
-      description: "[longitude, latitude] - ordem exigida pelo GeoJSON",
+      description: "[longitude, latitude] - the order required by GeoJSON",
     },
   },
 };
 
-export const PRONTUARIO_SCHEMA = {
+export const RECORD_SCHEMA = {
   $jsonSchema: {
     bsonType: "object",
-    title: "Prontuario do paciente",
+    title: "Patient medical record",
     required: ["patientId", "cpf", "fullName", "birthDate", "sex", "address", "createdAt"],
     properties: {
-      patientId: { bsonType: ["int", "long"], minimum: 1, description: "id do paciente no patient-service (PostgreSQL). Nao ha FK: e uma referencia logica entre servicos." },
+      patientId: { bsonType: ["int", "long"], minimum: 1, description: "patient id in patient-service (PostgreSQL). No FK: a logical cross-service reference." },
       cpf: { bsonType: "string", pattern: "^[0-9]{11}$" },
       fullName: { bsonType: "string", minLength: 3, maxLength: 150 },
       birthDate: { bsonType: "date" },
@@ -103,32 +102,32 @@ export const PRONTUARIO_SCHEMA = {
         items: {
           bsonType: "object",
           required: ["substance", "severity"],
-          properties: { substance: { bsonType: "string" }, reaction: { bsonType: "string" }, severity: { enum: ["LEVE", "MODERADA", "GRAVE"] } },
+          properties: { substance: { bsonType: "string" }, reaction: { bsonType: "string" }, severity: { enum: ["MILD", "MODERATE", "SEVERE"] } },
         },
       },
       chronicConditions: {
         bsonType: "array",
         items: {
           bsonType: "object",
-          required: ["cid10", "description"],
-          properties: { cid10: { bsonType: "string", pattern: "^[A-Z][0-9]{2}(\\.[0-9]{1,2})?$" }, description: { bsonType: "string" }, since: { bsonType: "date" }, controlled: { bsonType: "bool" } },
+          required: ["icd10", "description"],
+          properties: { icd10: { bsonType: "string", pattern: "^[A-Z][0-9]{2}(\\.[0-9]{1,2})?$" }, description: { bsonType: "string" }, since: { bsonType: "date" }, controlled: { bsonType: "bool" } },
         },
       },
       medications: {
         bsonType: "array",
         items: { bsonType: "object", required: ["name"], properties: { name: { bsonType: "string" }, dose: { bsonType: "string" }, frequency: { bsonType: "string" }, continuous: { bsonType: "bool" } } },
       },
-      summary: { bsonType: "object", description: "Campos derivados (computed pattern), atualizados a cada atendimento" },
+      summary: { bsonType: "object", description: "Derived fields (computed pattern), updated on every encounter" },
       createdAt: { bsonType: "date" },
       updatedAt: { bsonType: "date" },
     },
   },
 };
 
-export const ATENDIMENTO_SCHEMA = {
+export const ENCOUNTER_SCHEMA = {
   $jsonSchema: {
     bsonType: "object",
-    title: "Atendimento (evento clinico)",
+    title: "Encounter (clinical event)",
     required: ["patientId", "recordType", "specialty", "occurredAt", "clinicalData", "createdAt"],
     properties: {
       patientId: { bsonType: ["int", "long"], minimum: 1 },
@@ -143,10 +142,10 @@ export const ATENDIMENTO_SCHEMA = {
       notes: { bsonType: "string" },
       diagnosis: {
         bsonType: "array",
-        items: { bsonType: "object", required: ["cid10", "description"], properties: { cid10: { bsonType: "string", pattern: "^[A-Z][0-9]{2}(\\.[0-9]{1,2})?$" }, description: { bsonType: "string" } } },
+        items: { bsonType: "object", required: ["icd10", "description"], properties: { icd10: { bsonType: "string", pattern: "^[A-Z][0-9]{2}(\\.[0-9]{1,2})?$" }, description: { bsonType: "string" } } },
       },
       tags: { bsonType: "array", items: { bsonType: "string" } },
-      clinicalData: { bsonType: "object", description: "Estrutura livre: cada especialidade grava os campos que fazem sentido para ela" },
+      clinicalData: { bsonType: "object", description: "Free structure: each specialty stores the fields that make sense for it" },
       prescriptions: { bsonType: "array", items: { bsonType: "object", required: ["name"] } },
       attachments: { bsonType: "array", items: { bsonType: "object", required: ["fileName"] } },
       billing: { bsonType: "object", properties: { amount: { bsonType: ["double", "int"], minimum: 0 }, payer: { bsonType: "string" } } },
@@ -159,47 +158,49 @@ async function ensureCollection(name, validator) {
   const existing = await getDb().listCollections({ name }).toArray();
   if (existing.length === 0) {
     await getDb().createCollection(name, { validator, validationLevel: "strict", validationAction: "error" });
-    console.log(`[db] colecao ${name} criada com schema validation`);
+    console.log(`[db] collection ${name} created with schema validation`);
   } else {
     await getDb().command({ collMod: name, validator, validationLevel: "strict", validationAction: "error" });
   }
 }
 
-// ------------------------------------------------------------------ Indices
+// ------------------------------------------------------------------ Indexes
 
 export const INDEXES = {
-  [COLLECTIONS.prontuarios]: [
+  [COLLECTIONS.records]: [
     { key: { patientId: 1 }, options: { name: "uk_patient_id", unique: true } },
     { key: { cpf: 1 }, options: { name: "uk_cpf", unique: true } },
     { key: { fullName: 1 }, options: { name: "idx_full_name" } },
     { key: { "address.location": "2dsphere" }, options: { name: "geo_address_location" } },
     { key: { "allergies.substance": 1 }, options: { name: "idx_allergy_substance" } },
-    { key: { "chronicConditions.cid10": 1 }, options: { name: "idx_condition_cid10" } },
+    { key: { "chronicConditions.icd10": 1 }, options: { name: "idx_condition_icd10" } },
     { key: { healthPlan: 1 }, options: { name: "idx_health_plan" } },
   ],
-  [COLLECTIONS.atendimentos]: [
-    // O indice mais importante do servico: atende a linha do tempo do paciente (consulta dominante).
+  [COLLECTIONS.encounters]: [
+    // The most important index of the service: serves the patient timeline (dominant query).
     { key: { patientId: 1, occurredAt: -1 }, options: { name: "idx_patient_occurred" } },
     { key: { specialty: 1, occurredAt: -1 }, options: { name: "idx_specialty_occurred" } },
     { key: { unit: 1, occurredAt: -1 }, options: { name: "idx_unit_occurred" } },
     { key: { occurredAt: -1 }, options: { name: "idx_occurred" } },
     { key: { recordType: 1 }, options: { name: "idx_record_type" } },
     { key: { tags: 1 }, options: { name: "idx_tags" } },
-    { key: { "diagnosis.cid10": 1 }, options: { name: "idx_diagnosis_cid10" } },
+    { key: { "diagnosis.icd10": 1 }, options: { name: "idx_diagnosis_icd10" } },
   ],
 };
 
 // ------------------------------------------------------------------ Atlas Search
 //
-// Os indices de busca ficam no Lucene do Atlas, fora do mongod. Sao criados via driver
-// (createSearchIndexes). Se o cluster nao permitir, a definicao abaixo pode ser colada
-// no painel do Atlas (Search > Create Index > JSON Editor).
+// Search indexes live in Atlas' Lucene, outside mongod. They are created via the driver
+// (createSearchIndexes). If the cluster refuses, the definition below can be pasted into the
+// Atlas UI (Search > Create Index > JSON Editor).
 
-const TEXT_PT = { type: "string", analyzer: "lucene.standard", multi: { pt: { type: "string", analyzer: "lucene.portuguese" } } };
+// Two analyzers on the same field: the standard one (no stemming) serves fuzzy matching
+// ("diabetis" ~ "diabetes"); the English one matches inflections ("headaches" ~ "headache").
+const TEXT_EN = { type: "string", analyzer: "lucene.standard", multi: { en: { type: "string", analyzer: "lucene.english" } } };
 
 export const SEARCH_INDEXES = {
-  [COLLECTIONS.atendimentos]: {
-    name: "atendimentos_search",
+  [COLLECTIONS.encounters]: {
+    name: "encounters_search",
     definition: {
       mappings: {
         dynamic: false,
@@ -208,23 +209,21 @@ export const SEARCH_INDEXES = {
             { type: "string", analyzer: "lucene.standard" },
             { type: "autocomplete", tokenization: "edgeGram", minGrams: 2, maxGrams: 15, foldDiacritics: true },
           ],
-          // Dois analisadores no mesmo campo: o padrao (sem stemming) serve ao fuzzy
-          // ("diabetis" ~ "diabetes"); o portugues casa flexoes ("dores" ~ "dor").
-          chiefComplaint: TEXT_PT,
-          notes: TEXT_PT,
+          chiefComplaint: TEXT_EN,
+          notes: TEXT_EN,
           specialty: [{ type: "string" }, { type: "stringFacet" }],
           recordType: [{ type: "string" }, { type: "stringFacet" }],
           unit: { type: "stringFacet" },
           tags: { type: "string" },
           professional: { type: "document", fields: { name: { type: "string" } } },
-          diagnosis: { type: "document", fields: { cid10: { type: "string" }, description: TEXT_PT } },
+          diagnosis: { type: "document", fields: { icd10: { type: "string" }, description: TEXT_EN } },
           occurredAt: { type: "date" },
         },
       },
     },
   },
-  [COLLECTIONS.prontuarios]: {
-    name: "prontuarios_search",
+  [COLLECTIONS.records]: {
+    name: "records_search",
     definition: {
       mappings: {
         dynamic: false,
@@ -237,7 +236,7 @@ export const SEARCH_INDEXES = {
           healthPlan: { type: "stringFacet" },
           address: { type: "document", fields: { neighborhood: [{ type: "string" }, { type: "stringFacet" }] } },
           allergies: { type: "document", fields: { substance: { type: "string" } } },
-          chronicConditions: { type: "document", fields: { description: { type: "string", analyzer: "lucene.portuguese" }, cid10: { type: "string" } } },
+          chronicConditions: { type: "document", fields: { description: { type: "string", analyzer: "lucene.english" }, icd10: { type: "string" } } },
           medications: { type: "document", fields: { name: { type: "string" } } },
         },
       },
@@ -254,30 +253,30 @@ export async function ensureSearchIndexes() {
       if (current) {
         if (JSON.stringify(current.latestDefinition?.mappings) !== JSON.stringify(spec.definition.mappings)) {
           await getDb().collection(collection).updateSearchIndex(spec.name, spec.definition);
-          report.push({ collection, name: spec.name, status: "definicao atualizada (reindexando)" });
+          report.push({ collection, name: spec.name, status: "definition updated (reindexing)" });
         } else {
-          report.push({ collection, name: spec.name, status: "ja existia" });
+          report.push({ collection, name: spec.name, status: "already existed" });
         }
         continue;
       }
       await getDb().collection(collection).createSearchIndex({ name: spec.name, definition: spec.definition });
-      report.push({ collection, name: spec.name, status: "criado (leva ~1 min para ficar ativo)" });
+      report.push({ collection, name: spec.name, status: "created (takes ~1 min to become active)" });
     } catch (err) {
-      report.push({ collection, name: spec.name, status: "nao suportado aqui", reason: err.message });
+      report.push({ collection, name: spec.name, status: "not supported here", reason: err.message });
     }
   }
   return report;
 }
 
 export async function ensureSchema() {
-  await ensureCollection(COLLECTIONS.prontuarios, PRONTUARIO_SCHEMA);
-  await ensureCollection(COLLECTIONS.atendimentos, ATENDIMENTO_SCHEMA);
+  await ensureCollection(COLLECTIONS.records, RECORD_SCHEMA);
+  await ensureCollection(COLLECTIONS.encounters, ENCOUNTER_SCHEMA);
   for (const [collection, indexes] of Object.entries(INDEXES)) {
     for (const { key, options } of indexes) {
       await getDb().collection(collection).createIndex(key, options);
     }
   }
-  console.log("[db] schema validation e indices garantidos");
+  console.log("[db] schema validation and indexes ensured");
 }
 
 export async function serverInfo() {
