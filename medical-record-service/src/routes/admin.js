@@ -1,6 +1,7 @@
 // /api/medical-records/admin - "bastidores" do MongoDB para a demonstracao:
 // explain plan com e sem indice, indices, schema validation, estatisticas e seed.
 import { Router } from "express";
+import { EJSON } from "bson";
 import { atendimentos, ensureSearchIndexes, getDb, INDEXES, isAtlas, prontuarios, searchState, serverInfo } from "../db.js";
 import { COLLECTIONS } from "../config.js";
 import { badRequest } from "../errors.js";
@@ -31,7 +32,8 @@ adminRouter.get("/indexes", async (req, res) => {
 });
 
 adminRouter.get("/schema", async (req, res) => {
-  const cols = await getDb().listCollections({ name: { $in: Object.values(COLLECTIONS) } }).toArray();
+  // listCollections so aceita nome exato ou regex no filtro; filtramos aqui.
+  const cols = (await getDb().listCollections().toArray()).filter((c) => Object.values(COLLECTIONS).includes(c.name));
   res.json(cols.map((c) => ({ collection: c.name, validationLevel: c.options?.validationLevel, validationAction: c.options?.validationAction, validator: c.options?.validator })));
 });
 
@@ -79,8 +81,9 @@ adminRouter.get("/explain", async (req, res) => {
 // Tenta gravar um documento invalido para mostrar o schema validation rejeitando.
 adminRouter.post("/validation-demo", async (req, res) => {
   const collection = req.query.collection === COLLECTIONS.prontuarios ? prontuarios() : atendimentos();
+  // Aceita Extended JSON ({"$date": ...}, {"$numberInt": ...}) para o usuario poder testar tipos BSON.
   const doc = req.body && Object.keys(req.body).length
-    ? req.body
+    ? EJSON.deserialize(req.body)
     : { patientId: "sete", recordType: "CIRURGIA", specialty: "X", occurredAt: "ontem", clinicalData: "texto solto", createdAt: new Date() };
   try {
     const { insertedId } = await collection.insertOne(doc);
