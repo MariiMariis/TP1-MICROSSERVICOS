@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="3 - Appointment Service (8082)" type="Application" factoryName="Application">
+  <configuration default="false" name="2 - Appointment Service (8082)" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="br.com.medflow.appointment.AppointmentServiceApplication" />
     <module name="appointment-service" />
     <option name="VM_PARAMETERS" value="-Djdk.net.unixdomain.tmpdir=$PROJECT_DIR$/.jvmtmp" />

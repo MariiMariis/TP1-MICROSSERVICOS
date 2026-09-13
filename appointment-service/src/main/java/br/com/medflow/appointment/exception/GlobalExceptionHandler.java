@@ -26,6 +26,12 @@ public class GlobalExceptionHandler {
                 .body(ApiError.of(422, "Unprocessable Entity", ex.getMessage(), req.getRequestURI()));
     }
 
+    @ExceptionHandler(PatientServiceUnavailableException.class)
+    public ResponseEntity<ApiError> handleUnavailable(PatientServiceUnavailableException ex, HttpServletRequest req) {
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE)
+                .body(ApiError.of(503, "Service Unavailable", ex.getMessage(), req.getRequestURI()));
+    }
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ApiError> handleValidation(MethodArgumentNotValidException ex, HttpServletRequest req) {
         Map<String, String> fields = new LinkedHashMap<>();

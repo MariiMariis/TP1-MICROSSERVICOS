@@ -3,83 +3,17 @@ server:
 
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME:appointment-service}
+    name: appointment-service
 
-  datasource:
-    url: ${APPOINTMENT_DB_URL:jdbc:postgresql://localhost:5432/medflow_appointments}
-    username: ${APPOINTMENT_DB_USERNAME:medflow}
-    password: ${APPOINTMENT_DB_PASSWORD:medflow}
-    driver-class-name: org.postgresql.Driver
-    hikari:
-      pool-name: appointment-pool
-      maximum-pool-size: ${APPOINTMENT_DB_POOL_SIZE:10}
-
-  jpa:
-    hibernate:
-      ddl-auto: ${JPA_DDL_AUTO:update}
-    open-in-view: false
-    show-sql: ${JPA_SHOW_SQL:false}
-
-  cloud:
-    openfeign:
-      client:
-        config:
-          patient-service:
-            connect-timeout: ${PATIENT_CLIENT_CONNECT_TIMEOUT:2000}
-            read-timeout: ${PATIENT_CLIENT_READ_TIMEOUT:3000}
-            logger-level: basic
-
-resilience4j:
-  circuitbreaker:
-    instances:
-      patient-service:
-        register-health-indicator: true
-        sliding-window-type: COUNT_BASED
-        sliding-window-size: ${CB_SLIDING_WINDOW_SIZE:10}
-        minimum-number-of-calls: ${CB_MINIMUM_CALLS:5}
-        failure-rate-threshold: ${CB_FAILURE_RATE:50}
-        slow-call-duration-threshold: ${CB_SLOW_CALL_THRESHOLD:3s}
-        slow-call-rate-threshold: 50
-        wait-duration-in-open-state: ${CB_WAIT_DURATION_OPEN:20s}
-        automatic-transition-from-open-to-half-open-enabled: true
-        permitted-number-of-calls-in-half-open-state: ${CB_HALF_OPEN_CALLS:3}
-        ignore-exceptions:
-          - br.com.medflow.appointment.exception.PatientNotFoundException
-
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_SERVICE_URL:http://localhost:8761/eureka/}
-    register-with-eureka: true
-    fetch-registry: true
-    registry-fetch-interval-seconds: ${EUREKA_FETCH_INTERVAL:5}
-  instance:
-    prefer-ip-address: true
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 10
-    metadata-map:
-      database: postgresql-medflow_appointments
+medflow:
+  patient-service:
+    url: ${PATIENT_SERVICE_URL:http://localhost:8081}
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics,circuitbreakers,circuitbreakerevents
+        include: health,info
   endpoint:
     health:
       show-details: always
-  health:
-    circuitbreakers:
-      enabled: true
-
-info:
-  app:
-    name: appointment-service
-    responsibility: Agendamento e ciclo de vida das consultas
-    database: PostgreSQL / medflow_appointments
-    dependsOn: patient-service
-
-logging:
-  level:
-    br.com.medflow.appointment.client: DEBUG
-    io.github.resilience4j: INFO

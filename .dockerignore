@@ -1,0 +1,11 @@
+**/target
+.git
+.idea
+.run
+.logs
+.jvmtmp
+docs
+k8s
+requests
+frontend
+medical-record-service

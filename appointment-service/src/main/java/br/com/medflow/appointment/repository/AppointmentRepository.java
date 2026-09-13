@@ -1,19 +1,35 @@
 package br.com.medflow.appointment.repository;
 
 import br.com.medflow.appointment.domain.Appointment;
-import br.com.medflow.appointment.domain.AppointmentStatus;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Repository
-public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
-    List<Appointment> findByPatientIdOrderByScheduledAtDesc(Long patientId);
+public class AppointmentRepository {
+    private final Map<Long, Appointment> storage = new ConcurrentHashMap<>();
+    private final AtomicLong sequence = new AtomicLong();
 
-    List<Appointment> findByStatus(AppointmentStatus status);
+    public List<Appointment> findAll() {
+        return storage.values().stream()
+                .sorted(Comparator.comparing(Appointment::getId))
+                .toList();
+    }
 
-    List<Appointment> findBySpecialtyIgnoreCase(String specialty);
+    public Optional<Appointment> findById(Long id) {
+        return Optional.ofNullable(storage.get(id));
+    }
 
-    List<Appointment> findByPatientDataConfirmedFalse();
+    public Appointment save(Appointment appointment) {
+        if (appointment.getId() == null) {
+            appointment.assignId(sequence.incrementAndGet());
+        }
+        storage.put(appointment.getId(), appointment);
+        return appointment;
+    }
 }

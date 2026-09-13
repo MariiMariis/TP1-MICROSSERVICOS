@@ -7,11 +7,6 @@ public record PatientSnapshot(
         Long id,
         String fullName,
         String healthPlan,
-        boolean active,
-        boolean dataFromFallback
+        boolean active
 ) {
-    public static PatientSnapshot fallbackFor(Long patientId, String reason) {
-        return new PatientSnapshot(patientId, "Paciente #" + patientId + " (dados nao confirmados: " + reason + ")",
-                "NAO_VERIFICADO", true, true);
-    }
 }

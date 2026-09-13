@@ -1,74 +1,24 @@
-### ====================================================================
-### patient-service - PostgreSQL / medflow_patients
-### Todas as chamadas passam pelo API Gateway (porta 8080).
-### ====================================================================
+### Listar pacientes
+GET http://localhost:8081/patients
 
-@gateway = http://localhost:8080
+### Buscar paciente por id
+GET http://localhost:8081/patients/1
 
-### Listar todos os pacientes
-GET {{gateway}}/api/patients
+### Paciente inexistente (404)
+GET http://localhost:8081/patients/999
 
-### Buscar por id
-GET {{gateway}}/api/patients/1
-
-### Buscar por CPF
-GET {{gateway}}/api/patients/cpf/11122233344
-
-### Buscar por parte do nome
-GET {{gateway}}/api/patients?name=ana
-
-### Cadastrar um paciente
-POST {{gateway}}/api/patients
+### Cadastrar paciente
+POST http://localhost:8081/patients
 Content-Type: application/json
 
 {
   "cpf": "55566677788",
-  "fullName": "Juliana Prado Martins",
-  "birthDate": "1991-09-14",
-  "email": "juliana.martins@email.com",
+  "fullName": "Juliana Castro Mendes",
+  "birthDate": "1990-05-14",
+  "email": "juliana.mendes@email.com",
   "phone": "31988880005",
   "healthPlan": "Amil"
 }
 
-### Atualizar um paciente
-PUT {{gateway}}/api/patients/1
-Content-Type: application/json
-
-{
-  "cpf": "11122233344",
-  "fullName": "Ana Paula Ribeiro Costa",
-  "birthDate": "1988-03-12",
-  "email": "ana.costa@email.com",
-  "phone": "31999990001",
-  "healthPlan": "Unimed"
-}
-
-### Desativar (exclusao logica - o historico clinico e preservado)
-DELETE {{gateway}}/api/patients/4
-
-### ---- Casos de erro ----
-
-### CPF duplicado -> 409 Conflict
-POST {{gateway}}/api/patients
-Content-Type: application/json
-
-{
-  "cpf": "11122233344",
-  "fullName": "Paciente Repetido",
-  "birthDate": "1990-01-01",
-  "healthPlan": "SUS"
-}
-
-### Validacao -> 400 Bad Request com a lista de campos invalidos
-POST {{gateway}}/api/patients
-Content-Type: application/json
-
-{
-  "cpf": "123",
-  "fullName": "AB",
-  "birthDate": "2090-01-01",
-  "email": "nao-e-email"
-}
-
-### Paciente inexistente -> 404 Not Found
-GET {{gateway}}/api/patients/9999
+### Instancia que respondeu
+GET http://localhost:8081/patients/info

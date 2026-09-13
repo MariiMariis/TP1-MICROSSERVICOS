@@ -22,11 +22,6 @@ public class DataSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        if (repository.count() > 0) {
-            log.info("Base de pacientes ja populada ({} registros). Seed ignorado.", repository.count());
-            return;
-        }
-
         List<Patient> patients = List.of(
                 new Patient("11122233344", "Ana Paula Ribeiro", LocalDate.of(1988, 3, 12),
                         "ana.ribeiro@email.com", "31988880001", "Unimed"),
@@ -37,8 +32,7 @@ public class DataSeeder implements CommandLineRunner {
                 new Patient("44455566677", "Roberto Nunes Almeida", LocalDate.of(1962, 1, 30),
                         "roberto.almeida@email.com", "31988880004", "Bradesco Saude")
         );
-
-        repository.saveAll(patients);
-        log.info("Seed concluido: {} pacientes cadastrados no medflow_patients.", patients.size());
+        patients.forEach(repository::save);
+        log.info("Seed concluido: {} pacientes em memoria.", repository.count());
     }
 }
